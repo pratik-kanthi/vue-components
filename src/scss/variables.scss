@@ -1,0 +1,84 @@
+@import "./functions";
+
+/* Brand Colours
+------------------------------------
+*/
+
+$brand-primary: #d21d1d;
+$brand-secondary: #2F4858;
+$brand-ternary: #000;
+$body-background: #f4f6fb;
+$body-text:#2F4858;
+$body-silent-text: #cccccc;
+$brand-primary-light: mix($brand-primary, #fff, 10%);
+$brand-primary-dark: mix($brand-primary, #000, 10%);
+
+/* General Colours
+------------------------------------
+*/
+$white: #fff !default;
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #d21d1d !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+$navy: #1b1297;
+$sky: #48b0f7;
+
+/* Alerts
+------------------------------------
+*/
+
+$alert: #ff8f46;
+$error: #f55753;
+$success: #52cb3c;
+$links: #319ff0;
+$danger: red;
+$success: #00a800;
+$warning: #ff9515;
+$info: #59ade9;
+
+$border-radius: 4px;
+
+/* Greys
+------------------------------------
+*/
+
+$dark: #3d3d3d;
+$darker-grey: lighten($dark, 10%);
+$dark-grey: lighten($dark, 20%);
+$grey: lighten($dark, 33.5%);
+$light-grey: lighten($dark, 45%);
+$lighter-grey: lighten($dark, 60%);
+$line-color: lighten($dark, 65%);
+
+/* Font Style
+------------------------------------
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700,800|Roboto:300,400,400i,500,700&display=swap');
+$font-family-heading: 'Roboto', Helvetica, Arial, sans-serif;
+$font-family-body: 'Roboto', Helvetica, Arial, sans-serif;
+
+
+
+
+$base-header-style: (
+  font-family: $font-family-heading,
+  -moz-osx-font-smoothing: grayscale,
+  -webkit-font-smoothing: antialiased,
+
+) !default;
+
+
+$header-font-style: (
+    $base-header-style, (
+
+    )
+)
+
