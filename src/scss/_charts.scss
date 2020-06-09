@@ -1,0 +1,85 @@
+.apexcharts-canvas {
+    .apexcharts-title-text {
+        font-size: 1rem;
+    }
+}
+
+.e9-chart {
+    width: 100%;
+
+    .table-graph {
+        width: 100%;
+        display: flex;
+
+        .graph-wrapper {
+            width: 65%;
+            &.pie,
+            &.donut {
+                width: 50%;
+            }
+        }
+
+        .table-wrapper {
+            padding-left: 1rem;
+            width: 35%;
+
+            &.pie,
+            &.donut {
+                width: 50%;
+            }
+
+            margin-bottom: 0;
+
+            .table-header {
+                display: flex;
+                font-weight: $font-weight-bold;
+                border-bottom: 0;
+                background: $light-grey;
+                color: $dark;
+
+                .header {
+                    text-align: left;
+                    padding: 0.5rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .table-body {
+                max-height: calc(100% - 40px);
+                overflow: auto;
+                color: $body-text;
+                border: $border-width solid $line-color;
+
+                .table-row {
+                    display: flex;
+                    border-bottom: $border-width dashed $line-color;
+
+                    .table-column {
+                        font-size: 1rem;
+                        text-align: left;
+                        padding: 0.5rem;
+                        margin: 0;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        @media(max-width:767px) {
+            flex-direction: column;
+
+            .graph-wrapper,
+            .table-wrapper {
+                width: 100%;
+            }
+        }
+    }
+}

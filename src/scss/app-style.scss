@@ -1,0 +1,27 @@
+// $border-radius:8px;
+// $font-size-base:1rem;
+// $enable-button-box-shadows:true;
+// $table-border-radius:0;
+h1.page-title{
+    // margin-top:1rem;
+}
+h4.section-title{
+    margin-top:2rem;
+    margin-bottom: 1.5rem;
+}
+h6.section-subtitle{
+    margin-top:1.5rem;
+}
+.spacer-h{
+    margin-bottom: 1rem;
+}
+.spacer-v{
+    margin-right: 1rem;
+}
+
+.Active {
+    background-color: #b2f2b1;
+}
+@import '@/scss/style.scss';
+// @import '~bootstrap-4-grid/scss/grid';
+

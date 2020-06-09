@@ -1,5 +1,5 @@
 <template>
-    <div class="chip" :class="cssClass">
+    <div class="chip" ref="chip">
         <slot name="pre"></slot>
         {{ text }} <i v-if="!hideRemove" class="material-icons" @click="$emit('removed', value)">cancel</i>
         <slot name="post"></slot>
@@ -21,29 +21,11 @@ export default {
         hideRemove: {
             type: Boolean,
             default: false
-        },
-        cssClass: {
-            type: String
         }
-    }
+    },
+    mounted() {
+        let height=this.$refs.chip.clientHeight;
+        this.$refs.chip.style.borderRadius=height/2+'px';
+    },
 };
 </script>
-
-<style lang="scss" scoped>
-    .chip {
-        border-radius: 16px;
-        border: 1px solid rgba(100, 100, 100, 0.5);
-        display: inline-flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: auto;
-        padding: 4px 8px 4px 12px;
-        background-color: rgba(100, 100, 100, 0.1);
-        margin-right: 8px;
-        i {
-            font-size: 20px;
-            margin-left: 8px;
-            cursor: pointer;
-        }
-    }
-</style>

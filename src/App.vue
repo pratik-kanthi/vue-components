@@ -1,88 +1,143 @@
 <template>
-    <div>
-        <!--<LoginView
-            brand-primary="#0047cc"
-            brand-logo-url="https://flext.ilooklike.me/img/logo.977a915d.svg"
-            brand-logo-height="32"
-            title-text="Flext Operative App"
-            sub-title-text="A proxy interface between the apps and the FSB apis. The middleware is responsible for caching and storing API results and features a google dialogflow."
-            text-dark-color="#042C5C"
-            text-light-color="#77869E"
-            :error-message="errorMessage"
-            background-image="https://images.unsplash.com/photo-1485083269755-a7b559a4fe5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-            :on-click-fn="login"></LoginView>-->
-        <Card :options="getCardOptions()"></Card>
-        <br />
-        <Tabs :data="tabData" :active.sync="activeTab" type="angled" :limit="9"></Tabs>
-        <br />
-        <br />
-        <br />
-        <Tabs :data="tabData" :active.sync="activeTab" type="simple" :limit="9"></Tabs>
-        <br />
-        <br />
-        <br />
-        <Tabs :data="tabData" :active.sync="activeTab" type="stacked" :limit="9"></Tabs>
+    <div class="app">
+        <LayoutVariation1 :sidebar-on="true">
+            <template v-slot:sidebar>
+                <SideBar :compact="true" :primary="false">
+                    <template v-slot:sidebarTop>
+                        <div class="logo-wrapper">
+                            <img src="https://components9.firebaseapp.com/assets/img/logo.png" alt="">
+                        </div>
+                        <h6>E9ine Ltd.</h6>
+                        <p>ID 12354320</p>
+                    </template>
+                    <template v-slot:sidebarBottom>
+                        <div class="footer-wrapper">
+                            <span>Powered by</span> <img src="https://components9.firebaseapp.com/assets/img/logo.png" alt="">
+                        </div>
+                    </template>
+                </SideBar>
+            </template>
+            <template v-slot:topbar>
+                <TopBar :topbar-options="topbarOptions" :avatar-options="avatarOptions" :search-options="searchOptions" :search-text.sync="searchText"></TopBar>
+            </template>
+        </LayoutVariation1>
     </div>
 </template>
 
 <script>
-import Card from '@/components/Card';
-import Tabs from '@/components/Tabs';
-import LoginView from '@/views/login/variation-1/Component';
-import Axios from 'axios';
+import LayoutVariation1 from '@/views/layout/variation-1/Component';
+import SideBar from '@/components/SideBar';
+import TopBar from '@/components/TopBar';
+
 export default {
-    name: 'App',
     components: {
-        LoginView,
-        Card,
-        Tabs
+        LayoutVariation1,
+        SideBar,
+        TopBar
     },
     data() {
         return {
-            errorMessage: null,
-            tabData: [{
-                'name': 'Job Details'
-            }, {
-                'name': 'Project Details'
+            searchText:'',
+            searchOptions:{
+                placeholder:'Type to search..',
+                clickAction: this.logoutUser
+            },
+            avatarOptions:{
+                title:'Soumya Kanthi',
+                subtitle:'Logout',
+                subtitleOption: {
+                    clickAction: this.logoutUser
+                },
+                avatarActions: [{
+                    name: 'Account',
+                    href: 'https://www.google.com',
+                }, {
+                    name: 'Navigate',
+                    href: 'https://www.yahoo.com',
+                }],
+            },
+            topbarOptions:[{
+                icon:'notifications_none',
+                text:'Notifications',
+                type:'icon',
+                pending:true,
+                clickAction: this.logoutUser
             },{
-                'name': 'Alpba Details'
-            },{
-                'name': 'Beta Details'
-            },{
-                'name': 'Htyy Details'
-            }],
-            activeTab: 0
+                icon:'chat_bubble_outline',
+                text:'Messages',
+                type:'icon',
+                clickAction: this.logoutUser
+            },
+            {
+                icon:'add',
+                text:'New Todo',
+                type:'btn',
+                btnClass:'primary',
+                clickAction: this.logoutUser,
+            }]
         };
     },
     methods: {
-        async login() {
-            try {
-                let result = await Axios.post('http://localhost:5379/admin/login', {
-                    username: username,
-                    password: password
-                });
-                if (result.status == 200) {
-                    let destination;
-                    destination = './admin/index.html';
-                    this.$cookies.set('token', 'LOGGED_IN');
-                    location.href = destination;
-                } else {
-                    this.errorMessage = 'Error';
-                }
-            } catch (err) {
-                this.errorMessage = err.response.data.message;
-            }
+        logoutUser() {
+            console.log('logout');
         },
-        getCardOptions() {
-            return {
-                avatarOptions: {
-                    text: 'Hello'
-                }
-            };
-        }
     },
-    computed: {}
+    watch: {
+        searchText(newVal, oldVal) {
+            console.log(oldVal+':'+newVal);
+        }
+    }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.app{
+.sidebar{
+    .sidebar-top{
+        text-align: center;
+        padding: 24px;
+        .logo-wrapper{
+            width: 80px;     
+            margin: 0 auto;       
+        }
+        h6{
+            margin-top: 0.5rem;
+        }
+        p{
+            font-size: 0.75rem;
+            margin-bottom: 0;
+        }
+    }
+    .sidebar-bottom{
+        .footer-wrapper{
+            padding:1rem;
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+                img{
+                    width: 25px;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    &-primary{
+          .sidebar-top{
+        h6{
+                color:$white;
+           }
+           p{
+               color: $light;
+ 
+           }
+          }
+         .sidebar-bottom{
+        .footer-wrapper{
+            color:$white;
+        }
+    }
+    }
+}   
+}
+
+</style>

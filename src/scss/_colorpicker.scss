@@ -1,0 +1,53 @@
+.color-picker {
+    position: relative;
+
+    input[type=text] {
+        width: 100%;
+        border-radius: $form-border-radius;
+        box-shadow: none;
+        height: 40px;
+        padding: .375rem .75rem;
+        padding-right: 33px;
+        line-height: 1.5;
+        font-size: 1rem;
+        color: $form-text;
+        background-color: $form-bg;
+        background-image: none;
+        border: $form-border-width solid $form-border-color;
+        -webkit-appearance: none;
+        transition: border-color .15s ease-in-out;
+
+        &:focus {
+            outline: none;
+            border-color: $form-active;
+            color: $dark;
+        }
+    }
+
+    .color-container {
+        position: absolute;
+        right: 7px;
+        top: 7px;
+
+        .current-color {
+            display: inline-block;
+            width: 1.625rem;
+            height: 1.625rem;
+            background-color: $black;
+            cursor: pointer;
+            border-radius: $border-radius;
+        }
+    }
+}
+
+.color-picker-container {
+    position: relative;
+    background: transparent;
+
+    .vc-chrome {
+        position: absolute;
+        top: 0.5rem;
+        left: 0;
+        z-index: 1;
+    }
+}

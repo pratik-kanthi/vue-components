@@ -104,7 +104,7 @@ export default {
             console.log(JSON.stringify(data));
         },
         tbodyTdClass(header, row) {
-            return row.LifeCycleStatus + ' pointer';
+            return row.LifeCycleStatus;
         },
         provider(vm) {
             return new Promise(async (resolve, reject) => {

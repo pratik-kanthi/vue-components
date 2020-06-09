@@ -1,0 +1,57 @@
+@mixin button-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+  color: color-yiq($background);
+  background-color: $background;
+  border-color: $border;
+
+  @if $enable-button-box-shadows {
+    @include box-shadow(0, 2px, 8px, lighten($background, 30%));
+  }
+
+  &:hover,
+  &:focus {
+    color: color-yiq($hover-background);
+    background-color: $hover-background;
+    border-color: $hover-border;
+
+    @if $enable-button-box-shadows {
+      @include box-shadow(0, 2px, 16px, lighten($background, 30%));
+    }
+  }
+
+  &:disabled {
+    color: color-yiq($background);
+    background-color: $background;
+    border-color: $border;
+  }
+  &:not(:disabled):active {
+    color: color-yiq($active-background);
+    background-color: $active-background;
+    border-color: $active-border;
+
+    @if $enable-button-box-shadows {
+      @include box-shadow(0, 2px, 16px, lighten($background, 30%));
+    }
+  }
+}
+
+@mixin button-border-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
+  color: $color;
+  border-color: $color;
+
+  &:hover, &:focus {
+    color: $color-hover;
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+
+  &:disabled {
+    color: $color;
+    background-color: transparent;
+  }
+
+  &:not(:disabled):active {
+    color: color-yiq($active-background);
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+}

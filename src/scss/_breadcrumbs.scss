@@ -1,0 +1,41 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $breadcrumbs-bg;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: $breadcrumbs-padding;
+
+        li {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: $dark;
+            font-size: $breadcrumbs-font-size;
+
+            .delimeter {
+                color: $grey;
+                font-size: 1em;
+            }
+
+            span {
+                margin-right: 1rem;
+                margin-left: 1rem;
+            }
+
+            a {
+                cursor: pointer;
+                position: relative;
+                text-decoration: none;
+                
+                
+            }
+            &:last-child{
+                font-weight: $font-weight-bold;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    .tooltip-info {
+        z-index: 1000;
+        white-space: nowrap;
+        position: absolute;
+        font-size: $tooltip-font-size;
+        font-weight: $tooltip-font-weight;
+        border-radius: $tooltip-border-radius;
+        background: $tooltip-bg;
+        padding:$tooltip-padding;
+        color: $tooltip-color;
+        box-shadow: $tooltip-box-shadow;
+        border: $tooltip-border-radius;
+    }
+}

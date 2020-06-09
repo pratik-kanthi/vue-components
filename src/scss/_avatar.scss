@@ -1,0 +1,26 @@
+.avatar {
+    position: relative;
+    display: inline-block;
+    .wrapper {
+        position: relative;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            color: $white;
+            margin-bottom: 0;
+        }
+    }
+    &.square{
+          .wrapper {
+               border-radius: 0;
+          }
+    }
+    &.rounded{
+          .wrapper {
+               border-radius: $avatar-border-radius;
+          }
+    }
+}

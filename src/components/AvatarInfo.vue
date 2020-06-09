@@ -2,19 +2,30 @@
     <div class="avatar-info">
         <div class="avatar-wrapper">
             <slot name="avatar">
-
             </slot>
         </div>
         <div class="info-wrapper">
             <h4>{{ title }}</h4>
-            <h6>
-                <a class="link" :href="subtitleOptions.href" @click="handleAction(subtitleOptions.clickAction)" v-if="subtitleOptions.href || subtitleOptions.clickAction">
+            <p>
+                <a :href="subtitleOptions.href" @click="handleAction(subtitleOptions.clickAction)" v-if="subtitleOptions.href || subtitleOptions.clickAction">
                     {{ subtitle }}
                 </a>
                 <span v-if="!subtitleOptions.href && !subtitleOptions.clickAction">
                     {{ subtitle }}
                 </span>
-            </h6>
+            </p>
+        </div>
+        <div class="avatar-actions-wrapper" v-if="avatarActions">
+            <a class="avatar-actions-toggle" @click="toggleAvatarActions=!toggleAvatarActions">
+                <span class="material-icons">
+                    arrow_drop_down
+                </span>
+            </a>
+            <div class="avatar-actions" v-show="toggleAvatarActions">
+                <a v-for="(action, key) in avatarActions" :key="key" :href="action.href" @click="handleAction(action.clickAction)">
+                    {{ action.name }}
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -36,7 +47,15 @@ export default {
             default: () => {
                 return {};
             }
+        },
+        avatarActions: {
+            type: Array,
         }
+    },
+    data() {
+        return {
+            toggleAvatarActions: false
+        };
     },
     methods: {
         handleAction(fn) {
@@ -46,33 +65,7 @@ export default {
                 return false;
             }
         }
-    },
-    computed: {
-        
     }
 };
 </script>
 
-<style lang="scss" scoped>
-    .avatar-info {
-        display: inline-flex;
-        justify-content: flex-start;
-        .avatar-wrapper {
-            margin-right: 12px;
-        }
-        .info-wrapper {
-            padding-top: 2px;
-            h4 {
-                font-size: 18px;
-                font-weight: 600;
-            }
-            h6 {
-                font-size: 14px;
-                font-weight: 400;
-                a {
-                    color: $brand-primary;
-                }
-            }
-        }
-    }
-</style>

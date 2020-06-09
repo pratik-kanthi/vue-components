@@ -1,0 +1,119 @@
+.card {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: $card-bg;
+    border-radius: $card-border-radius;
+    box-shadow: $card-box-shadow;
+    height: $card-height;
+    overflow: auto;
+    border: $card-border-width solid $card-border-color;
+
+    &-container {
+        .card-info {
+            padding: $card-spacer;
+            display: flex;
+            align-items: center;
+
+            .avatar {
+                margin-right: 1em;
+            }
+
+            .details {
+                width: 100%;
+
+                h6 {
+                    font-size: 1rem;
+                    margin-bottom: 0;
+                    line-height: 1.5;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                }
+            }
+        }
+
+        .card-media {
+            &-image {
+                position: relative;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+        }
+
+        .card-supporting {
+            padding: $card-spacer;
+        }
+
+        .card-expanded,
+        .card-custom {
+            position: relative;
+
+            hr {
+                border: 0;
+                height: 1px;
+                background-color: $line-color;
+                box-shadow: none;
+                border-style: solid;
+                margin: 0;
+                margin-top: -0.25em;
+            }
+
+            &-content {
+                a.expand {
+                    display: block;
+                    padding: $card-spacer;
+                    border-bottom: $border-width solid $line-color;
+                }
+            }
+        }
+
+        .card-actions {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: auto;
+            padding: $card-spacer;
+        }
+
+        .card-actions-wrapper {
+            .card-actions-toggle {
+                position: absolute;
+                top: $card-spacer;
+                right: $card-spacer;
+                color: $grey;
+                z-index: 1;
+
+                &:hover {
+                    color: $brand-primary;
+                }
+            }
+
+            .card-actions {
+                position: absolute;
+                z-index: 1;
+                background-color: $white;
+                flex-direction: column;
+                width: auto;
+                right: $card-spacer+2rem;
+                top:$card-spacer;
+                border-radius: $card-border-radius;
+                box-shadow: $box-shadow;
+
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .card {
+        &-container {
+            .card-info {
+                padding: $card-spacer/2;
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5;
+    color: $white;
+    border-radius: $btn-border-radius;
+    border: $btn-border-width solid transparent;
+    outline: 0 !important;
+    background: none;
+    cursor: pointer;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    .loader {
+        width: 1.5em;
+    }
+
+    .icon {
+        line-height: 1.5;
+
+        i,
+        span {
+            font-size: 1.5em;
+            vertical-align: middle;
+        }
+    }
+
+    .icon,
+    .loader {
+        margin-right: .5rem;
+    }
+
+    &-xs {
+        font-size: 0.75rem;
+        padding:  0.25rem 0.5rem;
+        min-width: 72px;
+    }
+
+    &-sm {
+        font-size: 0.875rem;
+        padding: 0.25rem 0.5rem;
+        min-width: 96px;
+    }
+
+    &-md {
+        font-size: 1rem;
+        padding: 0.5rem 1.25rem;
+        min-width: 128px;
+    }
+
+    &-lg {
+        font-size: 1.25rem;
+        padding: 0.75rem 1rem;
+        min-width: 128px;
+    }
+
+    &:disabled {
+        cursor: not-allowed !important;
+        opacity: 0.5;
+    }
+}
+
+@each $color,
+$value in $button-colors {
+    .btn-#{$color} {
+        @include button-variant($value, $value);
+    }
+}
+
+@each $color,
+$value in $button-colors {
+    .btn-border-#{$color} {
+        @include button-border-variant($value);
+    }
+}

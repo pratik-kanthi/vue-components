@@ -33,6 +33,7 @@ export default {
         },
         opacity: {
             type: Number,
+            default:0.6,
             validator: (value) => {
                 return !value || (value <= 1 && value > 0);
             }
@@ -46,75 +47,9 @@ export default {
     computed: {
         getOpacity() {
             return {
-                'opacity': this.opacity
+                'background-color': 'rgba(33, 33, 33,'+this.opacity+')'
             };
         }
     }
 };
 </script>
-
-<style lang="scss" scoped>
-    @import "../scss/common.scss";
-    .fade-enter-active, .fade-leave-active {
-        transition: opacity .2s;
-    }
-    .fade-enter, .fade-leave-to {
-        opacity: 0;
-    }
-    .relative {
-        position: relative;
-        width: inherit;
-        height: inherit;
-        .overlay {
-            position: absolute;
-        }
-    }
-    .overlay {
-        font-family: Arial, Helvetica, sans-serif;
-        display: flex;
-        position: fixed;
-        top:0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        opacity: 0.46;
-        height: 100%;
-        background-color: rgb(33, 33, 33);
-        z-index: 990;
-        .close {
-            position: fixed;
-            border-radius: 50%;
-            padding: 8px;
-            height: 20px;
-            width: 20px;
-            &:hover {
-                background-color: $dark-grey;
-            }
-        }
-    }
-    .content {
-        position: absolute;
-        z-index: 991;
-        height: 100%;
-        width: 100%;
-        .close {
-            position: absolute;
-            height: 16px;
-            width: 16px;
-            opacity: 0.5;
-            &:hover {
-                opacity: 1;
-            }
-        }
-    }
-    .close {
-        right: 16px;
-        top: 16px;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 992;
-        &:after {
-            content: 'x';
-        }
-    }
-</style>

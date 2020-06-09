@@ -1,14 +1,12 @@
 <template>
-    <div>
-        <div class="google-address" v-click-outside="closeAddressList">
-            <input type="text" v-debounce="300" v-model.lazy="searchTxt" class="google-address-text" @change="searchChanged" autocomplete="no" placeholder="Start typing to search..." />
-            <div ref="mapDiv"></div>
-            <ul class="places-result" v-if="!addressSelected && predictions.length > 0">
-                <li v-for="(_pred,key) in predictions" :key="key">
-                    <a v-text="_pred.description" @click="setAddress(_pred)"></a>
-                </li>
-            </ul>
-        </div>
+    <div class="google-address" v-click-outside="closeAddressList">
+        <input type="text" v-debounce="300" v-model.lazy="searchTxt" class="google-address-text" @change="searchChanged" autocomplete="no" placeholder="Start typing to search..." />
+        <div ref="mapDiv"></div>
+        <ul class="places-result" v-if="!addressSelected && predictions.length > 0">
+            <li v-for="(_pred,key) in predictions" :key="key">
+                <a v-text="_pred.description" @click="setAddress(_pred)"></a>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -112,59 +110,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-    @import "../scss/common.scss";
-    .google-address {
-        position: relative;
-        margin-bottom: 1rem;
-        width: 100%;
-        label {
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        .google-address-text {
-            background-image: url('../assets/google.png');
-            background-repeat: no-repeat;
-            background-position: center left 4px;
-            background-size: 24px;
-            padding-left: 2rem;
-            width: calc(100% - 2rem);
-            display: block;
-            height: calc(1.5em + 0.75rem + 2px);
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.5;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 1px solid $line-color;
-            border-radius: 0.25rem;
-            &:focus {
-                outline: 0;
-            }
-        }
-        ul.places-result {
-            position: relative;
-            margin-top: 8px;
-            background: #fff;
-            z-index: 100;
-            border: 1px solid $line-color;
-            border-radius: 4px;
-            padding-left: 0;
-            list-style: none;
-            li {
-                display: block;
-                padding: 0.5rem;
-                border-bottom: 1px solid $line-color;
-                a {
-                    width: 100%;
-                    display: block;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    font-size: 14px;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-</style>

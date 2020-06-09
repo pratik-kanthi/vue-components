@@ -2,8 +2,7 @@
     <div ref="colorpicker">
         <div class="input-group color-picker">
             <input type="text" v-model="colorValue" @focus="showPicker" @input="updateFromInput" />
-            <span class="color-container">
-                <span class="current-color" :style="'background-color: ' + colorValue" @click="togglePicker"></span>
+            <span class="color-container"><span class="current-color" :style="'background-color: ' + colorValue" @click="togglePicker"></span>
             </span>
         </div>
         <div class="color-picker-container" v-if="displayPicker">
@@ -108,39 +107,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-    .color-picker {
-        position: relative;
-        input[type=text] {
-            width: 100%;
-            height: 32px;
-            padding-left: 8px;
-            font-size: 14px;
-            border-radius: 4px;
-            border:1px solid #DDD;
-            outline: 0 !important;
-        }
-        .color-container {
-            position: absolute;
-            right: 8px;
-            top: 10px;
-            .current-color {
-                display: inline-block;
-                width: 16px;
-                height: 16px;
-                background-color: #000;
-                cursor: pointer;
-            }
-        }
-    }
-    .color-picker-container {
-        position: relative;
-        background: transparent;
-        .vc-chrome {
-            position: absolute;
-            top: 8px;
-            left: 0;
-            z-index: 1;
-        }
-    }
-</style>

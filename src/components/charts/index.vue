@@ -5,7 +5,7 @@
             <div class="graph-wrapper" :class="type.toLowerCase()">
                 <component :is="component" :options="options" :width="width" :height="height" :data="data"></component>
             </div>
-            <div class="table-wrapper" :class="type.toLowerCase()" v-if="tableData && tableData.data && tableData.data.length> 0">
+            <div class="table-wrapper" :class="type.toLowerCase()" v-if="tableData && tableData.data && tableData.data.length> 0" :style="{'max-height':height}">
                 <div class="table-header">
                     <div v-for="(item,key) in tableData.header" :key="key" class="header" :style="getStyle(tableData.header.length,key)">
                         {{ item }}
@@ -50,7 +50,8 @@ export default {
             type: [Number, String]
         },
         height: {
-            type: [Number, String]
+            type: [Number, String],
+            default:'300px'
         },
         showTable: {
             type: Boolean,
@@ -61,7 +62,10 @@ export default {
             required: true
         },
         colors: {
-            type: Array
+            type: Array,
+            default: function () {
+                return ['#1D3461', '#0069AA', '#376996', '#6290C8', '#829CBC'];
+            }
         },
         options: {
             type: Object,
@@ -69,8 +73,6 @@ export default {
     },
     data() {
         return {
-            singleChartColor: ['#1D3461'],
-            colorPallete: ['#1D3461', '#0069AA', '#376996', '#6290C8', '#829CBC'],
             component: null
         };
     },
@@ -109,7 +111,7 @@ export default {
                     }
                 }
             }
-            chartOptions.colors = this.chartColors;
+            chartOptions.colors = this.colors;
             chartOptions.title.text = this.title ? this.title : '';
             if (!chartOptions.chart.toolbar) {
                 chartOptions.chart.toolbar = {
@@ -123,13 +125,6 @@ export default {
         }
     },
     computed: {
-        chartColors() {
-            if (this.type == 'Pie' || this.type == 'Donut' || this.type.indexOf('Stacked') != -1) {
-                return this.colorPallete;
-            } else {
-                return this.singleChartColor;
-            }
-        },
         tableData() {
             let tableData = {
                 header: ['Title'],
@@ -162,104 +157,8 @@ export default {
     },
     created() {
         this.component = () => import('./' + this.type + '.vue');
+
     }
 };
 </script>
-<style lang="scss">
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.apexcharts-canvas {
-  .apexcharts-menu {
-    min-width: 108px;
-    font-family: Arial;
-    padding: 0;
-    top: 25px;
-    right: 0;
-    color: #777;
-    .apexcharts-menu-item {
-      text-align: center;
-      font-size: 12px;
-      padding: 8px;
-    }
-  }
-  .apexcharts-title-text {
-    font-size: 16px;
-  }
-}
-.e9-chart {
-  width: 100%;
-  height: 100%;
-  .table-graph {
-    height: 100%;
-    width: 100%;
-    .graph-wrapper {
-      float: left;
-      width: 65%;
-      &.pie,
-      &.donut {
-        width: 50%;
-      }
-    }
-    .table-wrapper {
-      height: 100%;
-      padding: 8px 32px;
-      float: right;
-      width: 35%;
-      &.pie,
-      &.donut {
-        width: 50%;
-      }
-      margin-bottom: 0;
-      .table-header {
-        overflow: auto;
-        font-weight: 600;
-        border-bottom: 0;
-        background: #eee;
-        color: #4f4f4f;
-        .header {
-          text-align: left;
-          float: left;
-          padding: 8px;
-          margin: 0;
-        }
-      }
-      .table-body {
-        max-height: 65%;
-        overflow: auto;
-        color: #4f4f4f;
-        border: 1px solid rgba(100, 100, 100, 0.1);
-        .table-row {
-          font-size: 16px;
-          padding: 8px;
-          border-bottom: 1px dashed rgba(100, 100, 100, 0.1);
-          .table-column {
-            font-size: 16px;
-            text-align: left;
-            float: left;
-            margin: 0;
-          }
-        }
-        .header {
-          padding: 8px 0px;
-          border-bottom: 1px dashed #eee;
-          margin: 0;
-          cursor: pointer;
-          &:hover {
-            background-color: #ddd;
-          }
-          :first-child {
-            padding-left: 15px;
-          }
-          :last-child {
-            text-align: right;
-            padding-right: 15px;
-          }
-        }
-      }
-    }
-  }
-}
-</style>
+

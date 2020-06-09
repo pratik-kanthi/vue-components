@@ -9,7 +9,7 @@
 <script>
 let defaultOptions = {
     chart: {
-        type: 'line'
+        type: 'pie-chart'
     },
     legend: {
         show: false

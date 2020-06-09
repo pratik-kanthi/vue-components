@@ -92,20 +92,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss" scoped>
-.tooltip-wrapper {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    .tooltip-info {
-        z-index: 1000;
-        white-space: nowrap;
-        position: absolute;
-        border-radius: 6px;
-        background: #fff;
-        padding: 8px 12px;
-        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
-    }
-}
-</style>

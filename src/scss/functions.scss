@@ -1,3 +1,0 @@
-@function get_letter_spacing($tracking, $font-size) {
-    @return $tracking / ($font-size * 16) * 1em;
-}

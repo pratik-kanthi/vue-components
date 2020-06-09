@@ -1,5 +1,5 @@
 <template>
-    <button class="btn" :class="['btn-' + size, 'btn-' + type, customClass, isLoading ? 'btn-loader' : '']" :disabled="isLoading || disabled" @click="callAction" :style="backgroundColor" ref="button">
+    <button class="btn" :class="['btn-' + size, 'btn-' + type, customClass]" :disabled="isLoading || disabled" @click="callAction" :style="backgroundColor" ref="button">
         <span class="icon" v-if="$slots.default && !isLoading">
             <slot></slot>
         </span>
@@ -53,7 +53,7 @@ export default {
         type: {
             type: String,
             validator: (value) => {
-                return ['danger', 'success', 'warning', 'info', 'primary', 'secondary', 'ternary'].indexOf(value) > -1 || !value;
+                return ['danger', 'success', 'warning', 'info', 'primary', 'secondary', 'tertiary', 'dark', 'light', 'border-danger', 'border-success', 'border-warning', 'border-info', 'border-primary', 'border-secondary', 'border-tertiary','border-dark','border-light'].indexOf(value) > -1 || !value;
             }
         }
     },
@@ -65,6 +65,8 @@ export default {
     },
     methods: {
         async callAction() {
+            if(this.isLoading)
+                return;
             if (this.async) {
                 let oldWidth = this.$refs.button.style.width;
                 this.$refs.button.style.width = this.$refs.button.offsetWidth + 'px';
@@ -112,89 +114,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import '../scss/common.scss';
-.btn {
-    color: #fff;
-    border-radius: $border-radius;
-    border: none;
-    outline: 0 !important;
-    min-width: 80px;
-    display: inline-flex;
-    justify-content: center;
-    cursor: pointer;
-    &.btn-loader {
-        align-items: center;
-        padding-top: 0;
-        padding-bottom: 0;
-        .loader {
-            margin: auto 8px auto 0;
-            height: 100%;
-        }
-    }
-    .icon {
-        margin-right: 8px;
-    }
-    &-xs {
-        padding: 4px 8px;
-        min-width: 72px;
-        font-size: 12px;
-        height: 24px;
-        .loader {
-            width: 12px;
-        }
-    }
-    &-sm {
-        padding: 8px 12px;
-        font-size: 14px;
-        height: 32px;
-        .loader {
-            width: 16px;
-        }
-    }
-    &-md {
-        font-size: 16px;
-        min-width: 100px;
-        padding: 8px 24px;
-        height: 40px;
-        .loader {
-            width: 20px;
-            height: 20px;
-        }
-    }
-    &-lg {
-        font-size: 18px;
-        min-width: 120px;
-        height: 54px;
-        .loader {
-            height: 100%;
-            width: 27px;
-        }
-    }
-    &-primary {
-        background-color: $brand-primary;
-    }
-    &-secondary {
-        background-color: $brand-secondary;
-    }
-    &-ternary {
-        background-color: $brand-ternary;
-    }
-    &-success {
-        background-color: $success;
-    }
-    &-danger {
-        background-color: $danger;
-    }
-    &-warning {
-        background-color: $warning;
-    }
-    &-info {
-        background-color: $info;
-    }
-    &:disabled {
-        cursor: not-allowed !important;
-        opacity: 0.5;
-    }
-}
-</style>

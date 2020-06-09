@@ -5,34 +5,140 @@ Vue.use(Vuex);
 
 const sideBarModule = {
     state: {
-        menuItems: [{
-                name: 'Dashboard',
-                path: '/dashboard',
-                icon: 'dashboard'
+        menu:[{
+            menuTitle:'Components',
+            menuItems: [{
+                name: 'Avatar',
+                path: '/avatar',
+                icon:'person'
             },
             {
-                name: 'Projects',
-                path: '/projects',
-                icon: 'business'
+                name: 'Avatar Info',
+                path: '/avatar-info',
+                icon:'description'
+                
             },
             {
-                name: 'Settings',
-                path: '/settings',
-                icon: 'settings',
+                name: 'Avatar Group',
+                path: '/avatar-group',
+                icon:'people'
+                
+            },
+            {
+                name: 'Badge',
+                path: '/badge',
+                icon:'filter_9'
+                
+            },
+            {
+                name: 'Address Finders',
+                path: '/address-finders',
+                icon:'business',
                 expanded: false,
                 subItems: [{
-                        name: 'Profile',
-                        path: '/settings/profile',
-                        icon: 'profile'
-                    },
-                    {
-                        name: 'Globals',
-                        path: '/settings/globals',
-                        icon: 'globals'
-                    }
+                    name: 'Google Address Finder',
+                    path: '/address-finders/google-address-finder',
+                    
+                }
                 ]
-            }
+            },
+            {
+                name: 'Breadcrumbs',
+                path: '/breadcrumbs',
+                icon:'menu'
+                
+            },
+            {
+                name: 'Buttons',
+                path: '/buttons',
+                icon:'mouse'
+                
+            },
+            {
+                name: 'Card',
+                path: '/card',
+                icon:'payment'
+                
+            },
+            {
+                name: 'Tabs',
+                path: '/tabs',
+                icon:'link'
+                
+            },
+            {
+                name: 'Color Picker',
+                path: '/color-picker',
+                icon:'palette'
+            },
+            {
+                name: 'Chips',
+                path: '/chips',
+                icon:'memory'
+            },
+            {
+                name: 'Progress Bar',
+                path: '/progress-bar',
+                icon:'hourglass_full'
+            },
+            {
+                name: 'Stepper',
+                path: '/stepper',
+                icon:'more_horiz'
+            },
+            {
+                name: 'Charts',
+                path: '/charts',
+                icon:'bar_chart'
+            },
+            {
+                name: 'Table',
+                path: '/table',
+                icon:'table_chart'
+            },
+            {
+                name: 'Panel',
+                path: '/panel',
+                icon:'table_chart'
+            },
+            {
+                name: 'Range',
+                path: '/range',
+                icon:'table_chart'
+            },
+            {
+                name: 'Tooltip',
+                path: '/tooltip',
+                icon:'table_chart'
+            },
+            {
+                name: 'Overlays',
+                path: '/overlays',
+                icon:'table_chart'
+            },
+            ]
+        },{
+            menuTitle:'Views',
+            menuItems: [ {
+                name: 'Layout',
+                path: '/layout',
+                icon:'view_compact',
+                expanded: false,
+                subItems: [{
+                    name: 'Variation 1',
+                    path: '/layout/variation-1',   
+                },
+                {
+                    name: 'Variation 2',
+                    path: '/layout/variation-2',
+                    
+                }
+                ]
+            },
+            ]
+        }
         ]
+       
     }
 };
 

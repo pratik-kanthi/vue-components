@@ -3,22 +3,25 @@
         <div id="mobile-menu-toggle" @click="sidebarOn = !sidebarOn">
             <i class="material-icons">menu</i>
         </div>
-        <div class="sidebar">
-            <slot name="sidebar"></slot>
-        </div>
-        <div class="topbar">
-            <slot name="topbar"></slot>
-        </div>
+        <slot name="sidebar"></slot>
+        <slot name="topbar"></slot>
         <slot name="globalSearch"></slot>
         <div class="content-view">
-            <router-view></router-view>
+            <Breadcrumbs></Breadcrumbs>
+            <div class="content-wrapper">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import Breadcrumbs from '@/components/Breadcrumbs';
 export default {
     name: 'LayoutVariation1',
+    components: {
+        Breadcrumbs,
+    },
     data() {
         return {
             sidebarOn: false
@@ -31,38 +34,30 @@ export default {
 .sidebar {
 	position: fixed;
 	display: flex;
-    width: 240px;
 	flex-flow: column nowrap;
 	height: 100%;
-    border-right: 1px solid $lighter-grey;
+    border-right: $border-width solid $line-color;
     z-index: 0;
 }
 .topbar {
     position: fixed;
     z-index: 0;
-	height: 64px;
-    left: 240px;
-	border-bottom: 1px solid $lighter-grey;
+    left: $sidebar-width;
+	border-bottom: $border-width solid $line-color;
 	top: 0;
 	right: 0;
-	padding: 0 16px;
-	h4.page-title {
-		font-size: 20px;
-		color: $brand-primary;
-		line-height: 64px;
-		margin-bottom: 0;
-	}
 }
 .content-view {
     position: fixed;
     z-index: 0;
-	background-color: #f9f9f9;
-    left: 240px;
-	padding: 16px;
-	top: 64px;
+    left: $sidebar-width;
+	top: $topbar-height;
 	right: 0;
 	bottom: 0;
-	overflow: scroll;
+    overflow-y: scroll;
+    .content-wrapper{
+        padding: $default-content-padding;
+    }
 }
 
 #mobile-menu-toggle {
@@ -71,7 +66,7 @@ export default {
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
 	.sidebar {
-        left: -240px;
+        left: -$sidebar-width;
         transition: transform 500ms;
 	}
 	.content-view {
@@ -88,26 +83,26 @@ export default {
 		display: block;
 		position: fixed;
 		top: 20px;
-		left: 16px;
-		z-index: 1;
+		left: $default-content-padding;
+		z-index: 2;
 		color: $brand-secondary;
 		i {
-			font-size: 24px;
+			font-size: 1.5rem;
         }
         transition: transform 500ms;
     }
     .show-sidebar {
         .sidebar {
-            transform: translateX(240px);
+            transform: translateX($sidebar-width);
         }
         .content-view {
-            transform: translateX(240px);
+            transform: translateX($sidebar-width);
         }
         .topbar {
-            transform: translateX(240px);
+            transform: translateX($sidebar-width);
         }
         #mobile-menu-toggle {
-            transform: translateX(240px);
+            transform: translateX($sidebar-width);
         }
     }
 }

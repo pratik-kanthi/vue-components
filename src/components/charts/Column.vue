@@ -8,7 +8,7 @@
 <script>
 let defaultOptions = {
     chart: {
-        type: 'bar'
+        type: 'column-chart'
     },
     xaxis: {
         categories: [],

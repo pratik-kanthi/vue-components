@@ -1,5 +1,5 @@
 <template>
-    <div class="avatar">
+    <div class="avatar" :class="variant">
         <div class="wrapper" :style="style">
             <p :style="textStyle">{{ initials }}</p>
         </div>
@@ -18,6 +18,9 @@ export default {
             type: String,
             required: true,
             default: '160'
+        },
+        variant: {
+            type: String
         },
         gravatarEmail: {
             type: String
@@ -80,23 +83,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-    @import "../scss/common.scss";
-    .avatar {
-        position: relative;
-        display: inline-block;
-        .wrapper {
-            border-radius: 50%;
-            width: 160px;
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            p {
-                font-family: Arial, Helvetica, sans-serif;
-                font-size: 64px;
-                color: $white;
-            }
-        }
-    }
-</style>

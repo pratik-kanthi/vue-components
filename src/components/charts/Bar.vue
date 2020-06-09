@@ -61,10 +61,5 @@ export default {
             return chartOptions;
         }
     },
-    created() {
-    },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

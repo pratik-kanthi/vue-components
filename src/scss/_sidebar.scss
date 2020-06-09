@@ -1,0 +1,248 @@
+.sidebar {
+    $self: &;
+    background-color: $sidebar-bg;
+    width: $sidebar-width;
+
+    &-navigation {
+        overflow: auto;
+        margin-bottom: $sidebar-footer-height;
+
+        .menu-section {
+            margin-bottom: 1rem;
+
+            .menu-title {
+                font-size: 0.875rem;
+                text-transform: uppercase;
+                color: $body-text;
+                padding: 1rem 1.5rem;
+                margin-bottom: 0;
+            }
+
+            .menu {
+                list-style: none;
+                margin: 0;
+                padding-left: 0;
+
+                li {
+                    position: relative;
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        font-size: 1rem;
+                        text-decoration: none;
+                        cursor: pointer;
+                        color: $body-text;
+                        padding: 1rem 1.5rem;
+                    }
+                }
+
+                >li {
+                    >a {
+
+                        i,
+                        span {
+                            &.material-icons {
+                                width: 1.5rem;
+                                margin-right: .5rem;
+
+                            }
+                        }
+
+                        &:hover {
+                            background-color: $light;
+                        }
+
+                        &.active {
+                            background-color: mix($white, $brand-primary, 80%);
+                            border-left: 0.5rem solid $brand-primary;
+                            padding-left: 1rem;
+                            font-weight: 500;
+
+                            i,
+                            span {
+                                color: $brand-primary;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+
+                    ul.sub-nav {
+                        height: 0;
+                        background-color: $body-bg;
+
+                        &.open {
+                            height: auto;
+                        }
+
+                        >li {
+                            >a {
+                                margin-left: 2.25rem;
+                                border-left: 3px solid $brand-primary;
+                                padding: 0.5rem 1.5rem 0.5rem 1rem;
+                                font-size: 0.875rem;
+
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    width: 7px;
+                                    height: 7px;
+                                    left: -5px;
+                                    top: 50%;
+                                    background-color: $brand-primary;
+                                    margin-top: -3.5px;
+                                    border-radius: 50px;
+                                }
+
+                                &::after {
+                                    content: '';
+                                    width: 11px;
+                                    height: 11px;
+                                    border: 1px solid $brand-primary;
+                                    position: absolute;
+                                    left: -7px;
+                                    top: 50%;
+                                    margin-top: -5.5px;
+                                    border-radius: 50px;
+                                    opacity: 0;
+                                }
+
+                                &:hover {
+                                    &::after {
+                                        opacity: 1;
+                                    }
+                                }
+
+                                &.active {
+                                    color: $brand-primary;
+                                }
+
+                            }
+                        }
+                    }
+
+                    &.has-dropdown {
+                        >a {
+                            padding-right: 2.75rem;
+                        }
+
+                        .toggle-sub-nav {
+                            position: absolute;
+                            right: 1.5rem;
+                            margin-right: 0;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    &-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &-compact {
+        .menu-section {
+            .menu-title {
+                font-size: 0.75rem;
+            }
+
+            .menu {
+                li {
+                    a {
+                        padding: 0.5rem 1.5rem;
+                        font-size: 0.875rem;
+
+                        i {
+                            font-size: 1.125rem;
+                        }
+                    }
+
+
+                }
+
+                >li {
+                    >a {
+
+                        i,
+                        span {
+                            &.material-icons {
+                                width: 1.125rem;
+                                margin-right: .5rem;
+
+                            }
+                        }
+
+                        &.active {
+                            border-width: .25rem;
+                            padding-left: 1.25rem;
+                        }
+                    }
+
+                    ul.sub-nav {
+                        >li {
+                            >a {
+                                margin-left: 2rem;
+                                font-size: 0.75rem;
+                            }
+                        }
+                    }
+
+                    &.has-dropdown {
+                        &:after {
+                            height: 10px;
+                            width: 10px;
+                            top: 13.5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-primary {
+        background-color: $brand-primary;
+
+        .menu-section {
+            .menu-title {
+                color: $white;
+            }
+
+            .menu {
+                li {
+                    a {
+                        color: $white;
+                    }
+                }
+
+                >li {
+                    >a {
+                        &:hover {
+                            background-color: mix(#fff, $brand-primary, 20%);
+                        }
+
+                        &.active {
+                            background-color: mix(#fff, $brand-primary, 30%);
+                            border-color: $white;
+
+                            i,
+                            span {
+                                color: $white;
+                            }
+
+                        }
+                    }
+
+                    ul.sub-nav {
+                        background-color: mix(#fff, $brand-primary, 20%);
+                    }
+                }
+            }
+        }
+    }
+}

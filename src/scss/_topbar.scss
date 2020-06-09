@@ -1,0 +1,125 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $topbar-bg;
+    height: $topbar-height;
+    padding: 0 $default-content-padding;
+
+    &-page-title {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    &-logo {
+        height: 80%;
+        width: 100px;
+        display: flex;
+        align-items: center;
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .topbar-options {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+
+        .search-box {
+
+            input {
+                padding: .375rem .75rem;
+                border: $border-width solid $line-color;
+                border-radius: $form-border-radius;
+                line-height: 1.5;
+                font-size: 1rem;
+                margin-right: 2rem;
+                width: 300px;
+                background-color: $light;
+                background-image: url('../assets/search.svg');
+                background-repeat: no-repeat;
+                background-size: 1.5rem;
+                background-position: right 0.875rem center;
+                padding-right: 2.625rem;
+                cursor: pointer;
+
+                &:focus {
+                    outline: none;
+                    color: $dark;
+                    border-color: $form-active;
+                }
+            }
+        }
+
+        .topbar-option {
+            margin-right: 2rem;
+            line-height: 1;
+
+            .topbar-option-icon {
+                color: $grey;
+
+                i {
+                    font-size: 2rem;
+                }
+
+                &:hover {
+                    color: $dark-grey;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+        }
+    }
+
+    .avatar-info {
+        margin-left: 2rem;
+    }
+
+    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+        justify-content: center;
+        padding-right: 92px !important;
+
+        .topbar-options {
+            // display: none;
+            .search-box{
+                input{
+                    width: 0;
+                    border-color: transparent;
+                    cursor: pointer;
+                    background-color: unset;
+                    margin-right: 1rem;
+                }
+            }
+        }
+
+        .avatar-info {
+            position: absolute;
+            right: 16px;
+
+            .avatar-wrapper {
+                margin-right: 0;
+            }
+
+            .info-wrapper {
+                display: none;
+            }
+
+            .avatar-actions-wrapper {
+                .avatar-actions-toggle {
+                    margin-left: 0.25rem;
+                }
+            }
+        }
+    }
+    @media only screen and (max-device-width: 1024px) {
+        .topbar-option {
+            display: none;
+        }
+    }
+}
