@@ -1,8 +1,5 @@
 <template>
     <div>
-        <h1 class="page-title">
-            Avatar Group
-        </h1>
         <AvatarGroup avatar-size="48" :avatars="avatars" :max="3"></AvatarGroup>
     </div>
 </template>

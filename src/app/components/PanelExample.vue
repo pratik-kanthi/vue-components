@@ -1,7 +1,6 @@
 <template>
     <div>
-        <h1 class="page-title">Panel</h1>
-        <h4 class="section-title">Normal Panel</h4>
+        <h4>Normal Panel</h4>
         <Panel title="Plot 1 Bathroom" sub-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, fugiat. Veritatis assumenda iure beatae sequi corrupti quo temporibus, tempora illum sed. Obcaecati, voluptate beatae. Repudiandae perspiciatis illum aliquam unde non?
 " :collapsible="true" :options="panelOptions">
             <template v-slot:panelBody>
@@ -15,7 +14,8 @@
                 </div>
             </template>
         </Panel>
-        <h4 class="section-title">Accordion</h4>
+        <div class="spacer-v"></div>
+        <h4>Accordion</h4>
         <Panel title="Plot 1 Bathroom" sub-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, fugiat. Veritatis assumenda iure beatae sequi corrupti quo temporibus, tempora illum sed. Obcaecati, voluptate beatae. Repudiandae perspiciatis illum aliquam unde non?
 " :collapsible="true" class="accordion">
             <template v-slot:panelBody>

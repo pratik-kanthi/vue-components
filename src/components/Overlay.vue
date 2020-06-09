@@ -11,7 +11,6 @@
         </div>
     </transition>
 </template>
-
 <script>
 export default {
     name: 'Overlay',

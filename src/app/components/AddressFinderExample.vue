@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <h1>Google Address Finder</h1>
-        <address-finder :address.sync="address" :google="google" :options="options" class="address-finder"></address-finder>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>Address</h4>
+            <address-finder :address.sync="address" :google="google" :options="options" class="address-finder"></address-finder>
+        </div>
     </div>
 </template>
 

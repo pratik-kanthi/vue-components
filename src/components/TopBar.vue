@@ -4,7 +4,6 @@
             <img :src="logoUrl" alt="">
         </div>
         <h3 v-else class="topbar-page-title">{{ $route.name }}</h3>
- 
         <div class="topbar-options">
             <a class="search-box">
                 <input type="text" :placeholder="searchOptions.placeholder" :value="searchText" @input="$emit('update:search-text', $event.target.value)" :readonly="searchOptions.clickAction" @click="handleAction(searchOptions.clickAction)">

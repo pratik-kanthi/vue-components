@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1 class="page-title">Card</h1>
         <p>A card is a flexible and extensible content container. It includes options for headers, content areas, and a powerful set of display options.</p>
+        <div class="spacer-v"></div>
         <div class="row">
             <div class="col-sm-4">
                 <div class="card-wrapper">
-                    <h4 class="section-title">Simple Card </h4>
+                    <h4>Simple Card </h4>
                     <Card
                         title="John Doe"
                         sub-title="Developer at e9ine"
@@ -14,7 +14,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="card-wrapper">
-                    <h4 class="section-title">Card with Media Image</h4>
+                    <h4>Card with Media Image</h4>
                     <Card
                         title="John Doe"
                         sub-title="Developer at e9ine"
@@ -25,7 +25,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="card-wrapper">
-                    <h4 class="section-title">Card with Button Options and card info below the media</h4>
+                    <h4>Card with Button Options and card info below the media</h4>
                     <Card
                         :options="cardOptions"
                         title="John Doe"
@@ -35,22 +35,24 @@
                     </Card>
                 </div>
             </div>
-        </div>   
+        </div>
+        <div class="spacer-v"></div>
         <div class="row">
             <div class="col-sm-4">
                 <CardCustomMediaExample />
             </div>
-        </div>
-        <div class="row">
+       
+       
             <div class="col-sm-4">
                 <CardCustomSlotExample />
             </div>
-        </div>
-        <div class="row">
+       
+       
             <div class="col-sm-4">
                 <CardExpandedSlotExample />
             </div>
         </div>
+       
     </div>
 </template>
 

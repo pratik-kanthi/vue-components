@@ -1,7 +1,6 @@
 <template>
     <div class="row">
         <div class="col-sm-4">
-            <h1 class="page-title">Color Picker</h1>
             <ColorPicker :color.sync="defaultColour"></ColorPicker>
         </div>
     </div>

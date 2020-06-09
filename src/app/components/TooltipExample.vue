@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1 class="page-title">Tooltip</h1>
         <Tooltip message="Tooltip on right" position="right">
             <Button size="md" type="primary" text="Tooltip on right" :action="buttonClicked"></Button>
         </Tooltip>

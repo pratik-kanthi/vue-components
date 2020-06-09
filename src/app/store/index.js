@@ -99,22 +99,22 @@ const sideBarModule = {
             {
                 name: 'Panel',
                 path: '/panel',
-                icon:'table_chart'
+                icon:'chrome_reader_mode'
             },
             {
                 name: 'Range',
                 path: '/range',
-                icon:'table_chart'
+                icon:'hdr_strong'
             },
             {
                 name: 'Tooltip',
                 path: '/tooltip',
-                icon:'table_chart'
+                icon:'info'
             },
             {
                 name: 'Overlays',
                 path: '/overlays',
-                icon:'table_chart'
+                icon:'layers'
             },
             ]
         },{

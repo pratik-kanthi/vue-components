@@ -41,7 +41,7 @@ export default {
 }
 .topbar {
     position: fixed;
-    z-index: 0;
+    z-index: 1;
     left: $sidebar-width;
 	border-bottom: $border-width solid $line-color;
 	top: 0;

@@ -102,6 +102,7 @@ export default {
         }
         h6{
             margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
         }
         p{
             font-size: 0.75rem;

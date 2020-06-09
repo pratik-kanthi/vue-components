@@ -1,18 +1,14 @@
 <template>
     <div>
-        <h1 class="page-title">Chips</h1>
-        <div>
-            <h4 class="section-title">Choice Chips</h4> 
-            <Chip :text="place" :value="place" v-for="(place,index) in places" :key="index" @click.native="chipClicked(place)" :hide-remove="true" :class="['selection-chip',selectedPlaces.indexOf(place)>-1?'selected':'']"></Chip>
-        </div>
-        <div>
-            <h4 class="section-title">Profile Chips</h4>
-            <Chip :text="person.name" :value="person.name" @removed="removeChip" v-for="person in people" :key="person.name" class="profile-chip">
-                <template v-slot:pre>
-                    <Avatar :image-url="person.imageURL" size="20"></Avatar>
-                </template>
-            </Chip>
-        </div>
+        <h4>Choice Chips</h4> 
+        <Chip :text="place" :value="place" v-for="(place,index) in places" :key="index" @click.native="chipClicked(place)" :hide-remove="true" :class="['selection-chip',selectedPlaces.indexOf(place)>-1?'selected':'']"></Chip>
+        <div class="spacer-v"></div>
+        <h4>Profile Chips</h4>
+        <Chip :text="person.name" :value="person.name" @removed="removeChip" v-for="person in people" :key="person.name" class="profile-chip">
+            <template v-slot:pre>
+                <Avatar :image-url="person.imageURL" size="20"></Avatar>
+            </template>
+        </Chip>
     </div>
 </template>
 

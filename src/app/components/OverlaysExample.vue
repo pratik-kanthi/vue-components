@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <h3>Full overlay</h3>
+        <h4>Full overlay</h4>
         <div>
             <Button type="success" text="Show Overlay" :action="() => show1 = true"></Button>
             <Overlay :show.sync="show1" :show-close="true" custom-content-class="mt16">
@@ -10,7 +10,8 @@
                 </div>
             </Overlay>
         </div>
-        <h3>Relative overlay</h3>
+        <div class="spacer-v"></div>
+        <h4>Relative overlay</h4>
         <Button type="info" text="Show Overlay" :action="() => show2 = true" custom-class="mb16"></Button>
         <div class="relative-example">
             <Overlay :show.sync="show2" :show-close="false" :relative="true">
@@ -19,7 +20,8 @@
                 </div>
             </Overlay>
         </div>
-        <h3>Example Case - Loader</h3>
+        <div class="spacer-v"></div>
+        <h4>Example Case - Loader</h4>
         <div>
             <Button type="warning" text="Launch Application" :action="showLoader">
                 <i class="material-icons">open_in_new</i>

@@ -3,7 +3,7 @@ import App from './App.vue';
 import router from '@/app/router';
 import * as VueGoogleMaps from 'vue2-google-maps';
 
-import {store} from './store';
+import {store} from '@/app/store';
 import '@/scss/app-style.scss';
 
 Vue.config.productionTip = false;
