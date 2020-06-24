@@ -1,3 +1,4 @@
+
 /* Brand Colours
 ------------------------------------
 */
@@ -257,3 +258,13 @@ $form-primary: $brand-primary;
 $form-active: $brand-primary;
 $form-error: $error;
 $form-success: $success;
+
+
+/* Shimmer
+------------------------------------
+*/
+$shimmer-heading-color: #ccc !default;
+$shimmer-body-color: #eee !default;
+$shimmer-border-radius: $border-radius !default;
+$shimmer-line-height: 15px !default;
+$shimmer-spacing: $default-content-padding !default;

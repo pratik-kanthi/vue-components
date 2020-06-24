@@ -23,9 +23,11 @@
     "apexcharts": "^3.17.0",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "v-calendar": "^1.0.6",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.5.2",
-    "vue-color": "^2.7.1"
+    "vue-color": "^2.7.1",
+    "vue-flatpickr-component": "^8.1.5"
   },
   "devDependencies": {
     "@e9ine/eslint-config-vue": "0.0.9-a",

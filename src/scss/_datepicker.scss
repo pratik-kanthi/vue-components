@@ -1,0 +1,124 @@
+.flatpickr-calendar {
+    margin-top: 0.5rem;
+    border-radius: $form-border-radius;
+
+    .flatpickr-months {
+        padding: 0.5rem;
+
+        .flatpickr-prev-month {
+            left: 0.5rem;
+        }
+
+        .flatpickr-next-month {
+            right: 0.5rem;
+        }
+
+        .flatpickr-next-month,
+        .flatpickr-prev-month {
+            top: 0.5rem;
+            height: auto;
+
+            svg {
+                display: block;
+                margin: 0 auto;
+            }
+
+            &:hover {
+                svg {
+                    fill: $form-active;
+                }
+            }
+        }
+
+        .numInputWrapper {
+            margin-left: 0.5rem;
+
+            .cur-year {
+                font-weight: $font-weight-medium;
+                color: $dark;
+
+            }
+
+            &:hover {
+                background: none;
+            }
+        }
+
+        .flatpickr-current-month {
+            .cur-month {
+                color: $form-active;
+            }
+
+            .flatpickr-monthDropdown-months {
+                font-weight: $font-weight-medium;
+                color: $dark;
+
+                &:hover {
+                    background: none;
+                }
+            }
+        }
+    }
+
+    .flatpickr-rContainer {
+        .flatpickr-days {
+            .dayContainer {
+                padding: 0.25rem;
+            }
+        }
+
+        .flatpickr-day {
+            border: none;
+            border-radius: 6px !important;
+            background-color: $light;
+            margin: 2px 0 2px;
+            color: $form-text;
+
+            &.selected {
+                background-color: $form-active;
+                color: $white;
+                font-weight: $font-weight-bold;
+            }
+
+            &.week {
+                box-shadow: none !important;
+            }
+
+            &.inRange {
+                box-shadow: none !important;
+                background-color: $light-grey !important;
+            }
+
+            &:hover:not(.flatpickr-disabled):not(.inRange) {
+                background-color: $form-active !important;
+                color: $white !important;
+            }
+
+            &.flatpickr-disabled {
+                background: none !important;
+                color: $grey;
+            }
+
+            &.nextMonthDay,
+            &.prevMonthDay {
+                visibility: hidden !important;
+                width: 0;
+                height: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.hide-default-datepicker-input {
+    visibility: hidden;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+}
+
+.custom-datepicker-markup {
+    display: inline-block;
+}

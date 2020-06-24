@@ -116,6 +116,16 @@ const sideBarModule = {
                 path: '/overlays',
                 icon:'layers'
             },
+            {
+                name: 'Shimmer',
+                path: '/shimmer',
+                icon:'calendar_view_day'
+            },
+            {
+                name: 'Calendar',
+                path: '/calendar',
+                icon:'calendar_view_day'
+            },
             ]
         },{
             menuTitle:'Views',

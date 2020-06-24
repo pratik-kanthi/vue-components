@@ -1,0 +1,117 @@
+// Animations
+@keyframes shimmerAnimation {
+  0% {
+    transform: translate3d(-30%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+
+// Mixins
+@mixin shimmer {
+  position: relative;
+  overflow: hidden;
+  height: $shimmer-line-height;
+  background: $shimmer-body-color;
+
+  .shimmer-is-rounded &  {
+    border-radius: $shimmer-border-radius;
+  }
+
+  .shimmer-is-centered & {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .shimmer-is-animated &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 1000px;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, darken($shimmer-body-color, 5%) 15%, transparent 30%);
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmerAnimation;
+    animation-timing-function: linear;
+  }
+}
+
+@mixin shimmer-spacing {
+  [class^="shimmer-"] + & {
+    margin-top: 2 * $shimmer-spacing;
+  }
+}
+
+
+
+// Styles
+.shimmer-heading {
+  @include shimmer-spacing;
+  display: flex;
+
+  &-img {
+    @include shimmer;
+    width: 2 * $shimmer-line-height + 3 * $shimmer-spacing;
+    height: 2 * $shimmer-line-height + 3 * $shimmer-spacing;
+    margin-right: 1.5 * $shimmer-spacing;
+  }
+
+  &-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &-title {
+    @include shimmer;
+    width: 85%;
+    margin-bottom: $shimmer-spacing;
+    background: $shimmer-heading-color;
+  }
+
+  &-subtitle {
+    @include shimmer;
+    width: 90%;
+  }
+}
+
+.shimmer-text {
+  @include shimmer-spacing;
+
+  &-line {
+    @include shimmer;
+    width: 100%;
+    margin-bottom: $shimmer-spacing;
+
+    &:nth-child(4n + 1) {
+      width: 80%;
+    }
+
+    &:nth-child(4n + 2) {
+      width: 100%;
+    }
+
+    &:nth-child(4n + 3) {
+      width: 70%;
+    }
+
+    &:nth-child(4n + 4) {
+      width: 85%;
+    }
+  }
+}
+
+.shimmer-img {
+  @include shimmer;
+  @include shimmer-spacing;
+  width: 100%;
+  height: 120px;
+}

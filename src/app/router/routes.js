@@ -22,6 +22,8 @@ import RangeExample from '@/app/components/RangeExample';
 import TooltipExample from '@/app/components/TooltipExample';
 import OverlaysExample from '@/app/components/OverlaysExample';
 import AddressFinderExample from '@/app/components/AddressFinderExample';
+import ShimmerExample from '@/app/components/ShimmerExample';
+import CalendarExample from '@/app/components/CalendarExample';
 
 export const routes= [
     {
@@ -148,5 +150,15 @@ export const routes= [
         path: '/address-finders/google-address-finder',
         name: 'Address Finder',
         component: AddressFinderExample,
-    }                         
+    },
+    {
+        path: '/shimmer',
+        name: 'Shimmer',
+        component: ShimmerExample,
+    },
+    {
+        path: '/calendar',
+        name: 'Calendar',
+        component: CalendarExample,
+    }                          
 ];

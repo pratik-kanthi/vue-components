@@ -185,7 +185,7 @@ export default {
     width: 320px;
 	flex-flow: column nowrap;
 	height: 100%;
-    border-right: 1px solid $lighter-grey;
+    border-right: 1px solid $line-color;
     background-color: #fff;
     background: rgba(249,249,249,0.60);
 	box-shadow: 0 0 0 0 rgba(0,0,0,0.30);

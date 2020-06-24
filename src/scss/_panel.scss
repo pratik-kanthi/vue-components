@@ -1,45 +1,62 @@
 .panel {
-    width: 100%;
-    overflow: hidden;
-    background-color: $panel-bg;
-    border-radius: $panel-border-radius;
-    box-shadow: $panel-box-shadow;
-    border: $panel-border-width solid $panel-border-color;
-    .panel-header {
-     padding: $panel-spacer;
+  width: 100%;
+  overflow: hidden;
+  background-color: $panel-bg;
+  border-radius: $panel-border-radius;
+  box-shadow: $panel-box-shadow;
+  border: $panel-border-width solid $panel-border-color;
+
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+
+    .panel-info {
+      padding: $panel-spacer;
+    }
+
+    .panel-options {
       display: flex;
-      justify-content: space-between;
-      .panel-options {
-        display: flex;
-        a {
-          display: block;
-          margin-left: 0.375rem;
-          color:$body-text;
-          &.collapse {
-            span {
-              transition: all 0.2s ease-out;
-            }
-          }
-          &:hover{
-              color:$brand-primary;
+      padding: $panel-spacer;
+      padding-left: 0;
+
+      a {
+        display: block;
+        margin-left: 0.375rem;
+        color: $body-text;
+
+        &.collapse {
+          span {
+            transition: all 0.2s ease-out;
           }
         }
+
+        &:hover {
+          color: $brand-primary;
+        }
+      }
+
+      &:empty {
+        display: none;
       }
     }
-    .collapsible {
-      transition: max-height 0.2s ease-out;
-    }
-    &-collapsed {
-      .panel-header {
-        .panel-options {
-          a {
-            &.collapse {
-              span {
-                transform: rotate(180deg);
-              }
+
+  }
+
+  .collapsible {
+    transition: max-height 0.2s ease-out;
+  }
+
+  &-collapsed {
+    .panel-header {
+      .panel-options {
+        a {
+          &.collapse {
+            span {
+              transform: rotate(180deg);
             }
           }
         }
       }
     }
   }
+}

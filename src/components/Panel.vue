@@ -1,7 +1,7 @@
 <template>
     <div class="panel" :class="collapsed?'panel-collapsed':''">
         <div class="panel-header">
-            <div class="panel-info">
+            <div class="panel-info" v-if="title||subTitle">
                 <h6 v-text="title" class="title-s"></h6>
                 <p class="subtitle-s" v-text="subTitle"></p>
             </div>
