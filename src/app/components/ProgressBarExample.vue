@@ -5,7 +5,7 @@
         <div class="spacer-v"></div>
         <div class="row">
             <div class="col-sm-8">
-                <ProgressBar :value="50" height="10px"></ProgressBar>
+                <ProgressBar :value="50" :height="10"></ProgressBar>
             </div>
         </div>
  

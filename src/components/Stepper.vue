@@ -1,6 +1,6 @@
 <template>
     <div class="stepper">
-        <div class="stepper-item" v-for="(step,key) in steps" :key="key" :class="{'completed': step.index < current,'current': step.index == current}">
+        <div class="stepper-item" v-for="(step,key) in steps" :key="key" :class="{'completed': step.index < currentStep,'current': step.index == currentStep}">
             <div class="stepper-item-bar">
                 <div class="stepper-item-bar-number">{{ step.index }}</div>
             </div>
@@ -12,7 +12,23 @@
 <script>
 export default {
     name: 'Stepper',
-    props: ['steps','current']
+    props: {
+        steps: {
+            type: Array,
+            required:true 
+        },
+        current: {
+            type: Number
+        },
+    },
+    computed:{
+        currentStep: function() {
+            if(this.current)
+                return this.current;
+            else
+                return this.steps[0].index; 
+        }
+    },
 };
 </script>
 

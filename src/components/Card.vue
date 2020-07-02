@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="card-info" v-if="!options.cardInfoLocation || options.cardInfoLocation == 'top'">
-                <Avatar :text="options.avatarOptions.text" :image-url="options.avatarOptions.imageUrl" size="48" v-if="options.avatarOptions"></Avatar>
+                <Avatar :text="options.avatarOptions.text" :image-url="options.avatarOptions.imageUrl" :size="48" v-if="options.avatarOptions"></Avatar>
                 <div class="details">
                     <h6 v-text="title"></h6>
                     <p class="subtitle-s" v-text="subTitle"></p>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="card-info" v-if="options.cardInfoLocation == 'middle'">
-                <Avatar :text="options.avatarOptions.text" :image-url="options.avatarOptions.imageUrl" size="48" v-if="options.avatarOptions"></Avatar>
+                <Avatar :text="options.avatarOptions.text" :image-url="options.avatarOptions.imageUrl" :size="48" v-if="options.avatarOptions"></Avatar>
                 <div class="details">
                     <h6 v-text="title"></h6>
                     <p class="subtitle-s" v-text="subTitle"></p>
@@ -82,8 +82,8 @@ export default {
             }
         },
         cardMediaImageHeight: {
-            type: String,
-            default: '160'
+            type: Number,
+            default: 160
         },
         cardSupportingText: {
             type: String

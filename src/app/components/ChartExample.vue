@@ -4,7 +4,7 @@
             <Tabs :data="navigationLessTabs" :type="type" :active.sync="activeTabIndex"></Tabs>
         </div>
         <div class="tab-content">
-            <Chart v-show="activeTabIndex==0" title="Bar Chart" type="Bar" height="500px" :data="barChartData" :colors="['#E91E63', '#E91E63']" :show-table="true"></Chart>
+            <Chart v-show="activeTabIndex==0" title="Bar Chart" type="Bar" height="500px" :data="barChartData" :show-table="true"></Chart>
             <Chart v-show="activeTabIndex==1" title="Stacked Bar Chart" type="StackedBar" :data="stackedBarChartData" :options="stackedBarChartOptions" :colors="['#546E7A', '#E91E63']" :show-table="true"></Chart>
             <Chart v-show="activeTabIndex==2" title="Line Chart" type="Line" :data="lineChartData"></Chart>
             <Chart v-show="activeTabIndex==3" title="Pie Chart" type="Pie" :data="pieChartData" :show-table="true"></Chart>
@@ -135,6 +135,7 @@ export default {
                 labels: ['Median Ratio'],
             },
             stackedBarChartOptions: {
+                fontFamily:'Inter',
                 legend: {
                     show: false
                 },

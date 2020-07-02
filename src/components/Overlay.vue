@@ -4,7 +4,7 @@
             <div class="overlay" :style="getOpacity">
                 <img src="../assets/close.svg" class="close" v-show="showClose && !relative" @click="close" />
             </div>
-            <div class="content" :class="customContentClass">
+            <div class="overlay-content" :class="customContentClass">
                 <slot></slot>
                 <img src="../assets/close.svg" class="close" v-show="showClose && relative" @click="close" />
             </div>

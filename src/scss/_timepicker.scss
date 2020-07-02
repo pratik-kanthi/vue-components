@@ -1,0 +1,73 @@
+$material-icons-font-path: '~material-icons/iconfont/';
+@import '~material-icons/iconfont/material-icons.scss';
+
+.timepicker-wrapper {
+    table {
+        .control-label {
+            font-size: 0.625rem;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        .timepicker-delimiter{
+            color:$grey;
+            font-weight: $font-weight-bold;
+        }
+
+        .form-element {
+            width: 80px;
+            .timepicker-arrows {
+                position: absolute;
+                top: 0.375rem;
+                right: 0.75rem;
+                bottom: 0.375rem;
+
+                a {
+                    justify-content: center;
+                    display: flex;
+                    align-items: flex-start;
+                    height: 50%;
+
+                    i {
+                        font-size: 1.125rem;
+                    }
+
+                    &:last-child {
+                        align-items: flex-end;
+                    }
+
+                }
+            }
+        }
+    }
+
+}
+
+.timepicker-meridian {
+    border-radius: $form-border-radius;
+    height: 40px;
+    border: $form-border-width solid $form-border-color;
+    overflow: hidden;
+    margin-left: 0.5rem;
+    a {
+        cursor: pointer;
+        display: block;
+        height: 50%;
+        padding: 0 0.75rem;
+        font-size: 0.75rem;
+        color: $grey;
+        border-bottom: 1px solid $form-border-color;
+        &.active {
+            background-color: $brand-primary;
+            color: $white !important;
+        }
+        &:hover{
+            color:$form-text
+        }
+        &:last-child{
+            border-bottom: 0;
+            border-top: 1px solid transparent;
+
+        }
+    }
+
+}

@@ -1,5 +1,5 @@
 <template>
-    <button class="btn" :class="['btn-' + size, 'btn-' + type, customClass]" :disabled="isLoading || disabled" @click="callAction" :style="backgroundColor" ref="button">
+    <button class="btn" type="button" :class="['btn-' + size, 'btn-' + type, customClass]" :disabled="isLoading || disabled" @click="callAction" :style="backgroundColor" ref="button">
         <span class="icon" v-if="$slots.default && !isLoading">
             <slot></slot>
         </span>
@@ -17,7 +17,7 @@ export default {
     props: {
         action: {
             type: Function,
-            required: true
+            default: () => {}
         },
         async: {
             type: Boolean,
@@ -47,14 +47,11 @@ export default {
             default: 'md'
         },
         text: {
-            type: String,
-            required: true
+            type: String
         },
         type: {
             type: String,
-            validator: (value) => {
-                return ['danger', 'success', 'warning', 'info', 'primary', 'secondary', 'tertiary', 'dark', 'light', 'border-danger', 'border-success', 'border-warning', 'border-info', 'border-primary', 'border-secondary', 'border-tertiary','border-dark','border-light'].indexOf(value) > -1 || !value;
-            }
+            default: 'primary'
         }
     },
     data() {
@@ -64,6 +61,7 @@ export default {
         };
     },
     methods: {
+         
         async callAction() {
             if(this.isLoading)
                 return;
@@ -77,7 +75,8 @@ export default {
                 } catch (e) {
                     this.isLoading = false;
                 }
-                this.$refs.button.style.width = oldWidth;
+                if(this.$refs.button)
+                    this.$refs.button.style.width = oldWidth;
             } else {
                 this.action();
             }
@@ -94,7 +93,7 @@ export default {
         },
         loaderImageUrl() {
             if (this.loaderImage) {
-                return require(this.loaderImage);
+                return this.loaderImage;
             }
             return require('../assets/loader.svg');
         }

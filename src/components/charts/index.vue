@@ -58,7 +58,7 @@ export default {
             default: false
         },
         data: {
-            type: [Array, Object],
+            type: Object,
             required: true
         },
         colors: {

@@ -6,7 +6,7 @@
         <h4>Profile Chips</h4>
         <Chip :text="person.name" :value="person.name" @removed="removeChip" v-for="person in people" :key="person.name" class="profile-chip">
             <template v-slot:pre>
-                <Avatar :image-url="person.imageURL" size="20"></Avatar>
+                <Avatar :image-url="person.imageURL" :size="20"></Avatar>
             </template>
         </Chip>
     </div>

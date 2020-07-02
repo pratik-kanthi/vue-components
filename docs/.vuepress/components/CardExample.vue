@@ -1,14 +1,14 @@
 <template>
-    <div class="all-wrapper">
+    <div>
         <div class="wrapper">
-            <h4>1. Simple Card </h4>
+            <h5>1. Simple Card </h5>
             <Card
                 title="John Doe"
                 sub-title="Developer at e9ine"
             ></Card>
         </div>
         <div class="wrapper">
-            <h4>2. Card with Media Image</h4>
+            <h5>2. Card with Media Image</h5>
             <Card
                 title="John Doe"
                 sub-title="Developer at e9ine"
@@ -17,7 +17,7 @@
             </Card>
         </div>
         <div class="wrapper">
-            <h4>3. Card with Button Options and card info below the media</h4>
+            <h5>3. Card with Button Options and card info below the media</h5>
             <Card
                 :options="cardOptions"
                 title="John Doe"
@@ -67,28 +67,9 @@
 
 <style lang="scss" scoped>
     .wrapper {
-        width: 320px;
-        margin-right: 16px;
-        margin-bottom: 40px;
-        h4 {
-            margin-top: 32px;
-            margin-bottom: 32px;
-            color: #888;
+        margin-bottom: 32px;
+        .card{
+            width:320px;
         }
-        span {
-            background-color: #d21d1d;
-            color: white;
-            border-radius: 4px;
-            padding: 2px 8px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-        .description {
-            margin-bottom: 16px;
-        }
-    }
-    p {
-        margin-block-start: 0em;
-        margin-block-end: 0em;
     }
 </style>

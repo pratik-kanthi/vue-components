@@ -26,66 +26,98 @@
 
 <script>
 export default {
-  name: 'SplitTab',
-  data () {
-    return {
-      display: 'example'
-    }
-  },
-  computed: {
-    exampleVisible () {
-      return this.display === 'example' || this.display === 'both'
+    name: 'SplitTab',
+    data() {
+        return {
+            display: 'example'
+        };
     },
-    codeVisible () {
-      return this.display === 'code' || this.display === 'both'
-    }
-  },
-  methods: {
-    setDisplay (type) {
-      this.display = type
+    computed: {
+        exampleVisible() {
+            return this.display === 'example' || this.display === 'both';
+        },
+        codeVisible() {
+            return this.display === 'code' || this.display === 'both';
+        }
     },
-    isActive (type) {
-      return this.display === type ? 'split-tab-button-active' : ''
+    methods: {
+        setDisplay(type) {
+            this.display = type;
+        },
+        isActive(type) {
+            return this.display === type ? 'split-tab-button-active' : '';
+        }
     }
-  }
-}
+};
 </script>
 
-<style lang="scss" scoped>
-  .split-container {
-    margin: 20px 0;
-    padding: 20px;
+<style lang="scss">
+.split-container {
+    margin: 1rem 0;
+    padding: 1rem;
     background: #fafafa;
-    border-radius: 10px;
-  }
+    border-radius: 4px;
+}
 
-  .split-tab-button {
+.split-tab-button {
     border: none;
-    background: #fff;
+    background: #f0f0f5;
     padding: 12px 24px;
-    font-size: 14px;
+    font-size: 1rem;
     display: inline-flex;
-    margin-bottom: 5px;
-  }
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    &:focus {
+        outline: 0 !important;
+    }
+}
 
-  .split-tab-button-active {
+.split-tab-button-active {
     color: #fff;
-    background: #d31c1e;
-  }
+    background: #d21d1d;
+}
 
-  .split {
+.split {
     width: auto;
     display: flex;
-    margin: 0 -10px;
-  }
+    margin: 0 -1rem;
+}
 
-  .split > div {
-    padding: 0 10px;
+.split > div {
+    padding: 0 1rem;
     flex-grow: 1;
     width: 50%;
-  }
+}
 
-  .split-example {
-    margin: 0.85rem 0;
-  }
+.split-example {
+    margin: 1rem 0;
+    p{
+      margin-top: 0;
+    }
+    a{
+      color:#0B58D4;
+      &:hover{
+        color:#0062FF;
+      }
+    }
+    .components {
+        display: flex;
+        align-items: top;
+        flex-wrap: wrap;
+
+        .item {
+            margin-bottom: 2rem;
+            &:not(:last-child) {
+                margin-right: 6rem;
+            }
+        }
+    }
+    .item-wrapper{
+      margin-bottom: 32px;
+    }
+    .topbar{
+      position: static;
+    }
+}
 </style>

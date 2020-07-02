@@ -6,9 +6,14 @@
         <div class="spacer-v"></div>
         <div class="row">
             <div class="col-sm-4">
-                <Datepicker :value.sync="date" :calendar-config="getCalendarConfig()" :select-mode="mode" :key="mode" ref="datepickerExample">
-                    <!-- <a class="btn btn-sm btn-primary" style="margin-bottom:8px">Select Date</a> -->
-                </datepicker>
+                <div class="datepicker-wrapper">
+                    <datepicker :value.sync="date" :calendar-config="getCalendarConfig()" :select-mode="mode" :key="mode" ref="datepickerExample">
+                        <!-- <Button size="md" type="primary">
+                            <i class="material-icons">today</i>
+                        </Button>
+                        <span>{{ date }}</span> -->
+                    </datepicker>
+                </div>
             </div>
         </div>
 
@@ -16,29 +21,35 @@
 </template>
 
 <script>
+
+require('flatpickr/dist/themes/dark.css');
+
 import Datepicker from '@/components/Datepicker';
+import Button from '@/components/Button';
 
 
 export default {
     name:'CalendarExample',
     components: {
-        Datepicker
+        Datepicker,
+        Button
     },
     data() {
         return {
-            // dates:['2020-07-02', '2020-06-20'],
-            date:new Date(),
-            mode:'day'
+            dates:['2020-07-02', '2020-06-20'],
+            date:null,
+            mode:'range'
         }; 
     },
     methods: {
         getCalendarConfig(){
             return {
                 dateFormat: 'd/m/Y',
-                altFormat: 'd/m/Y',
+                altFormat: 'M j, Y',
                 altInput: true,
-                // mode:'range',
+                mode:'range',
                 weekNumbers: true,
+                // altInputClass:'soumya'
                 // inline:true
             };
         },

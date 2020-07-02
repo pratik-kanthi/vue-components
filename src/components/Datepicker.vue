@@ -16,12 +16,13 @@ import flatPickr from 'vue-flatpickr-component';
 import weekSelect from 'flatpickr/dist/plugins/weekSelect/weekSelect.js';
 import monthSelect from 'flatpickr/dist/plugins/monthSelect/index.js';
 import 'flatpickr/dist/plugins/monthSelect/style.css';
+
 let flatPickrInstance;
 export default {
     name: 'Datepicker',
     props: {
         value: {
-            type: [String, Date,Array]
+            type: [String, Date, Array],
         },
         calendarConfig: {
             type: Object
@@ -39,6 +40,9 @@ export default {
             clonedValue: this.value,
             config: {  
                 defaultDate:'today',
+                locale: {
+                    firstDayOfWeek: 1
+                }
                 
             },
             customMarkupConfig:{
@@ -46,7 +50,6 @@ export default {
                 altInputClass:'hide-default-datepicker-input'
             },
             weekSelectConfig:{
-                weekNumbers: true,
                 mode:'single',
                 'plugins': [new weekSelect()]
             },
@@ -100,16 +103,15 @@ export default {
 		 redraw(){
             flatPickrInstance.redraw();
         },
-			 set(option, value){
+        set(option, value){
             flatPickrInstance.set(option, value);
         },
-
         setDate(date, triggerChange, dateStrFormat){
             flatPickrInstance.setDate(date, triggerChange, dateStrFormat);
         },
 		 toggle(){
             flatPickrInstance.toggle();
-        },
+        }
     },
     computed: {
         configObj() {

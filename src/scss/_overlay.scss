@@ -1,57 +1,70 @@
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
     transition: opacity .2s;
 }
-.fade-enter, .fade-leave-to {
+
+.fade-enter,
+.fade-leave-to {
     opacity: 0;
 }
+
 .relative {
     position: relative;
     width: inherit;
     height: inherit;
+
     .overlay {
         position: absolute;
     }
 }
+
 .overlay {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     height: 100%;
     z-index: 990;
+
     .close {
         position: fixed;
         border-radius: 50%;
         padding: 8px;
         height: 40px;
         width: 40px;
+
         &:hover {
             background-color: $grey;
         }
     }
 }
-.content {
+
+.overlay-content {
     position: absolute;
     z-index: 991;
     height: 100%;
     width: 100%;
+
     .close {
         position: absolute;
         height: 1rem;
         width: 1rem;
         opacity: 0.8;
+
         &:hover {
             opacity: 1;
         }
     }
 }
+
 .close {
     right: 1rem;
     top: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 992;
+
     &:after {
         content: 'x';
     }

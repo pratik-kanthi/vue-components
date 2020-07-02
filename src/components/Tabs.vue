@@ -1,26 +1,28 @@
 <template>
-    <ul class="tabs" :class="[type,fill?'tabs-fill':'',align?'tabs-'+align:'',stacked?'tabs-stacked':'',wrap?'tabs-wrap':'']">
-        <li v-for="(tab, key) in displayedTabs" :key="key">
-            <router-link v-if="tab.path" tag="a" :to="tab.path" active-class="active">
-                <span>{{ tab.name }}</span>
-            </router-link>
-            <a v-else @click="selectTab(tab, key)" :class="{active: active === key, disabled: tab.disabled}">
-                <span>{{ tab.name }}</span>
-            </a>
-        </li>
-        <li class="has-dropdown" v-if="limit && data.length - displayedTabs.length > 0">
-            <a>
-                More
-                <div class="arrow-down"></div>
-            </a>
-            <ul class="sub-nav">
-                <li v-for="(tab, subKey) in data.slice(limit)" :key="subKey + displayedTabs.length">
-                    <router-link v-if="tab.path" tag="a" :to="tab.path">{{ tab.name }}</router-link>
-                    <a v-else @click="selectTab(tab, subKey + displayedTabs.length)" :class="{disabled: tab.disabled}">{{ tab.name }}</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
+    <div class="tabs-wrapper">
+        <ul class="tabs" :class="[type,fill?'tabs-fill':'',align?'tabs-'+align:'',stacked?'tabs-stacked':'',wrap?'tabs-wrap':'']" :id="'tabs-'+id">
+            <li v-for="(tab, key) in displayedTabs" :key="key">
+                <router-link v-if="tab.path" tag="a" :to="tab.path" active-class="active">
+                    <span>{{ tab.name }}</span>
+                </router-link>
+                <a v-else @click="selectTab(tab, key)" :class="{active: active === key, disabled: tab.disabled}">
+                    <span>{{ tab.name }}</span>
+                </a>
+            </li>
+            <li class="has-dropdown" v-if="limit && data.length - displayedTabs.length > 0" id="more-nav-selector">
+                <a>
+                    More
+                    <div class="arrow-down"></div>
+                </a>
+                <ul class="sub-nav" id="more-nav">
+                    <li v-for="(tab, subKey) in data.slice(limit)" :key="subKey + displayedTabs.length">
+                        <router-link v-if="tab.path" tag="a" :to="tab.path">{{ tab.name }}</router-link>
+                        <a v-else @click="selectTab(tab, subKey + displayedTabs.length)" :class="{disabled: tab.disabled}">{{ tab.name }}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -59,6 +61,11 @@ export default {
             default: false
         },
     },
+    data() {
+        return {
+            id: null
+        };
+    },
     methods: {
         selectTab(tab, index) {
             if (tab.disabled) return false;
@@ -73,7 +80,24 @@ export default {
             }
             return this.data;
         }
-    }
+    },
+    mounted () {
+        let tabsId='#tabs-'+this.id;
+        let moreSelector=$(tabsId+' #more-nav-selector');
+        if(moreSelector.length!=0){         
+            let position=$(moreSelector).position();
+            console.log($(tabsId).width());
+            console.log(position.left);
+            if($(tabsId).width() < position.left)
+                window.$(tabsId+' #more-nav').css({'left':'unset','right':0});
+            else
+                window.$(tabsId+' #more-nav').css({'left':position.left,'right':'unset'});
+        }
+      
+    },
+    created () {
+        this.id = this._uid;
+    },
 };
 </script>
 

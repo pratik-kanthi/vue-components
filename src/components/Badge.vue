@@ -1,6 +1,8 @@
 <template>
     <div class="badge-wrapper">
-        <slot></slot>
+        <div class="badge-slot">
+            <slot></slot>
+        </div>
         <div class="badge" :style="style" :class="position">
             {{ text }}
         </div>
@@ -9,15 +11,14 @@
 </template>
 
 <script>
-import utils from '@/utils';
+import utils from '../utils';
 
 export default {
     name: 'Badge',
     props: {
         size: {
-            type: String,
-            required: true,
-            default: '20'
+            type: Number,
+            default: 20
         },
         text: {
             type: String
@@ -27,11 +28,11 @@ export default {
             default: '#1FD0A3'
         },
         position: {
-            type: String,
-            default: 'top-right'
+            type: String
         },
         overlap: {
-            type: String
+            type: String,
+            default:'rectangle'
         }
     },
     computed: {

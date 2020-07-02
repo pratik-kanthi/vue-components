@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AvatarGroup avatar-size="48" :avatars="avatars" :max="3"></AvatarGroup>
+        <AvatarGroup :avatar-size="48" :avatars="avatars" :max="3"></AvatarGroup>
     </div>
 </template>
 

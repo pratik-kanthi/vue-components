@@ -7,15 +7,17 @@
     padding: 0 $default-content-padding;
 
     &-page-title {
-        font-size: 1.5rem;
+        font-size: 1.125rem;
         margin-bottom: 0;
     }
 
     &-logo {
-        height: 80%;
-        width: 100px;
+        height: 90%;
+        max-width: 100px;
+        margin-right: 1rem;
         display: flex;
         align-items: center;
+        flex-shrink: 0;
 
         img {
             max-height: 100%;
@@ -29,15 +31,13 @@
         margin-left: auto;
 
         .search-box {
-
             input {
                 padding: .375rem .75rem;
+                width: 275px;
                 border: $border-width solid $line-color;
                 border-radius: $form-border-radius;
                 line-height: 1.5;
                 font-size: 1rem;
-                margin-right: 2rem;
-                width: 300px;
                 background-color: $light;
                 background-image: url('../assets/search.svg');
                 background-repeat: no-repeat;
@@ -54,48 +54,59 @@
             }
         }
 
-        .topbar-option {
-            margin-right: 2rem;
-            line-height: 1;
+        .topbar-options-wrapper {
+            display: flex;
 
-            .topbar-option-icon {
-                color: $grey;
+            .topbar-option {
+                margin-left: 2rem;
+                line-height: 1;
 
-                i {
-                    font-size: 2rem;
-                }
+                .topbar-option-icon {
+                    color: $grey;
 
-                &:hover {
-                    color: $dark-grey;
+                    i {
+                        font-size: 2rem;
+                    }
+
+                    &:hover {
+                        color: $dark-grey;
+                    }
                 }
             }
-
-            &:last-child {
-                margin-right: 0;
-            }
-
         }
     }
 
     .avatar-info {
         margin-left: 2rem;
+        flex-shrink: 0;
     }
 
-    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+    @include media-breakpoint-down(md) {
         justify-content: center;
-        padding-right: 92px !important;
+        padding-right: 104px !important;
+
+        .topbar-page-title {
+            display: none;
+        }
 
         .topbar-options {
-            // display: none;
-            .search-box{
-                input{
-                    width: 0;
-                    border-color: transparent !important;
-                    cursor: pointer;
-                    background-color: unset;
-                    margin-right: 1rem;
+            .search-box {
+                input {
+                    &[readonly] {
+                        width: 0;
+                        border-color: transparent !important;
+                        cursor: pointer;
+                        background-color: unset;
+                        margin-right: 0;
+                        background-position: right 0 center;
+                    }
+                }
+
+                &:not(.mobile-visible) {
+                    display: none;
                 }
             }
+
         }
 
         .avatar-info {
@@ -112,14 +123,45 @@
 
             .avatar-actions-wrapper {
                 .avatar-actions-toggle {
-                    margin-left: 0.25rem;
+                    margin-left: 0;
                 }
             }
         }
     }
-    @media only screen and (max-device-width: 1024px) {
-        .topbar-option {
+
+    @include media-breakpoint-down(lg) {
+        .topbar-logo {
+            margin-right: 1rem;
+        }
+
+        .topbar-page-title {
             display: none;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .topbar-options {
+            .search-box {
+                input {
+                    width: 100%;
+                }
+            }
+
+            .topbar-options-wrapper {
+                .topbar-option {
+                    margin-left: 1rem;
+
+                    &:not(.mobile-visible) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .avatar-info {
+            margin-left: 1rem;
         }
     }
 }

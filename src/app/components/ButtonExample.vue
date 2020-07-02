@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h4>Size variations</h4>
+        <h5>Size variations</h5>
         <div class="buttons">
             <div class="buttons-info">
                 <label>Large</label>
@@ -20,12 +20,12 @@
             </div>
         </div>
         <div class="spacer-v"></div>
-        <h4>Type variations</h4>
+        <h5>Type variations</h5>
         <h6 class="section-subtitle">Filled</h6>
         <div class="buttons">
             <div class="buttons-info">
                 <label>Primary</label>
-                <Button size="md" type="primary" text="Primary" :action="buttonClicked"></Button>
+                <Button size="md" type="red" text="Primary" :action="buttonClicked"></Button>
             </div>
             <div class="buttons-info">
                 <label>Secondary</label>
@@ -41,7 +41,7 @@
             </div>
             <div class="buttons-info">
                 <label>Warning</label>
-                <Button size="md" type="warning" text="Warning" :action="buttonClicked"></Button>
+                <Button size="md" type="warning" text="Warning"></Button>
             </div>
             <div class="buttons-info">
                 <label>Info</label>
@@ -101,7 +101,7 @@
             </div>
         </div>
         <div class="spacer-v"></div>
-        <h4>Other variations</h4>
+        <h5>Other variations</h5>
         <div class="buttons">
             <div class="buttons-info">
                 <label>Loader</label>

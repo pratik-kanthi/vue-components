@@ -1,11 +1,11 @@
 <template>
-    <div class="progress-bar" :style="{height:height}">
-        <div class="value" :style="style" ref="value"></div>
+    <div class="progress-bar" :style="{height:height+'px'}">
+        <div class="value" :style="style" ref="progress-bar-value"></div>
     </div>
 </template>
 
 <script>
-import utils from '@/utils';
+import utils from '../utils';
 
 export default {
     name: 'ProgressBar',
@@ -18,38 +18,27 @@ export default {
             default: '#7ED321'
         },
         height:{
-            type:String,
-            default: '10px'
+            type:Number,
+            default: 10
         }
+    },
+    data() {
+        return {
+            id: null
+        };
     },
     computed: {
         style() {
             let obj = {};
             obj['background-color'] = utils.CommonUtils.CheckValidHex(this.color);
-            obj['height'] = this.height;
+            obj['height'] = this.height+'px';
             return obj;
         }
     },
     mounted () {
         setTimeout(() => {
-            this.$refs.value.style.width=this.value+'%';
+            this.$refs['progress-bar-value'].style.width=this.value+'%';
         }, 0);
     }
 };
 </script>
-
-<style lang="scss" scoped>
-    .progress-bar {
-        position:relative;
-        width: 100%;
-        background-color: rgba(100, 100, 100, 0.1);
-        border-radius: 6px;
-        .value {
-            position: absolute;
-            left: 0;
-            width: 0;
-            border-radius: 6px;
-            transition: width 1s ease;
-        }
-    }
-</style>

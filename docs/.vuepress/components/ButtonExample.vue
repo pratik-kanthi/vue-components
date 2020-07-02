@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Size variations</h3>
+        <h5>Size variations</h5>
         <div class="buttons">
             <div class="buttons-info">
                 <label>Large</label>
@@ -19,7 +19,9 @@
                 <Button size="xs" type="secondary" text="xs" :action="buttonClicked"></Button>
             </div>
         </div>
-        <h3>Type variations</h3>
+        <div class="spacer-v"></div>
+        <h5>Type variations</h5>
+        <h6 class="section-subtitle">Filled</h6>
         <div class="buttons">
             <div class="buttons-info">
                 <label>Primary</label>
@@ -30,8 +32,8 @@
                 <Button size="md" type="secondary" text="Secondary" :action="buttonClicked"></Button>
             </div>
             <div class="buttons-info">
-                <label>Ternary</label>
-                <Button size="md" type="ternary" text="Ternary":action="buttonClicked"></Button>
+                <label>Tertiary</label>
+                <Button size="md" type="tertiary" text="Tertiary" :action="buttonClicked"></Button>
             </div>
             <div class="buttons-info">
                 <label>Success</label>
@@ -49,8 +51,57 @@
                 <label>Danger</label>
                 <Button size="md" type="danger" text="Danger" :action="buttonClicked"></Button>
             </div>
+            <div class="buttons-info">
+                <label>Danger</label>
+                <Button size="md" type="dark" text="Dark" :action="buttonClicked"></Button>
+            </div>
+            <div class="buttons-info">
+                <label>Light</label>
+                <Button size="md" type="light" text="Light" :action="buttonClicked"></Button>
+            </div>
         </div>
-        <h3>Other variations</h3>
+        <div class="spacer-v"></div>
+        <h6 class="section-subtitle">Bordered</h6>
+        <div class="buttons">
+            <div class="buttons-info">
+                <label>Primary</label>
+                <Button size="md" type="border-primary" text="Primary" :action="buttonClicked"></Button>
+            </div>
+            <div class="buttons-info">
+                <label>Secondary</label>
+                <Button size="md" type="border-secondary" text="Secondary" :action="buttonClicked"></Button>
+            </div>
+            <div class="buttons-info">
+                <label>Tertiary</label>
+                <Button size="md" type="border-tertiary" text="Tertiary" :action="buttonClicked"></Button>
+            </div>
+            <div class="buttons-info">
+                <label>Success</label>
+                <Button size="md" type="border-success" text="Success" :action="buttonClicked"></Button>
+            </div>
+            <div class="buttons-info">
+                <label>Warning</label>
+                <Button size="md" type="border-warning" text="Warning" :action="buttonClicked"></Button>
+            </div>
+            <div class="buttons-info">
+                <label>Info</label>
+                <Button size="md" type="border-info" text="Info" :action="buttonClicked"></Button>
+            </div>
+            <div class="buttons-info">
+                <label>Danger</label>
+                <Button size="md" type="border-danger" text="Danger" :action="buttonClicked"></Button>
+            </div>
+            <div class="buttons-info">
+                <label>Danger</label>
+                <Button size="md" type="border-dark" text="Dark" :action="buttonClicked"></Button>
+            </div>
+            <div class="buttons-info">
+                <label>Light</label>
+                <Button size="md" type="border-light" text="Light" :action="buttonClicked"></Button>
+            </div>
+        </div>
+        <div class="spacer-v"></div>
+        <h5>Other variations</h5>
         <div class="buttons">
             <div class="buttons-info">
                 <label>Loader</label>
@@ -72,11 +123,7 @@
             </div>
             <div class="buttons-info">
                 <label>Async. Action</label>
-                <Button size="md" type="ternary" text="Fetch Data" :async="true" :action="callAsyncApi"></Button>
-            </div>
-            <div class="buttons-info">
-                <label>Custom color</label>
-                <Button size="md" text="Pink Color" :action="buttonClicked" color="#D43E7E"></Button>
+                <Button size="md" type="tertiary" text="Fetch Data" :async="true" :action="callAsyncApi"></Button>
             </div>
         </div>
     </div>
@@ -105,21 +152,16 @@ export default {
 
 <style lang="scss" scoped>
     .buttons {
+        margin-bottom: 16px;
         &-info {
             display: inline-grid;
             margin: 0 16px 16px 0;
             label {
                 display: block;
-                color: #777;
+                color:#B5B5BE;
                 margin-bottom: 8px;
             }
         }
-    }
-    .mr8{
-        margin-right: 8px;
-    }
-    i {
-        font-size: 14px !important;
     }
 </style>
 <style lang="scss">

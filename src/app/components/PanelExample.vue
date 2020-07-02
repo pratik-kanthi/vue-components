@@ -42,7 +42,10 @@ export default {
                     position:'left'
                 },
                 download: () => {
-                    console.log('hi');
+                    console.log('download');
+                },
+                refresh:()=>{
+                    console.log('refresh');
                 }
             }
         };

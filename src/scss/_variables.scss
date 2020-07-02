@@ -99,6 +99,18 @@ $box-shadow:0 0 6px 0 rgba(0, 0, 0, .2) !default;
 $yiq-contrasted-threshold: 200 !default;
 
 
+/* Responsive Breakpoints
+------------------------------------
+*/
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+
 /* Link Style
 ------------------------------------
 */
@@ -118,7 +130,7 @@ $avatar-border-radius: $border-radius !default;
 $avatar-info-title-size: 1rem !default;
 $avatar-info-subtitle-size:0.875rem !default;
 $avatar-info-subtitle-weight:500 !default;
-$avatar-info-subtitle-action:$red !default;
+$avatar-info-subtitle-action:$brand-primary !default;
 
 
 /* Breadcrumbs
@@ -140,8 +152,8 @@ $button-colors:("primary": $brand-primary,
   "warning": $warning,
   "danger": $danger,
   "light": $light,
-  "dark": $dark,
-);
+  "dark": $dark
+) !default;
 $enable-button-box-shadows: false !default;
 $btn-border-width:$border-width;
 
@@ -165,6 +177,23 @@ $card-border-color: $line-color;
 */
 $tabs-border-radius:$border-radius !default;
 
+/* Chips
+------------------------------------
+*/
+$chip-bg:$dark-grey !default;
+$chip-font-size:20px !default;
+
+/* Progress Bar
+------------------------------------
+*/
+$progress-bar-bg: rgba(100, 100, 100, 0.1) !default;
+$progress-bar-border-radius:6px !default;
+
+
+/* Stepper
+------------------------------------
+*/
+$stepper-bg: rgba(100, 100, 100, 0.1) !default;
 
 
 /* Table

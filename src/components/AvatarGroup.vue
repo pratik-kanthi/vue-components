@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Avatar from '@/components/Avatar';
+import Avatar from './Avatar';
 
 export default {
     name: 'AvatarGroup',
@@ -31,9 +31,9 @@ export default {
             type: Array
         },
         avatarSize: {
-            type: String,
+            type: Number,
             required: true,
-            default: '48'
+            default: 48
         },
         max: {
             type: Number,

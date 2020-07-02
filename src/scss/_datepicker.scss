@@ -1,5 +1,5 @@
 .flatpickr-calendar {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     border-radius: $form-border-radius;
 
     .flatpickr-months {
@@ -73,6 +73,8 @@
             background-color: $light;
             margin: 2px 0 2px;
             color: $form-text;
+            box-shadow: none !important;
+
 
             &.selected {
                 background-color: $form-active;
@@ -86,7 +88,7 @@
 
             &.inRange {
                 box-shadow: none !important;
-                background-color: $light-grey !important;
+                background-color: lighten( $form-active,48%) !important;
             }
 
             &:hover:not(.flatpickr-disabled):not(.inRange) {

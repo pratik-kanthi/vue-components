@@ -1,14 +1,12 @@
 <template>
-    <div class="all-wrapper">
         <div class="wrapper">
-            <h4>Card with Collapsable Area</h4>
+            <h5>Card with Collapsable Area</h5>
             <Card
                 title="John Doe"
                 :options="cardOptions"
                 sub-title="developer at e9ine"
                 card-media-image="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"
-                card-supporting-text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. "
-            >
+                card-supporting-text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. ">
                 <template v-slot:cardExpandedContent>
                     <div class="expanded-content-example">
                         <h6>Example Expanded Content</h6>
@@ -25,7 +23,6 @@
                 </template>
             </Card>
         </div>
-    </div>
 </template>
 
 <script>
@@ -67,28 +64,13 @@
 
 <style lang="scss" scoped>
     .wrapper {
-        width: 320px;
-        margin-right: 16px;
-        margin-bottom: 40px;
-        h4 {
-            margin-top: 32px;
-            margin-bottom: 32px;
-            color: #888;
-        }
-        span {
-            background-color: #d21d1d;
-            color: white;
-            border-radius: 4px;
-            padding: 2px 8px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-        .description {
-            margin-bottom: 16px;
+        margin-bottom: 32px;
+        .card{
+            width:320px;
         }
     }
     .expanded-content-example {
-        padding: 8px 16px;
+        padding: 12px 16px 16px;
         background-color: #fff;
         h4 {
             margin: 0;
@@ -110,9 +92,5 @@
                 margin-right: 0;
             }
         }
-    }
-    p {
-        margin-block-start: 0em;
-        margin-block-end: 0em;
     }
 </style>

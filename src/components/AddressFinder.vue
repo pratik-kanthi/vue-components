@@ -44,6 +44,8 @@ export default {
             this.predictions = [];
         },
         setAddress(pred) {
+            debugger;
+            console.log(pred);
             this.addressObj = {};
             new this.google.maps.places.PlacesService(this.$refs.mapDiv).getDetails({
                 placeId: pred.place_id,
@@ -92,6 +94,8 @@ export default {
         },
         searchChanged() {
             if (this.searchTxt.length >= 3) {
+                debugger;
+                console.log(this.searchTxt);
                 new this.google.maps.places.AutocompleteService().getPlacePredictions({
                     input: this.searchTxt,
                     ...this.options

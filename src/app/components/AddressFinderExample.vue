@@ -2,13 +2,13 @@
     <div class="row">
         <div class="col-sm-4">
             <h4>Address</h4>
-            <address-finder :address.sync="address" :google="google" :options="options" class="address-finder"></address-finder>
+            <address-finder :address.sync="address" :options="options" class="address-finder" type="Maps9" @updated="addressChanged"></address-finder>
         </div>
     </div>
 </template>
 
 <script>
-import AddressFinder from '@/components/AddressFinder';
+import AddressFinder from '@/components/address-finders';
 
 export default {
     name:'AddressFinderExample',
@@ -17,17 +17,24 @@ export default {
     },
     data() {
         return {
-            google: {},
             address: {},
             options: {
+                country: 'gb',
                 componentRestrictions: {
-                    country: 'gb'
+                    country: 'gb',
+                    
                 }
-            }
+            },
+            newAddress:{}
         };
     },
+    methods: {
+        addressChanged(data) {
+            this.newAddress = data;            
+        }
+    },
     async created() {
-        this.google = await this.$gmapApiPromiseLazy();
+        this.options.google = await this.$gmapApiPromiseLazy();
     }
 };
 </script>

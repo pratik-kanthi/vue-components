@@ -264,7 +264,7 @@ export default {
             return str;
         },
         resetTable() {
-            this.clonedHeadings = [];
+            this.clonedHeadings = this.headings;
         },
         saveColumns() {
             this.clonedHeadings = this.tempHeadings.filter(heading => heading.selected);

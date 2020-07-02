@@ -1,7 +1,5 @@
 <template>
-<div class="components">
     <ColorPicker :color.sync="defaultColour"></ColorPicker>
-</div>
 </template>
 
 <script>
@@ -14,6 +12,3 @@ export default {
     }
 }
 </script>
-
-<style>
-</style>

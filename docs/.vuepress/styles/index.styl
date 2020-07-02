@@ -1,6 +1,102 @@
-.theme-default-content:not(.custom) a:hover {
-  text-decoration : none;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+body {
+	font-family: 'Inter', sans-serif;
 }
+
+.page {
+	p {
+		margin-top: 1em;
+	}
+}
+
+.theme-default-content:not(.custom) {
+	max-width: 100%;
+}
+
+.theme-default-content:not(.custom) a:hover {
+	text-decoration: none;
+}
+
 ul {
-  line-height: normal;
+	line-height: normal;
+}
+
+.item-wrapper {
+	margin-bottom: 16px;
+}
+
+.swatches-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 1rem;
+
+	.swatch {
+		padding: 1rem;
+		border-radius: 4px;
+		margin-bottom: 1rem;
+		margin-right: 1rem;
+		width: 200px;
+		text-align: center;
+
+		&.primary {
+			background-color: #0B58D4;
+			color: #fff;
+		}
+
+		&.secondary {
+			background-color: #0062FF;
+			color: #fff;
+		}
+
+		&.tertiary {
+			background-color: #FFC542;
+		}
+
+		&.success {
+			background-color: #1FD0A3;
+			color: #fff;
+		}
+
+		&.warning {
+			background-color: #F5A623;
+		}
+
+		&.link {
+			background-color: #56AAFF;
+			color: #fff;
+		}
+
+		&.danger {
+			background-color: #EF4242;
+			color: #fff;
+		}
+
+		&.info {
+			background-color: #56AAFF;
+			color: #fff;
+		}
+
+		&.light {
+			background-color: #F0F0F5;
+		}
+
+		&.light-grey {
+			background-color: #E2E2EA;
+		}
+
+		&.grey {
+			background-color: #B5B5BE;
+		}
+
+		&.dark-grey {
+			background-color: #696974;
+			color: #fff;
+		}
+
+		&.dark {
+			background-color: #171725;
+			color: #fff;
+		}
+	}
 }

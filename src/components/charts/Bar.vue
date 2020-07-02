@@ -29,7 +29,7 @@ let defaultOptions = {
 export default {
     name: 'Bar',
     props: {
-        tite: {
+        title: {
             type: String
         },
         colors: {
@@ -43,7 +43,7 @@ export default {
             default: '300px'
         },
         data: {
-            type: Object,
+            type: [Object, Array],
             required: true
         },
         options: {

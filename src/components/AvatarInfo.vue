@@ -35,12 +35,10 @@ export default {
     name: 'AvatarInfo',
     props: {
         title: {
-            type: String,
-            required: true
+            type: String
         },
         subtitle: {
-            type: String,
-            required: true
+            type: String
         },
         subtitleOptions: {
             type: Object,

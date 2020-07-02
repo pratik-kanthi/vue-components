@@ -102,26 +102,32 @@ export default {
         background-color: white;
     }
 </style>
-<style>
-    .Live {
+<style lang="scss" >
+table{
+    display: table;
+    margin: 0;
+}
+.table-wrapper table tbody tr td{
+    &.Live {
         color: #4f4f4f;
     }
-    .Active {
-        background-color: #b2f2b1;
+    &.Active {
+        background-color: rgba(178, 242, 177, 0.65);
     }
-    .SwitchedOff {
-        background-color: #e7b2a9;
+    &.SwitchedOff {
+        background-color: rgba(231, 178, 169, .65);
     }
-    .Project {
+    &.Project {
         background-color: #f0e8f4;
     }
-    .LostAndFound {
+    &.LostAndFound {
         background-color: #ffebc3;
     }
-    .Hardware {
+    &.Hardware {
         background-color: #ffd8f9;
     }
-    .HardwareSupport {
+    &.HardwareSupport {
         background-color: #fdcbae;
     }
+}
 </style>

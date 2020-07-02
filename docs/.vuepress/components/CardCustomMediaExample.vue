@@ -1,8 +1,6 @@
-<template>
-    <div class="all-wrapper">
-        
+<template>        
         <div class="wrapper">
-            <h4>Card with media content (without image)</h4>
+            <h5>Card with media content (without image)</h5>
             <Card card-supporting-text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.">
                 <template v-slot:cardMediaContent>
                     <div>
@@ -11,7 +9,6 @@
                 </template>
             </Card>
         </div>
-    </div>
 </template>
 
 <script>
@@ -52,28 +49,9 @@
 
 <style lang="scss" scoped>
     .wrapper {
-        width: 320px;
-        margin-right: 16px;
-        margin-bottom: 40px;
-        h4 {
-            margin-top: 32px;
-            margin-bottom: 32px;
-            color: #888;
+        margin-bottom: 32px;
+        .card{
+            width:320px;
         }
-        span {
-            background-color: #d21d1d;
-            color: white;
-            border-radius: 4px;
-            padding: 2px 8px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-        .description {
-            margin-bottom: 16px;
-        }
-    }
-    p {
-        margin-block-start: 0em;
-        margin-block-end: 0em;
     }
 </style>

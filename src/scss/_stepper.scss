@@ -16,7 +16,7 @@
             position: absolute;
             height: 4px;
             width: 100%;
-            background-color: rgba(100, 100, 100, 0.1);
+            background-color: $stepper-bg;
 
             &-number {
                 font-size: 1em;
@@ -28,10 +28,10 @@
                 position: relative;
                 margin: 0 auto;
                 top: -18px;
-                border: 4px solid rgba(100, 100, 100, 0.1);
+                border: 4px solid $stepper-bg;
                 z-index: 2;
                 font-weight: 500;
-                color:$grey;
+                color: $grey;
             }
         }
 
@@ -48,13 +48,15 @@
                 color: $white;
                 background-color: $brand-primary;
             }
+
             #{ $self }-name {
                 color: $dark;
             }
         }
-        &.current{
-            #{ $self }-name{
-                color:$brand-primary;
+
+        &.current {
+            #{ $self }-name {
+                color: $brand-primary;
             }
         }
 
@@ -65,7 +67,7 @@
             top: 28px;
             transform: translateX(-50%);
             width: 100%;
-            color:$grey;
+            color: $grey;
         }
 
         &:first-child {
@@ -83,27 +85,30 @@
             #{ $self }-bar {
                 left: 0;
                 width: 50%;
+
                 &-number {
                     margin-right: -20px;
                 }
-           
+
             }
+
             &.completed,
             &.current {
                 #{ $self }-bar {
 
-                &:after {
-                    left: -100% !important;
-                    width: 200% !important;
+                    &:after {
+                        left: -100% !important;
+                        width: 200% !important;
+                    }
                 }
-            }
             }
         }
 
         &:not(:first-child) {
+
             &.completed,
             &.current {
-                #{ $self }-bar  {
+                #{ $self }-bar {
                     &:after {
                         content: "";
                         display: block;
@@ -119,24 +124,25 @@
         }
     }
 }
-@media(max-width: 767px){
-        .stepper{
-            font-size: 0.75rem;
-            &-item{
-                &-bar{
-                    &-number{
-                        height: 32px;
-                        width: 32px;
-                        line-height: 24px;
-                        top:-12px;
-                    }
-                }
-                &-name{
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+
+@media(max-width: 767px) {
+    .stepper {
+        font-size: 0.75rem;
+
+        &-item {
+            &-bar {
+                &-number {
+                    height: 32px;
+                    width: 32px;
+                    line-height: 24px;
+                    top: -12px;
                 }
             }
 
+            &-name {
+                display: none;
+            }
         }
+
+    }
 }

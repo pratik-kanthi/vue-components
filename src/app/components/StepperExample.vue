@@ -34,8 +34,8 @@ export default {
                 index:4,
                 name:'Verification'
             }],
-            current:'3'
+            current:3
         };
-    },
+    }
 };
 </script>

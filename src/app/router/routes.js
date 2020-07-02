@@ -24,6 +24,8 @@ import OverlaysExample from '@/app/components/OverlaysExample';
 import AddressFinderExample from '@/app/components/AddressFinderExample';
 import ShimmerExample from '@/app/components/ShimmerExample';
 import CalendarExample from '@/app/components/CalendarExample';
+import SelectionIndicators from '@/app/components/SelectionIndicators';
+import TimepickerExample from '@/app/components/TimepickerExample';
 
 export const routes= [
     {
@@ -160,5 +162,15 @@ export const routes= [
         path: '/calendar',
         name: 'Calendar',
         component: CalendarExample,
-    }                          
+    },
+    {
+        path: '/selection-indicators',
+        name: 'Selection Indicators',
+        component: SelectionIndicators,
+    } ,
+    {
+        path: '/timepicker',
+        name: 'Timepicker',
+        component: TimepickerExample,
+    }                            
 ];

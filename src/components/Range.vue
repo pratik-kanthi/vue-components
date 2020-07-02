@@ -1,19 +1,16 @@
 <template>
     <div class="range-wrapper">
-        <div class="range-slider">
-            <input :min="min" :max="max" v-model="range[0]" type="range" @input="lowerSliderInput">
-            <input :min="min" :max="max" v-model="range[1]" type="range" @input="upperSliderInput" v-if="range.length>1">
-            <span class="left">{{ range[0] }}</span>
-            <span class="right">{{ range[1] }}</span>
+        <slot name="pre"></slot>
+        <div class="range-slider" :id="'range-slider-'+id">
+            <input :min="min" :max="max" v-model="range[0]" type="range" @input="lowerSliderInput" :step="step">
+            <input :min="min" :max="max" v-model="range[1]" type="range" @input="upperSliderInput" :step="step" v-if="range.length>1">
         </div>
+        <slot name="post"></slot>
     </div>
 </template>
 
 <script>
-let sheet = document.createElement('style');
-let prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
-document.body.appendChild(sheet);
-
+const prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track'];
 export default {
     name: 'Range',
     props: {
@@ -25,7 +22,7 @@ export default {
             type: Number,
             required: true
         },
-        steps: {
+        step: {
             type: Number,
             default: 1
         },
@@ -38,6 +35,12 @@ export default {
             default: function () { return ['#B5B5BE','#0B58D4']; }
         }
     },
+    data() {
+        return {
+            id: this._uid,
+            sheet:null
+        };
+    },
     methods: {
         upperSliderInput() {
             this.range[0]=parseInt(this.range[0]);
@@ -45,7 +48,7 @@ export default {
             if (this.range[1] <=this.range[0]) {
                 this.range[0] =this.range[1];
             }
-            sheet.textContent = this.getTrackStyle();        
+            this.sheet.textContent = this.getTrackStyle();        
 
         },
         lowerSliderInput() { 
@@ -56,24 +59,27 @@ export default {
                     this.range[1]= this.range[0];
                 }  
             }
-            sheet.textContent = this.getTrackStyle();        
+            this.sheet.textContent = this.getTrackStyle();        
         },
         getTrackStyle(){
             let style = '';
             if(this.range.length>1){
-                for (var i = 0; i < prefs.length; i++) {
-                    style += '.range-slider input::-' + prefs[i] + '{background: linear-gradient(to right, '+this.trackBg[0]+' 0%, '+this.trackBg[0]+' ' + (this.range[0]/this.max*100) + '%,'+this.trackBg[1]+ ' '+(this.range[0]/this.max*100) + '%, '+this.trackBg[1]+ ' '+ (this.range[1]/this.max*100) + '%,'+this.trackBg[0]+' ' + (this.range[1]/this.max*100) + '%, '+this.trackBg[0]+' 100%)}';
+                for (let i = 0; i < prefs.length; i++) {
+                    style += '#range-slider-'+this.id + ' input::-' + prefs[i] + '{background: linear-gradient(to right, '+this.trackBg[0]+' 0%, '+this.trackBg[0]+' ' + (this.range[0]/this.max*100) + '%,'+this.trackBg[1]+ ' '+(this.range[0]/this.max*100) + '%, '+this.trackBg[1]+ ' '+ (this.range[1]/this.max*100) + '%,'+this.trackBg[0]+' ' + (this.range[1]/this.max*100) + '%, '+this.trackBg[0]+' 100%)}';
                 }
             }else{
-                for (var i = 0; i < prefs.length; i++) {
-                    style += '.range-slider input::-' + prefs[i] + '{background: linear-gradient(to right, '+this.trackBg[1]+' 0%, '+this.trackBg[1]+' ' + (this.range[0]/this.max*100) + '%,'+this.trackBg[0]+ ' '+(this.range[0]/this.max*100) + '%, '+this.trackBg[0]+' 100%)}';
+                for (let i = 0; i < prefs.length; i++) {
+                    style += '#range-slider-'+this.id + ' input::-' + prefs[i] + '{background: linear-gradient(to right, '+this.trackBg[1]+' 0%, '+this.trackBg[1]+' ' + (this.range[0]/this.max*100) + '%,'+this.trackBg[0]+ ' '+(this.range[0]/this.max*100) + '%, '+this.trackBg[0]+' 100%)}';
                 }
             }
             return style;
         }
     },
     mounted () {
-        sheet.textContent = this.getTrackStyle();       
+        this.sheet= document.createElement('style');
+        this.sheet.setAttribute('id',this.id);
+        document.body.appendChild(this.sheet);
+        this.sheet.textContent = this.getTrackStyle();       
     },
 };
 </script>

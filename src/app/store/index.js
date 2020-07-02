@@ -6,7 +6,6 @@ Vue.use(Vuex);
 const sideBarModule = {
     state: {
         menu:[{
-            menuTitle:'Components',
             menuItems: [{
                 name: 'Avatar',
                 path: '/avatar',
@@ -124,6 +123,16 @@ const sideBarModule = {
             {
                 name: 'Calendar',
                 path: '/calendar',
+                icon:'calendar_view_day'
+            },
+            {
+                name: 'Selection Indicators',
+                path: '/selection-indicators',
+                icon:'calendar_view_day'
+            },
+            {
+                name: 'Timepicker',
+                path: '/timepicker',
                 icon:'calendar_view_day'
             },
             ]

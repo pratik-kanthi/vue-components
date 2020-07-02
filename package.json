@@ -29,6 +29,9 @@
     "vue-color": "^2.7.1",
     "vue-flatpickr-component": "^8.1.5"
   },
+  "peerDependencies": {
+    "jquery": "^3.5.1"
+  },
   "devDependencies": {
     "@e9ine/eslint-config-vue": "0.0.9-a",
     "@vue/cli-plugin-babel": "^4.2.3",
@@ -61,6 +64,11 @@
     "arrowParens": "always",
     "jsxBracketSameLine": true
   },
+  "*.vue": [
+    "prettier --write",
+    "npm run lint-fix",
+    "git add"
+  ],
   "eslintConfig": {
     "root": true,
     "rules": {

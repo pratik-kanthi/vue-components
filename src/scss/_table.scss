@@ -240,13 +240,12 @@
         ul {
             list-style: none;
             padding-left: 0;
+            display: flex;
 
             li {
                 cursor: pointer;
                 text-align: center;
-                display: inline-block;
                 margin-right: 0.25rem;
-                // margin-bottom: 0.25rem;
                 width: 32px;
                 height: 32px;
                 background-color: $white;

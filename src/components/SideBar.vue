@@ -4,7 +4,7 @@
             <slot name="sidebarTop"></slot>
         </div>
         <div class="sidebar-navigation">
-            <div v-for="(item,index) in $store.state.sideBarModule.menu" :key="index" class="menu-section">
+            <div v-for="(item,index) in menu" :key="index" class="menu-section">
                 <h6 class="menu-title" v-if="item.menuTitle">{{ item.menuTitle }}</h6>
                 <ul class="menu">
                     <li v-for="(route, key) in item.menuItems" :key="key" :class="{'has-dropdown':route.subItems && route.subItems.length>0}"> 
@@ -46,6 +46,10 @@ export default {
         primary: {
             type: Boolean,
             default: false
+        },
+        menu:{
+            type:Array,
+            required:true
         }
     },
     data() {

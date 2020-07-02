@@ -33,7 +33,7 @@
     </div>
 </template>
 <script>
-import Tooltip from '@/components/Tooltip';
+import Tooltip from '../components/Tooltip';
 export default {
     name: 'Panel',
     props: {

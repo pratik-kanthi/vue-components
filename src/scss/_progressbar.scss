@@ -1,0 +1,13 @@
+.progress-bar {
+    position:relative;
+    width: 100%;
+    background-color:$progress-bar-bg;
+    border-radius: $progress-bar-border-radius;
+    .value {
+        position: absolute;
+        left: 0;
+        width: 0;
+        border-radius: $progress-bar-border-radius;
+        transition: width 1s ease;
+    }
+}

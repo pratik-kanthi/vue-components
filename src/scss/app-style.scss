@@ -9,7 +9,13 @@
     background-color: #b2f2b1;
 }
 
-@import '@/scss/style.scss';
+// $button-colors:map-merge($button-colors,(red:red));
+// $button-colors:("red":red);
+
+$button-colors:map-merge($button-colors,(red:red));
+@import '@/scss/style';
+
+
 @import '~bootstrap-4-grid/scss/grid';
 
 
