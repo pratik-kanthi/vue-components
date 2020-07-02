@@ -27,6 +27,8 @@ jobs:
       #  env:
       #    NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: npm run docs:build
+        env: 
+          GOOGLE_KEY: AIzaSyDLmAV6TLE15qpQH_9UdhwxR0w0LF-Elow 
   deploy:
     name: Deploy
     needs: build
