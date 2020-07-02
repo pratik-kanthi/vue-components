@@ -71,8 +71,13 @@
 </template>
 
 <script>
+import Tabs from '@/components/Tabs';
+
 export default {
     name: 'TabsExample',
+    components: {
+        Tabs,
+    },
     data () {
         return {
             tabTypes:[{name:'Simple', selected: true},{name:'Angled'},{name:'Pills'}],

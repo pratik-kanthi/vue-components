@@ -86,8 +86,6 @@ export default {
         let moreSelector=$(tabsId+' #more-nav-selector');
         if(moreSelector.length!=0){         
             let position=$(moreSelector).position();
-            console.log($(tabsId).width());
-            console.log(position.left);
             if($(tabsId).width() < position.left)
                 window.$(tabsId+' #more-nav').css({'left':'unset','right':0});
             else

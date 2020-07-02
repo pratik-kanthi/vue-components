@@ -2,11 +2,11 @@
     <transition name="fade">
         <div v-if="show" :class="{'relative': relative}">
             <div class="overlay" :style="getOpacity">
-                <img src="../assets/close.svg" class="close" v-show="showClose && !relative" @click="close" />
+                <img src="/assets/close.svg" class="close" v-show="showClose && !relative" @click="close" />
             </div>
             <div class="overlay-content" :class="customContentClass">
                 <slot></slot>
-                <img src="../assets/close.svg" class="close" v-show="showClose && relative" @click="close" />
+                <img src="/assets/close.svg" class="close" v-show="showClose && relative" @click="close" />
             </div>
         </div>
     </transition>

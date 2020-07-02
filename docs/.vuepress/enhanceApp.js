@@ -2,7 +2,7 @@ import Avatar from '../../src/components/Avatar';
 import AvatarGroup from '../../src/components/AvatarGroup';
 import AvatarInfo from '../../src/components/AvatarInfo';
 import Badge from '../../src/components/Badge';
-import Chart from '../../src/components/Charts';
+import Chart from '../../src/components/charts';
 import LoginVariation1 from '../../src/views/login/variation-1/Component';
 import AddressFinder from '../../src/components/address-finders';
 import ColorPicker from '../../src/components/ColorPicker';

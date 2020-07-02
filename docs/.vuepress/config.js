@@ -1,3 +1,5 @@
+require('dotenv').config();
+const webpack = require('webpack');
 const path = require('path');
 module.exports = {
     head: [
@@ -16,5 +18,10 @@ module.exports = {
             { text: 'e9ine', link: 'https://e9ine.com' }
         ],
         sidebar: 'auto'
+    },
+    configureWebpack: (config) => {
+        return { plugins: [
+                new webpack.EnvironmentPlugin({ ...process.env })
+            ]}
     }
 };

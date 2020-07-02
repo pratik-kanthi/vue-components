@@ -21,10 +21,7 @@
 
 <script>
 export default {
-    name: 'Breadcrumbs',
-    created() {
-        console.log(this.$route);
-    }
+    name: 'Breadcrumbs'
 };
 </script>
 
