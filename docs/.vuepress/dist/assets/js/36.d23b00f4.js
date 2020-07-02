@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[36],{435:function(e,r,t){"use strict";t.r(r);var n={name:"ProgressBarExample"},s=t(0),a=Object(s.a)(n,(function(){var e=this.$createElement,r=this._self._c||e;return r("div",[r("ProgressBar",{attrs:{value:50,height:10}})],1)}),[],!1,null,null,null);r.default=a.exports}}]);

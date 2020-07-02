@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-sm-4">
-            <h4>Address</h4>
+            <h4>Address Finder</h4>
             <address-finder :address.sync="address" :options="options" class="address-finder" type="Maps9" @updated="addressChanged"></address-finder>
         </div>
     </div>
