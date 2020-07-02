@@ -25,14 +25,12 @@
 require('flatpickr/dist/themes/dark.css');
 
 import Datepicker from '@/components/Datepicker';
-import Button from '@/components/Button';
 
 
 export default {
     name:'CalendarExample',
     components: {
         Datepicker,
-        Button
     },
     data() {
         return {
