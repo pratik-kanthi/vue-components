@@ -1,9 +1,4 @@
 import Vue from 'vue';
-import moment from 'moment';
-
-Vue.filter('formatDate', (date, format) => {
-    return date ? moment(date).format(format) : '';
-});
 
 Vue.filter('limitTo', (arr, val) => arr.slice(0, val));
 

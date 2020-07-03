@@ -1,4 +1,4 @@
-function fromArray(array) {
+export function fromArray(array) {
     var rows = [];
 
     var fields = [];
@@ -23,7 +23,7 @@ function fromArray(array) {
     return rows.join('\n');
 }
 
-function download(array, filename) {
+export function download(array, filename) {
     var data = fromArray(array);
     var a = document.createElement('a');
     a.href = 'data:attachment/csv;charset=utf-8,' + encodeURIComponent(data);
@@ -33,10 +33,6 @@ function download(array, filename) {
     a.click();
 }
 
-function escape(value) {
+export function escape(value) {
     return value ? ('' + value).replace('"', '\"') : '<null>';
 }
-
-export default {
-    download
-};

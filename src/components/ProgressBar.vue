@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import utils from '../utils';
+import {checkValidHex} from '../utils/CommonUtils';
 
 export default {
     name: 'ProgressBar',
@@ -30,7 +30,7 @@ export default {
     computed: {
         style() {
             let obj = {};
-            obj['background-color'] = utils.CommonUtils.CheckValidHex(this.color);
+            obj['background-color'] = checkValidHex(this.color);
             obj['height'] = this.height+'px';
             return obj;
         }

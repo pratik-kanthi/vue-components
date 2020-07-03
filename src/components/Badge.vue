@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import utils from '../utils';
+import {checkValidHex} from '../utils/CommonUtils';
 
 export default {
     name: 'Badge',
@@ -38,7 +38,7 @@ export default {
     computed: {
         style() {
             let obj = {};
-            obj['background-color'] = utils.CommonUtils.CheckValidHex(this.color);
+            obj['background-color'] = checkValidHex(this.color);
             obj['height'] = this.size + 'px';
             obj['min-width'] = this.size + 'px';
             obj['font-size'] = this.size/1.67 + 'px';

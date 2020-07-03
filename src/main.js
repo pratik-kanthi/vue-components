@@ -7,8 +7,7 @@ import jQuery from 'jquery';
 
 import {store} from '@/app/store';
 import '@/scss/app-style.scss';
-
-
+import './filters';
 Vue.config.productionTip = false;
 
 window.$ = window.jQuery = jQuery;

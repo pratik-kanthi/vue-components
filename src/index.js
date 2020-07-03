@@ -1,5 +1,8 @@
 /* prettier-ignore */
 // export components from ./components
+export {fromArray, download, escape} from './utils/CSV';
+export {sortArrayByProperty, checkValidHex} from './utils/CommonUtils';
+
 export { Button } from './components/Button';
 export { FormFor } from './components/field-for/FormFor';
 export { SubFormFor } from './components/field-for/SubFormFor';
@@ -23,10 +26,7 @@ export { Tooltip } from './components/Tooltip';
 export { VClickOutside } from './directives/v-click-outside';
 export { VDebounce } from './directives/v-debounce';
 
-// export directives from ./filters
-export { Filters } from './filters/';
-
-export { Utils } from './utils/';
+export {ModalMixin} from './mixins/modal';
 
 // export layouts from ./layouts
 export { ModuleBaseLayout } from './layouts/ModuleBaseLayout';
