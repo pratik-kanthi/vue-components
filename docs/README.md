@@ -3,7 +3,7 @@ home: true
 heroImage: https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png
 sidebar: true
 actionText: Get Started →
-actionLink: /components/
+actionLink: /getting-started/
 features:
 - title: Simplicity First
   details: Minimal setup with markdown-centered project structure helps you focus on writing.

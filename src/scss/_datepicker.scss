@@ -88,7 +88,7 @@
 
             &.inRange {
                 box-shadow: none !important;
-                background-color: lighten( $form-active,48%) !important;
+                background-color: lighten($form-active, 48%) !important;
             }
 
             &:hover:not(.flatpickr-disabled):not(.inRange) {
@@ -109,6 +109,21 @@
                 margin-bottom: 0;
             }
         }
+
+        .flatpickr-monthSelect-months {
+            .flatpickr-monthSelect-month {
+                border-radius: 4px;
+
+                &.selected {
+                    background-color: $form-active;
+                }
+
+                &:hover {
+                    background-color: lighten($form-active, 48%);
+
+                }
+            }
+        }
     }
 }
 
@@ -124,3 +139,4 @@
 .custom-datepicker-markup {
     display: inline-block;
 }
+

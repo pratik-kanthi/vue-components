@@ -17,14 +17,23 @@ export default {
 </script>
 
 <style lang="scss">
-.timepicker-wrapper{
-    table{
-        tbody{
-            tr{
-                border:none;
-                td{
+.timepicker-wrapper {
+    table {
+        tbody {
+            tr {
+                border: none;
+
+                td {
                     border: none;
                     padding: 0;
+
+                    a {
+                        color: #0B58D4;
+
+                        &:hover {
+                            color: #0062FF;
+                        }
+                    }
                 }
             }
         }

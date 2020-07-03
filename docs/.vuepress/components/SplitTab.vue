@@ -95,12 +95,6 @@ export default {
     p{
       margin-top: 0;
     }
-    a{
-      color:#0B58D4;
-      &:hover{
-        color:#0062FF;
-      }
-    }
     .components {
         display: flex;
         align-items: top;

@@ -45,7 +45,7 @@ export default {
                 dateFormat: 'd/m/Y',
                 altFormat: 'M j, Y',
                 altInput: true,
-                mode:'range',
+                // mode:'range',
                 weekNumbers: true,
                 // altInputClass:'soumya'
                 // inline:true

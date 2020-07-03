@@ -11,14 +11,35 @@ module.exports = {
     themeConfig: {
         logo: 'https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png',
         nav: [
+            { text: 'Getting Started', link: '/getting-started/' },
             { text: 'Components', link: '/components/' },
             { text: 'Views', link: '/views/' },
             { text: 'Theming', link: '/theming/' },
             { text: 'Utilities', link: '/utilities/' },
+            { text: 'Vue Form Plugin', link: 'https://vue9-form-plugin.netlify.app/' },
             { text: 'e9ine', link: 'https://e9ine.com' }
         ],
-        sidebar: 'auto'
+        sidebar: 'auto',
+                // Assumes GitHub. Can also be a full GitLab url.
+                repo: 'e9-devops/vue-components',
+                // Customising the header label
+                // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
+                repoLabel: 'GitHub',
+            
+                // Optional options for generating "Edit this page" link
+            
+                // if your docs are in a different repo from your main project:
+                docsRepo: 'e9-devops/vue-components',
+                // if your docs are not at the root of the repo:
+                docsDir: 'docs',
+                // if your docs are in a specific branch (defaults to 'master'):
+                docsBranch: 'master',
+                // defaults to false, set to true to enable
+                editLinks: true,
+                // custom text for edit link. Defaults to "Edit this page"
+                editLinkText: 'Help us improve this page!'
     },
+    plugins: ['@vuepress/last-updated','@vuepress/back-to-top'],
     configureWebpack: (config) => {
         return { plugins: [
                 new webpack.EnvironmentPlugin({ ...process.env })
