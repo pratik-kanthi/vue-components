@@ -28,16 +28,10 @@ jobs:
       #    NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: npm run docs:build
         env: 
-          GOOGLE_KEY: AIzaSyDLmAV6TLE15qpQH_9UdhwxR0w0LF-Elow 
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
+          GOOGLE_KEY: ${{ secrets.GOOGLE_KEY }}
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-     
