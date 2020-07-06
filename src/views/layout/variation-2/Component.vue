@@ -1,5 +1,5 @@
 <template>
-    <div class="page" :class="sidebarOn == true ? 'show-sidebar' : ''">
+    <div class="page layout-variation-1" :class="sidebarOn == true ? 'show-sidebar' : ''">
         <div id="mobile-menu-toggle" v-if="sidebar" @click="sidebarOn = !sidebarOn">
             <i class="material-icons animated fadeInRight faster" v-if="!sidebarOn" :style="{ color: menuIconColor }">menu</i>
             <i class="material-icons animated rotateIn faster" v-if="sidebarOn" :style="{ color: menuIconColor }">cancel</i>

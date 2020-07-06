@@ -1,75 +1,90 @@
-.sidebar {
-	position: fixed;
-	display: flex;
-	flex-flow: column nowrap;
-	height: 100%;
-    border-right: $border-width solid $line-color;
-    z-index: 0;
-}
-.topbar {
-    position: fixed;
-    z-index: 1;
-    left: $sidebar-width;
-	border-bottom: $border-width solid $line-color;
-	top: 0;
-	right: 0;
-}
-.content-view {
-    position: fixed;
-    z-index: 0;
-    left: $sidebar-width;
-	top: $topbar-height;
-	right: 0;
-	bottom: 0;
-    overflow-y: scroll;
-    .content-wrapper{
-        padding: $default-content-padding;
+.layout-variation-1 {
+
+    .sidebar {
+        position: fixed;
+        display: flex;
+        flex-flow: column nowrap;
+        height: 100%;
+        border-right: $border-width solid $line-color;
+        z-index: 0;
     }
-}
 
-#mobile-menu-toggle {
-	display: none;
-}
+    .topbar {
+        position: fixed;
+        z-index: 1;
+        left: $sidebar-width;
+        border-bottom: $border-width solid $line-color;
+        top: 0;
+        right: 0;
+    }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
-	.sidebar {
-        left: -$sidebar-width;
-        transition: transform 500ms;
-	}
-	.content-view {
-        left: 0 !important;
-        transition: transform 500ms;
-        padding: 0px;
-	}
-	.topbar {
-		left: 0 !important;
-        padding-left: 48px;
-        transition: transform 500ms;
-	}
-	#mobile-menu-toggle {
-		display: block;
-		position: fixed;
-		top: 20px;
-		left: $default-content-padding;
-		z-index: 2;
-		color: $brand-secondary;
-		i {
-			font-size: 1.5rem;
+    .content-view {
+        position: fixed;
+        z-index: 0;
+        left: $sidebar-width;
+        top: $topbar-height;
+        right: 0;
+        bottom: 0;
+        overflow-y: scroll;
+
+        .content-wrapper {
+            padding: $default-content-padding;
         }
-        transition: transform 500ms;
     }
-    .show-sidebar {
+
+    #mobile-menu-toggle {
+        display: none;
+    }
+
+    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
         .sidebar {
-            transform: translateX($sidebar-width);
+            left: -$sidebar-width;
+            transition: transform 500ms;
         }
+
         .content-view {
-            transform: translateX($sidebar-width);
+            left: 0 !important;
+            transition: transform 500ms;
+            padding: 0px;
         }
+
         .topbar {
-            transform: translateX($sidebar-width);
+            left: 0 !important;
+            padding-left: 48px;
+            transition: transform 500ms;
         }
+
         #mobile-menu-toggle {
-            transform: translateX($sidebar-width);
+            display: block;
+            position: fixed;
+            top: 20px;
+            left: $default-content-padding;
+            z-index: 2;
+            color: $brand-secondary;
+
+            i {
+                font-size: 1.5rem;
+            }
+
+            transition: transform 500ms;
+        }
+
+        .show-sidebar {
+            .sidebar {
+                transform: translateX($sidebar-width);
+            }
+
+            .content-view {
+                transform: translateX($sidebar-width);
+            }
+
+            .topbar {
+                transform: translateX($sidebar-width);
+            }
+
+            #mobile-menu-toggle {
+                transform: translateX($sidebar-width);
+            }
         }
     }
 }

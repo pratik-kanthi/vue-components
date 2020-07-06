@@ -117,7 +117,7 @@ export default {
                 chartOptions.chart.toolbar = {
                     show: true,
                     tools: {
-                        download: '<img src="' + location.origin + '/assets/menu.svg" width="30">'
+                        download: '<img src="'+ require('@/assets/menu.svg')+'" width="30">'
                     }
                 };
             }

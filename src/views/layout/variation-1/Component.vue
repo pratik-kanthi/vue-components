@@ -1,5 +1,5 @@
 <template>
-    <div :class="(sidebarOn == true)? 'show-sidebar':''">
+    <div :class="(sidebarOn == true)? 'show-sidebar':''" class="layout-variation-1">
         <div id="mobile-menu-toggle" @click="sidebarOn = !sidebarOn">
             <i class="material-icons">menu</i>
         </div>

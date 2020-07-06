@@ -118,7 +118,7 @@
 .check:checked+label.check-label.box {
     border: 2px solid $brand-primary;
     background-color: $brand-primary !important;
-    background: url('/assets/tick.png');
+    background: url('~@/assets/tick.png');
     background-size: 11px;
     background-position: center;
     background-repeat: no-repeat;

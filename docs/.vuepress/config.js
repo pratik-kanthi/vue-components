@@ -43,6 +43,11 @@ module.exports = {
     configureWebpack: (config) => {
         return { plugins: [
                 new webpack.EnvironmentPlugin({ ...process.env })
-            ]}
+            ],
+            resolve: {
+                alias: {
+                  '@': path.resolve(__dirname, '../../src'),
+                },
+              }}
     }
 };

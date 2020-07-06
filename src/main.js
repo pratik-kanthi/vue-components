@@ -11,7 +11,6 @@ import './filters';
 Vue.config.productionTip = false;
 
 window.$ = window.jQuery = jQuery;
-
 Vue.use(VueGoogleMaps, {
     load: {
         key: process.env.VUE_APP_GOOGLE_KEY,
