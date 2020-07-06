@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "files": [
-    "src/assets",
+    "src/images",
     "src/components",
     "src/directives",
     "src/filters",
