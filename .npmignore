@@ -26,5 +26,6 @@ yarn-error.log*
 /src/app
 /src/App.vue
 /src/main.js
+/src/scss/app-style.scss,
 babel.config.js
 vue.config.js

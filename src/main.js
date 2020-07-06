@@ -6,7 +6,7 @@ import jQuery from 'jquery';
 
 
 import {store} from '@/app/store';
-import '@/app/scss/app-style.scss';
+import '@/scss/app-style.scss';
 import './filters';
 Vue.config.productionTip = false;
 
