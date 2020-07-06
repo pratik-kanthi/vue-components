@@ -137,8 +137,7 @@ export default {
 
 
         },
-        handleClick(event) { 
-            debugger;
+        handleClick() { 
         }
     },
     created () {
