@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-Vue.directive('debounce', {
+export default Vue.directive('debounce', {
     bind: (el, bind) => {
         if (bind.value !== bind.oldValue) { // change debounce only if interval has changed
             el.oninput = debounce(function () {

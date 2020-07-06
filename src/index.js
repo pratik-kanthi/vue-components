@@ -3,41 +3,41 @@
 export {fromArray, download, escape} from './utils/CSV';
 export {sortArrayByProperty, checkValidHex} from './utils/CommonUtils';
 
-export { Avatar } from './components/Avatar';
-export { AvatarGroup } from './components/AvatarGroup';
-export { AvatarInfo } from './components/AvatarInfo';
-export { AddressFinder } from './components/address-finders';
-export { Badge } from './components/Badge';
-export { Breadcrumbs } from './components/Breadcrumbs';
-export { Button } from './components/Button';
-export { Card } from './components/Card';
-export { Chart } from './components/charts';
-export { Chip } from './components/Chip';
-export { ColorPicker } from './components/ColorPicker';
-export { DatePicker } from './components/DatePicker';
-export { Overlay } from './components/Overlay';
-export { Panel } from './components/Panel';
-export { ProgressBar } from './components/ProgressBar';
-export { Range } from './components/Range';
-export { Shimmer } from './components/Shimmer';
-export { SideBar } from './components/SideBar';
-export { Stepper } from './components/Stepper';
-export { Table } from './components/Table';
-export { Tabs } from './components/Tabs';
-export { TimePicker } from './components/TimePicker';
-export { Tooltip } from './components/Tooltip';
-export { TopBar } from './components/TopBar';
+export { default as Avatar } from './components/Avatar';
+export { default as AvatarGroup } from './components/AvatarGroup';
+export { default as AvatarInfo } from './components/AvatarInfo';
+export { default as AddressFinder } from './components/address-finders';
+export { default as Badge } from './components/Badge';
+export { default as Breadcrumbs } from './components/Breadcrumbs';
+export { default as Button } from './components/Button';
+export { default as Card } from './components/Card';
+export { default as Chart } from './components/charts';
+export { default as Chip } from './components/Chip';
+export { default as ColorPicker } from './components/ColorPicker';
+export { default as Datepicker } from './components/Datepicker';
+export { default as Overlay } from './components/Overlay';
+export { default as Panel } from './components/Panel';
+export { default as ProgressBar } from './components/ProgressBar';
+export { default as Range } from './components/Range';
+export { default as Shimmer } from './components/Shimmer';
+export { default as SideBar } from './components/SideBar';
+export { default as Stepper } from './components/Stepper';
+export { default as Table } from './components/Table';
+export { default as Tabs } from './components/Tabs';
+export { default as Timepicker } from './components/Timepicker';
+export { default as Tooltip } from './components/Tooltip';
+export { default as TopBar } from './components/TopBar';
 
 // export directives from ./directives
-export { VClickOutside } from './directives/v-click-outside';
-export { VDebounce } from './directives/v-debounce';
+export { default as VClickOutside } from './directives/v-click-outside';
+export { default as VDebounce } from './directives/v-debounce';
 
 export {ModalMixin} from './mixins/modal';
 
 // export layouts from ./layouts
-export { ModuleItemLayout } from './layouts/ModuleItemLayout';
+export { default as ModuleItemLayout } from './layouts/ModuleItemLayout';
 
 // export views from ./views
-export { LoginVariation1 } from './views/login/variation-1/Component';
-export { LayoutVariation1 } from './views/layout/variation-1/Component';
-export { LayoutVariation2 } from './views/layout/variation-2/Component';
+export { default as LoginVariation1 } from './views/login/variation-1/Component';
+export { default as LayoutVariation1 } from './views/layout/variation-1/Component';
+export { default as LayoutVariation2 } from './views/layout/variation-2/Component';

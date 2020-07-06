@@ -23,9 +23,8 @@ yarn-error.log*
 
 # Development level directories and files
 /public
-/src/samples
+/src/app
 /src/App.vue
 /src/main.js
 babel.config.js
 vue.config.js
-/src/store
