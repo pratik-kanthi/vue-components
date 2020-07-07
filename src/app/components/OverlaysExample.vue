@@ -27,7 +27,7 @@
                 <i class="material-icons">open_in_new</i>
             </Button>
             <Overlay :show.sync="show3" :show-close="false" custom-content-class="full-loader" :opacity="0.9">
-                <img class="spinner" src="../../images/loader.svg" />
+                <img class="spinner" src="../../assets/loader.svg" />
             </Overlay>
         </div>
     </div>

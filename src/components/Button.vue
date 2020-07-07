@@ -95,7 +95,7 @@ export default {
             if (this.loaderImage) {
                 return this.loaderImage;
             }
-            return require('../images/loader.svg');
+            return require('../assets/loader.svg');
         }
     },
     created() {

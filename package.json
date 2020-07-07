@@ -1,6 +1,6 @@
 {
   "name": "@e9ine/vue_components",
-  "version": "0.0.3i",
+  "version": "0.0.3j",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "files": [
-    "src/images",
+    "src/assets",
     "src/components",
     "src/directives",
     "src/filters",
@@ -21,8 +21,7 @@
     "src/views",
     "src/scss",
     "src/mixins",
-    "src/index.js",
-    "dist/"
+    "src/index.js"
   ],
   "dependencies": {
     "apexcharts": "^3.17.0",
@@ -51,7 +50,6 @@
     "dotenv": "^8.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "file-loader": "^6.0.0",
     "jquery": "^3.5.1",
     "material-icons": "^0.3.1",
     "node-sass": "^4.13.1",
