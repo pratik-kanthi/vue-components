@@ -62,3 +62,33 @@ Similarly, media queries may span multiple breakpoint widths:
 ```css
 @include media-breakpoint-between(md, xl) { ... }
 ```
+
+## Text Utilities
+
+Change the text sizes easily by using the following text utility classes.
+
+```css
+ .t-xxl {
+    font-size: 1.875rem;
+  }
+
+  .t-xl {
+    font-size: 1.5rem;
+  }
+
+  .t-l {
+    font-size: 1.25rem;
+  }
+
+  .t-s {
+    font-size: 0.75rem;
+  }
+
+  .t-xs {
+    font-size: 0.625rem;
+  }
+
+  .t-xxs {
+    font-size: 0.5rem;
+  }
+  ```

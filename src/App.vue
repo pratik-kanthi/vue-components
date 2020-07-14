@@ -1,27 +1,30 @@
 <template>
     <div class="app">
-        <LayoutVariation1>
+        <LayoutVariation1 :show-back-btn="true">
             <template v-slot:sidebar>
                 <SideBar :compact="true" :primary="false" :menu="menu">
                     <template v-slot:sidebarTop>
                         <div class="logo-wrapper">
-                            <img src="https://components9.firebaseapp.com/assets/img/logo.png" alt="">
+                            <img src="https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png" alt="">
                         </div>
                         <h6>E9ine Ltd.</h6>
                         <p>ID 12354320</p>
                     </template>
                     <template v-slot:sidebarBottom>
                         <div class="footer-wrapper">
-                            <span>Powered by</span> <img src="https://components9.firebaseapp.com/assets/img/logo.png" alt="">
+                            <span>Powered by</span> <img src="https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png" alt="">
                         </div>
                     </template>
                 </SideBar>
             </template>
             <template v-slot:topbar>
-                <TopBar :topbar-options="topbarOptions" :avatar-options="avatarOptions" :search-options="searchOptions" :search-text.sync="searchText" logo-url="https://components9.firebaseapp.com/assets/img/logo.png" page-title="Vu[e9] Components"></TopBar>
+                <TopBar :topbar-options="topbarOptions" :avatar-info-options="avatarInfoOptions" :avatar-options="avatarOptions" :search-options="searchOptions" :search-text.sync="searchText" :page-title="pageTitle" :logo="logo"></TopBar>
             </template>
             <template v-slot:breadcrumbs>
                 <Breadcrumbs></Breadcrumbs>
+            </template>
+            <template v-slot:tabbar>
+                <TabBar :menu="tabBarMenu"></TabBar>
             </template>
         </LayoutVariation1>
     </div>
@@ -31,6 +34,7 @@
 import LayoutVariation1 from '@/views/layout/variation-1/Component';
 import SideBar from '@/components/SideBar';
 import TopBar from '@/components/TopBar';
+import TabBar from '@/components/TabBar';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export default {
@@ -38,23 +42,34 @@ export default {
         LayoutVariation1,
         SideBar,
         TopBar,
+        TabBar,
         Breadcrumbs
     },
     data() {
         return {
             menu:this.$store.state.sideBarModule.menu,
+            tabBarMenu:this.$store.state.navModule.menuItems,
             searchText:'',
             searchOptions:{
                 placeholder:'Type to search..',
-                clickAction:function () {
-                    console.log('search clicked');
-                },
+                // clickAction:function () {
+                //     console.log('search clicked');
+                // },
+                mobile:false
+            },
+            logo:{
+                url:'https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png',
                 mobile:true
             },
-            avatarOptions:{
+            pageTitle:{
+                text:'Vu[e9] Components',
+                align:'left',
+                mobile:true
+            },
+            avatarInfoOptions:{
                 title:'Soumya Kanthi',
                 subtitle:'Logout',
-                subtitleOption: {
+                subtitleOptions: {
                     clickAction:function () {
                         console.log('logout');
                     },
@@ -65,7 +80,11 @@ export default {
                 }, {
                     name: 'Navigate',
                     href: 'https://www.yahoo.com',
-                }],
+                }]
+            },
+            avatarOptions:{
+                imageUrl:'https://66.media.tumblr.com/3f6c3a89a576a4a09a2ea18c5f2d5da9/tumblr_pk0lqkbqM31ss2e34o1_1280.jpg',
+                size:36,
             },
             topbarOptions:[{
                 icon:'notifications_none',
@@ -75,7 +94,7 @@ export default {
                 clickAction:function () {
                     console.log('notifications');
                 },
-                mobile:true
+                mobile:false
             },{
                 icon:'chat_bubble_outline',
                 text:'Messages',
@@ -83,15 +102,17 @@ export default {
                 clickAction:function () {
                     console.log('messages');
                 },
+                mobile:false
             },
             {
-                icon:'add',
                 text:'New Todo',
                 type:'btn',
                 btnClass:'primary',
+                icon:'add_circle_outline',
                 clickAction:function () {
                     console.log('new todo');
                 },
+                mobile:false
             }]
         };
     },

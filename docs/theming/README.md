@@ -19,24 +19,24 @@ In your `custom.scss`, you’ll import Vu[e9]'s source Sass files. You have two 
 // Custom.scss
 // Option A: Include all of Vu[e9]
 
-@import "node_modules/@e9ine/vue_components/scss/style";
+@import "node_modules/@e9ine/vue_components/src/scss/style";
 ```
 ```css
 // Custom.scss
 // Option B: Include parts of Vu[e9]
 
 // Required
-@import "node_modules/@e9ine/vue_components/scss/functions";
-@import "node_modules/@e9ine/vue_components/scss/variables";
-@import "node_modules/@e9ine/vue_components/scss/mixins";
-@import "node_modules/@e9ine/vue_components/scss/utilities";
+@import "node_modules/@e9ine/vue_components/src/scss/functions";
+@import "node_modules/@e9ine/vue_components/src/scss/variables";
+@import "node_modules/@e9ine/vue_components/src/scss/mixins";
+@import "node_modules/@e9ine/vue_components/src/scss/utilities";
 
 // Optional
-@import "node_modules/@e9ine/vue_components/scss/buttons";
-@import "node_modules/@e9ine/vue_components/scss/card";
-@import "node_modules/@e9ine/vue_components/scss/avatar";
-@import "node_modules/@e9ine/vue_components/scss/table";
-@import "node_modules/@e9ine/vue_components/scss/type";
+@import "node_modules/@e9ine/vue_components/src/scss/buttons";
+@import "node_modules/@e9ine/vue_components/src/scss/card";
+@import "node_modules/@e9ine/vue_components/src/scss/avatar";
+@import "node_modules/@e9ine/vue_components/src/scss/table";
+@import "node_modules/@e9ine/vue_components/src/scss/type";
 ...
 
 ```
@@ -57,7 +57,7 @@ $body-bg: #000;
 $body-text: #111;
 
 // Vu[e9] and its default variables
-@import "node_modules/@e9ine/vue_components/scss/style";
+@import "node_modules/@e9ine/vue_components/src/scss/style";
 ```
 
 **Default Styles**
@@ -68,6 +68,10 @@ $default-content-padding: 16px;
 $border-width: 1px !default;
 $box-shadow:0 0 6px 0 rgba(0, 0, 0, .2) !default;
 ```
+
+:::tip
+Every component has some default styling & this is controlled by the Sass variables. These variables include the `!default` flag allowing you to override the variable’s default value. A complete list of all the variable defaults is available [here](https://github.com/e9-devops/vue-components/blob/master/src/scss/_variables.scss).
+:::
 
 ## Colors
 

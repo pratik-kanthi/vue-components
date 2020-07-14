@@ -26,12 +26,12 @@ jobs:
       # for publishing, npm need authorization. We add the NPM token to the environment which will take care of authorization to publish to the package
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      - run: npm run docs:build
+      #- run: npm run docs:build
         env: 
           GOOGLE_KEY: ${{ secrets.GOOGLE_KEY }}
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      #- name: Deploy to Firebase
+        #uses: w9jds/firebase-action@master
+        #with:
+          #args: deploy --only hosting
+        #env:
+          #FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

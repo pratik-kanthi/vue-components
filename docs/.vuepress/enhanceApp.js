@@ -23,6 +23,7 @@ import Tooltip from '../../src/components/Tooltip';
 import Range from '../../src/components/Range';
 import Timepicker from '../../src/components/Timepicker';
 import TopBar from '../../src/components/TopBar';
+import TabBar from '../../src/components/TabBar';
 import Datepicker from '../../src/components/Datepicker';
 import '../../src/scss/style.scss';
 
@@ -55,5 +56,6 @@ export default ({
     Vue.component('Range', Range);
     Vue.component('Timepicker', Timepicker);
     Vue.component('TopBar', TopBar);
+    Vue.component('TabBar', TabBar);
     Vue.component('Datepicker', Datepicker);
 }

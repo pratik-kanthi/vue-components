@@ -1057,6 +1057,10 @@ menu:[{
 * ***sidebarTop:*** Use this slot to add content like company logo, company name & any other details to the top of the sidebar.
 * ***sidebarBottom:*** Use this slot to add a footer to the bottom of the sidebar. 
 
+**Events**
+
+***toggle-sidebar*** event is emitted whenever a menu item is clicked. Use this event to toggle sidebar on mobile devices whenever there is a state change.
+
 ![Example](/assets/components/sidebar.png)
 
 ## Datepicker
@@ -1103,12 +1107,34 @@ The Topbar may contain your page title, logo, search box, shortcuts, avatar prof
 **Properties**
 | Property | Type | Default | Required | Description |
 |----------|------|--------|-----------|-------------|
-| logo-url | `String` ||| Logo to be displayed to the left of the topbar. |
-| page-title | `String` ||| Text to be displayed next to the logo. |
-| avatar-options | `Object` ||| Configuration object for the profile avatar to the right of the topbar. Refer [Avatar Info](/components/#avatar-info) component for all the configuration options. |
+| logo | `Object` ||| Logo to be displayed to the left of the topbar. Refer ***logo*** object below. |
+| page-title | `Object` ||| Text to be displayed next to the logo. Refer ***page-title*** object below. |
+| avatar-options | `Object` ||| Configuration object for the profile avatar to the right of the topbar. Refer [Avatar](/components/#avatar) component for all the configuration options. |
+| avatar-info-options | `Object` ||| Configuration object for the profile avatar info wrapping the avatar profile. Refer [Avatar Info](/components/#avatar-info) component for all the configuration options. |
 | topbar-options | `Array` ||| Array of objects for showing the shortcuts. Refer ***topbar-options*** table below for all the configuration options. |
 | search-options | `Object` ||| Configuration object for the search box. Refer ***search-options*** below for all the configuration options. 
 | search-text | `String` ||| The property with which the search input value should be synced with. |
+
+**logo**
+
+```js
+logo:{
+    url:'https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png',
+    mobile:true
+}
+```
+
+**page-title**
+
+```js
+pageTitle:{
+    text:"Vu[e9] Components",
+    align:"center",
+    mobile:true
+}
+```
+
+`mobile:true` can be used to control the visibility of the element on mobile devices.
 
 **topbar-options**
 | Property | Type | Default | Required | Description |
@@ -1140,3 +1166,66 @@ Use the default slot to insert custom content into the topbar after the logo & p
 :::tip
 Passing a function to `click-action` prop will make the search input box `readonly` and will call the function passed to `click-action` prop.
 :::
+
+## TabBar
+
+The `TabBar` component displays a horizontal row of tabs.
+
+**Properties**
+| Property | Type | Default | Required | Description |
+|----------|------|--------|-----------|-------------|
+| menu | `Array` || Y | The array used to build the tabbar menu. Please refer to the ***menu*** array below for the full configuration options. |
+
+**menu**
+
+The `menu` array accepts an array of objects. Each object represents a menu item in the tabbar. The object can have an optional `badgeOptions` property to indicate some pending user action. Please refer to the [Badge](/components/#badge) component for more details.
+
+
+```vue
+<template>
+    <TabBar :menu="menu"></TabBar>
+</template>
+
+<script>
+export default {
+    name: 'TabBarExample',
+    data() {
+        return {
+            menu:[{
+            name: 'Dashboard',
+            path: '/dashboard',
+            icon:'dashboard'
+        },
+        {
+            name: 'Jobs',
+            path: '/jobs',
+            icon:'assignment_turned_in',
+            badgeOptions:{
+                size:20,
+                color:'#FC5A5A',
+                position:'top-right',
+                text:'999'
+            }
+            
+        },
+        {
+            name: 'Payments',
+            path: '/payments',
+            icon:'post_add'
+            
+        },
+        {
+            name: 'Profile',
+            path: '/profile',
+            icon:'person_outline'
+            
+        }]
+        }
+           
+    },
+};
+</script>
+```
+
+![Example](/assets/components/tabbar.png)
+

@@ -7,12 +7,16 @@
     padding: 0 $default-content-padding;
 
     &-page-title {
-        font-size: 1.125rem;
+        font-size: $topbar-font-size;
         margin-bottom: 0;
+        width: 100%;
+        &.align-center{
+            text-align: center;
+        }
     }
 
     &-logo {
-        height: 90%;
+        height: 80%;
         max-width: 100px;
         margin-right: 1rem;
         display: flex;
@@ -42,7 +46,7 @@
                 background-image: url('~@e9ine/vue_components/src/assets/search.svg');
                 background-repeat: no-repeat;
                 background-size: 1.5rem;
-                background-position: right 0.875rem center;
+                background-position: right 0.75rem center;
                 padding-right: 2.625rem;
                 cursor: pointer;
 
@@ -56,13 +60,20 @@
 
         .topbar-options-wrapper {
             display: flex;
+            align-items: center;
 
             .topbar-option {
                 margin-left: 2rem;
                 line-height: 1;
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+
 
                 .topbar-option-icon {
                     color: $grey;
+                    display: flex;
+                    align-items: center;
 
                     i {
                         font-size: 2rem;
@@ -83,10 +94,18 @@
 
     @include media-breakpoint-down(md) {
         justify-content: center;
-        padding-right: 104px !important;
+
+        .topbar-logo {
+            &:not(.mobile-visible) {
+                display: none;
+            }
+        }
 
         .topbar-page-title {
-            display: none;
+
+            &:not(.mobile-visible) {
+                display: none;
+            }
         }
 
         .topbar-options {
@@ -99,6 +118,7 @@
                         background-color: unset;
                         margin-right: 0;
                         background-position: right 0 center;
+                        background-size: 2rem;
                     }
                 }
 
@@ -110,9 +130,6 @@
         }
 
         .avatar-info {
-            position: absolute;
-            right: 16px;
-
             .avatar-wrapper {
                 margin-right: 0;
             }
@@ -135,8 +152,6 @@
         }
 
         .topbar-page-title {
-            display: none;
-            font-size: 0.875rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;

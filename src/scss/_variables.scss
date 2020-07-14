@@ -257,13 +257,12 @@ $sidebar-footer-height:64px;
 $sidebar-bg:$white;
 
 
-
-/* Sidebar
+/* Topbar
 ------------------------------------
 */
 
-$sidebar-footer-height:64px;
 $topbar-bg:$white;
+$topbar-font-size: $font-size-base*1.125 !default;
 
 
 /* Layout
@@ -271,7 +270,26 @@ $topbar-bg:$white;
 */
 
 $sidebar-width:240px;
-$topbar-height:64px;
+$topbar-height:56px;
+$tabbar-height:72px;
+
+$sidebar-sm-width:$sidebar-width;
+$topbar-sm-height:$topbar-height;
+$tabbar-sm-height:$tabbar-height;
+
+$sidebar-md-width:$sidebar-width;
+$topbar-md-height:$topbar-height;
+$tabbar-md-height:$tabbar-height;
+
+$sidebar-lg-width:320px;
+$topbar-lg-height:56px;
+$tabbar-lg-height:72px;
+
+$sidebar-xl-width:$sidebar-lg-width;
+$topbar-xl-height:$topbar-lg-height;
+$tabbar-xl-height:$tabbar-lg-height;
+
+
 
 
 /* Form Styles

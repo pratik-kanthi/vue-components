@@ -135,6 +135,12 @@ const sideBarModule = {
                 path: '/timepicker',
                 icon:'calendar_view_day'
             },
+            {
+                name: 'Modal',
+                path: '/modal',
+                icon:'filter_9'
+                
+            }
             ]
         },{
             menuTitle:'Views',
@@ -156,13 +162,47 @@ const sideBarModule = {
             },
             ]
         }
-        ]
-       
+        ],
+    }
+};
+
+const navModule={
+    state:{
+        menuItems:[{
+            name: 'Dashboard',
+            path: '/dashboard',
+            icon:'dashboard'
+        },
+        {
+            name: 'Jobs',
+            path: '/jobs',
+            icon:'assignment_turned_in',
+            badgeOptions:{
+                size:20,
+                color:'#FC5A5A',
+                position:'top-right',
+                text:'999'
+            }
+            
+        },
+        {
+            name: 'Payments',
+            path: '/payments',
+            icon:'post_add'
+            
+        },
+        {
+            name: 'Profile',
+            path: '/profile',
+            icon:'person_outline'
+            
+        }]
     }
 };
 
 export const store = new Vuex.Store({
     modules: {
-        sideBarModule
+        sideBarModule,
+        navModule
     }
 });

@@ -8,7 +8,7 @@
                 <h6 class="menu-title" v-if="item.menuTitle">{{ item.menuTitle }}</h6>
                 <ul class="menu">
                     <li v-for="(route, key) in item.menuItems" :key="key" :class="{'has-dropdown':route.subItems && route.subItems.length>0}"> 
-                        <router-link v-if="!route.subItems" :to="route.path" active-class="active">
+                        <router-link v-if="!route.subItems" :to="route.path" active-class="active" @click.native="toggleSidebar">
                             <i class="material-icons" v-if="route.icon">{{ route.icon }}</i>
                             <span v-text="route.name"></span>
                         </router-link>
@@ -19,7 +19,7 @@
                         </a>
                         <ul class="sub-nav" v-if="route.subItems && route.expanded" :class="{open: route.expanded}">
                             <li>
-                                <router-link :to="subRoute.path" active-class="active" v-for="(subRoute, subKey) in route.subItems" :key="subKey">
+                                <router-link :to="subRoute.path" active-class="active" v-for="(subRoute, subKey) in route.subItems" :key="subKey" @click.native="toggleSidebar">
                                     <span v-text="subRoute.name"></span>
                                 </router-link>
                             </li>
@@ -52,15 +52,13 @@ export default {
             required:true
         }
     },
-    data() {
-        return {
-            routes: []
-        };
-    },
     methods: {
         expandNav(route) {
             route.expanded = !route.expanded;
         },
+        toggleSidebar(){
+            this.$parent.$emit('toggle-sidebar');
+        }
     },
     created() {
         let err = '';

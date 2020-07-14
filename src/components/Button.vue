@@ -95,7 +95,7 @@ export default {
             if (this.loaderImage) {
                 return this.loaderImage;
             }
-            return require('../assets/loader.svg');
+            return require('@e9ine/vue_components/src/assets/loader.svg');
         }
     },
     created() {

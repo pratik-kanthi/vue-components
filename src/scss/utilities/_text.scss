@@ -1,15 +1,28 @@
-.text-left {
-    text-align: left !important;
-}
-
-.text-right {
-    text-align: right !important;
-}
-
-.text-center {
-    text-align: center !important;
-}
-
 .pointer{
     cursor: pointer;
 }
+
+ .t-xxl {
+    font-size: 1.875rem;
+  }
+
+  .t-xl {
+    font-size: 1.5rem;
+
+  }
+
+  .t-l {
+    font-size: 1.25rem;
+  }
+
+  .t-s {
+    font-size: 0.75rem;
+  }
+
+  .t-xs {
+    font-size: 0.625rem;
+  }
+
+  .t-xxs {
+    font-size: 0.5rem;
+  }

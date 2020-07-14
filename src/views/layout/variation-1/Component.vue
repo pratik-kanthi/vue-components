@@ -21,6 +21,11 @@ export default {
         return {
             sidebarOn: false
         };
-    }
+    },
+    mounted(){
+        this.$on('toggle-sidebar', function() {
+            this.sidebarOn=false;
+        });
+    },
 };
 </script>

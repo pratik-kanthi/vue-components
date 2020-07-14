@@ -26,6 +26,7 @@ import ShimmerExample from '@/app/components/ShimmerExample';
 import CalendarExample from '@/app/components/CalendarExample';
 import SelectionIndicators from '@/app/components/SelectionIndicators';
 import TimepickerExample from '@/app/components/TimepickerExample';
+import ModalExample from '@/app/components/ModalExample';
 
 export const routes= [
     {
@@ -172,5 +173,10 @@ export const routes= [
         path: '/timepicker',
         name: 'Timepicker',
         component: TimepickerExample,
+    },                            
+    {
+        path: '/modal',
+        name: 'Modal',
+        component: ModalExample,
     }                            
 ];
