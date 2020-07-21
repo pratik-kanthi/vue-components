@@ -1,56 +1,131 @@
-import Vue from 'vue';
-import ModalDialog from '@/components/modal/ModalDialog';
-let modalInstance;
+import Button from '../Button';
+
 export default {
+    name: 'Modal',
     props: {
         size: {
             type: String
         },
         centered:{
             type:Boolean
+        },
+        show: {
+            type: Boolean
         }
     },
-    render(){
-        return this.$slots.body;
+    model: {
+        prop: 'show'
+    },
+    render(h){
+        if (this.show) {
+            return h('div', {
+                class: 'modal-mask'
+            }, [
+                h('div', {
+                    class: 'modal-wrapper'
+                }, [this.setupModal(h)])
+            ]);
+        }
     },
     methods: {
-        open(){      
-            let ComponentClass = Vue.extend(ModalDialog);
-            modalInstance = new ComponentClass({
-                propsData: this.$props
-            });
-            modalInstance.$slots.header = this.$slots.header;
-            modalInstance.$slots.title = this.$slots.title;
-            modalInstance.$slots.body = this.$slots.body;
-            modalInstance.$slots.footer = this.$slots.footer;
-
-            modalInstance.$on('closed', this.close);
-            modalInstance.$on('opened', ()=>{
-                this.$emit('opened');
-            });
-            modalInstance.$mount();
-            $('body').append(modalInstance.$el);
-         
+        cancel(){
+            this.$emit('cancel');
         },
-        close(){
-            this.$emit('closed');
-            $(modalInstance.$el).remove();
-            modalInstance.$destroy(true);
+        save() {
+            this.$emit('save');
+        },
+        setupModal(h) {
+            return h('div', {
+                class: 'modal-container'
+            }, [this.setupHeader(h), this.setupBody(h), this.setupFooter(h)]); // this.setupBody(h), this.setupFooter(h)
+        },
+        setupHeader(h) {
+            if (this.$slots.header) {
+                return h('div', {
+                    class: 'modal-header'
+                }, this.$slots.header);
+            } else if (this.$slots.title) {
+                return h('div', {
+                    class: 'modal-header'
+                }, [
+                    this.setupHeaderTitle(h, this.$slots.title),
+                    this.setupHeaderCloseButton(h)
+                ]);
+            } else {
+                return h('div', {
+                    class: 'modal-header'
+                }, [
+                    this.setupHeaderTitle(h),
+                    this.setupHeaderCloseButton(h)
+                ]);
+            }
+        },
+        setupHeaderTitle(h, slot) {
+            return h('h4', {}, slot);
+        },
+        setupHeaderCloseButton(h) {
+            const src = require('../../assets/close-dark.svg');
+            return h('a', {
+                class: 'modal-close',
+                on: {
+                    click: this.cancel
+                }
+            }, [
+                this.setupHeaderTitle(h),
+                h('img', {
+                    attrs: {
+                        src: src,
+                        alt: 'close',
+                    },
+                    class: 'float-right'
+                })
+            ]);
+        },
+        setupBody(h) {
+            return h('div', {
+                class: 'modal-body'
+            }, this.$slots.body);
+        },
+        /*
+         * Footer should be visible with default buttons if slot not provided
+         */
+        setupFooter(h) {
+            debugger
+            if (this.$slots.footer) {
+                return h('div', {
+                    class: 'modal-footer'
+                }, this.$slots.footer);
+            } else {
+                return h('div', {
+                    class: 'modal-footer'
+                }, [
+                    this.setupFooterButtons(h)
+                ]);
+            }
+        },
+        setupFooterButtons(h) {
+            return [
+                h(Button, {
+                    props: {
+                        type: 'primary',
+                        action: this.save,
+                        text: 'OK'
+                    }
+                }),
+                h(Button, {
+                    props: {
+                        type: 'secondary',
+                        action: this.cancel,
+                        text: 'Cancel'
+                    }
+                })
+            ];
         }
     },
-    updated () {
-        modalInstance.$slots.header = this.$slots.header;
-        modalInstance.$slots.title = this.$slots.title;
-        modalInstance.$slots.body = this.$slots.body;
-        modalInstance.$slots.footer = this.$slots.footer;
-        modalInstance.$forceUpdate();
-        // this.observer = new MutationObserver(function(mutations) {
-        //     this.number++;
-        //     debugger;
-        // }.bind(this));
-        // this.observer.observe(
-        //     $('.modal-container')[0],
-        //     { attributes: true, childList: true, characterData: true, subtree: true }
-        // );
+    mounted() {
+        this.$root.$el.append(this.$el);
     },
+    destroyed() {
+        this.$el.parentNode.removeChild(this.$el);
+    }
 };
