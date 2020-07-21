@@ -4,12 +4,12 @@
     align-items: center;
 
     .avatar-wrapper {
-        margin-right: 0.75rem;
         display: flex;
         align-items: center;
     }
 
     .info-wrapper {
+        margin-left: 0.75rem;
         h4 {
             font-size: $avatar-info-title-size;
             margin-bottom: 0;

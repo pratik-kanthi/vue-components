@@ -18,7 +18,7 @@
                 </SideBar>
             </template>
             <template v-slot:topbar>
-                <TopBar :topbar-options="topbarOptions" :avatar-info-options="avatarInfoOptions" :avatar-options="avatarOptions" :search-options="searchOptions" :search-text.sync="searchText" :page-title="pageTitle" :logo="logo"></TopBar>
+                <TopBar :topbar-options="topbarOptions" :avatar-options="avatarOptions" :search-options="searchOptions" :search-text.sync="searchText" :page-title="pageTitle" :logo="logo"></TopBar>
             </template>
             <template v-slot:breadcrumbs>
                 <Breadcrumbs></Breadcrumbs>
@@ -52,9 +52,9 @@ export default {
             searchText:'',
             searchOptions:{
                 placeholder:'Type to search..',
-                // clickAction:function () {
-                //     console.log('search clicked');
-                // },
+                clickAction:function () {
+                    console.log('search clicked');
+                },
                 mobile:false
             },
             logo:{
@@ -64,11 +64,13 @@ export default {
             pageTitle:{
                 text:'Vu[e9] Components',
                 align:'left',
-                mobile:true
+                mobile:false
             },
-            avatarInfoOptions:{
+            avatarOptions:{
                 title:'Soumya Kanthi',
                 subtitle:'Logout',
+                imageUrl:'https://66.media.tumblr.com/3f6c3a89a576a4a09a2ea18c5f2d5da9/tumblr_pk0lqkbqM31ss2e34o1_1280.jpg',
+                size:36,
                 subtitleOptions: {
                     clickAction:function () {
                         console.log('logout');
@@ -81,10 +83,6 @@ export default {
                     name: 'Navigate',
                     href: 'https://www.yahoo.com',
                 }]
-            },
-            avatarOptions:{
-                imageUrl:'https://66.media.tumblr.com/3f6c3a89a576a4a09a2ea18c5f2d5da9/tumblr_pk0lqkbqM31ss2e34o1_1280.jpg',
-                size:36,
             },
             topbarOptions:[{
                 icon:'notifications_none',

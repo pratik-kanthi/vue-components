@@ -4,6 +4,7 @@ const path = require('path');
 module.exports = {
     head: [
         ['link', { rel: 'icon', href: 'https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png' }],
+        ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }],
         ['script', {src: 'https://code.jquery.com/jquery-3.4.1.min.js'}]
     ],
     title: 'Vu[e9] Components',

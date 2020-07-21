@@ -1109,8 +1109,7 @@ The Topbar may contain your page title, logo, search box, shortcuts, avatar prof
 |----------|------|--------|-----------|-------------|
 | logo | `Object` ||| Logo to be displayed to the left of the topbar. Refer ***logo*** object below. |
 | page-title | `Object` ||| Text to be displayed next to the logo. Refer ***page-title*** object below. |
-| avatar-options | `Object` ||| Configuration object for the profile avatar to the right of the topbar. Refer [Avatar](/components/#avatar) component for all the configuration options. |
-| avatar-info-options | `Object` ||| Configuration object for the profile avatar info wrapping the avatar profile. Refer [Avatar Info](/components/#avatar-info) component for all the configuration options. |
+| avatar-options | `Object` ||| Configuration object for the profile avatar to the right of the topbar. Refer [Avatar](/components/#avatar) & [Avatar Info](/components/#avatar-info) components for all the configuration options. |
 | topbar-options | `Array` ||| Array of objects for showing the shortcuts. Refer ***topbar-options*** table below for all the configuration options. |
 | search-options | `Object` ||| Configuration object for the search box. Refer ***search-options*** below for all the configuration options. 
 | search-text | `String` ||| The property with which the search input value should be synced with. |
@@ -1229,3 +1228,35 @@ export default {
 
 ![Example](/assets/components/tabbar.png)
 
+## Modal
+
+A modal is a window overlaid on either the primary window or another dialog window. Contents behind a modal dialog are inert meaning that users cannot interact with content behind the dialog.
+
+**Properties**
+| Property | Type | Default | Required | Description |
+|----------|------|--------|-----------|-------------|
+| size | `String` | `md` || Modals have three optional sizes, available via the prop size. These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports. Valid optional sizes are `sm`, `lg`, `md` and `xl`. |
+| centered | `Boolean` | `false`|| Vertically center your modal in the viewport by setting the centered prop. |
+
+
+**Slots**
+
+* ***title:*** Use this slot to place content in the modal's title. 
+* ***header:*** Use this slot to place content in the header. Replaces the entire header including the close button
+* ***body:*** Use this slot to place content in the body. 
+* ***footer:*** Use this slot to place content in the footer. 
+
+**Events**
+
+* ***opened:*** This event is emitted when the modal is opened.
+* ***closed:*** This event is emitted when the close icon is clicked & also when the modal is closed by calling the `close` method.
+
+**Methods**
+
+* ***open:*** Use this method to open the modal.
+* ***close:*** Use this method to close the modal.
+
+<SplitTab>
+  <ModalExample slot="example"/>
+  <<< @/docs/.vuepress/components/ModalExample.vue
+</splitTab>

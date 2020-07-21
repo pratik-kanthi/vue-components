@@ -1,5 +1,5 @@
 <template>
-    <TopBar :topbar-options="topbarOptions" :avatar-options="avatarOptions" :avatar-info-options="avatarInfoOptions" :search-options="searchOptions" :search-text.sync="searchText" :logo="logo" :page-title="pageTitle"></TopBar>
+    <TopBar :topbar-options="topbarOptions" :avatar-options="avatarOptions" :search-options="searchOptions" :search-text.sync="searchText" :logo="logo" :page-title="pageTitle"></TopBar>
 </template>
 
 <script>
@@ -22,14 +22,12 @@ export default {
             pageTitle:{
                 text:"Vu[e9] Components"
             },
-            avatarOptions:{
-                imageUrl:"https://66.media.tumblr.com/3f6c3a89a576a4a09a2ea18c5f2d5da9/tumblr_pk0lqkbqM31ss2e34o1_1280.jpg",
-                size:"48"
-            },
-            avatarInfoOptions:{
+             avatarOptions:{
                 title:'Soumya Kanthi',
                 subtitle:'Logout',
-                subtitleOption: {
+                imageUrl:'https://66.media.tumblr.com/3f6c3a89a576a4a09a2ea18c5f2d5da9/tumblr_pk0lqkbqM31ss2e34o1_1280.jpg',
+                size:36,
+                subtitleOptions: {
                     clickAction:function () {
                         console.log('logout');
                     },
@@ -40,7 +38,7 @@ export default {
                 }, {
                     name: 'Navigate',
                     href: 'https://www.yahoo.com',
-                }],
+                }]
             },
             topbarOptions:[{
                 icon:'notifications_none',

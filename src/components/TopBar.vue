@@ -25,9 +25,9 @@
             </div>
             <slot></slot>
         </div>
-        <AvatarInfo v-bind="avatarInfoOptions" v-if="avatarInfoOptions">
+        <AvatarInfo v-bind="avatarOptions" v-if="avatarOptions">
             <template v-slot:avatar>
-                <Avatar v-bind="avatarOptions"></Avatar>
+                <Avatar :text="avatarOptions.title" :size="avatarOptions.size" :variant="avatarOptions.variant" :gravatar-email="avatarOptions.gravatarEmail" :image-url="avatarOptions.imageUrl"></Avatar>
             </template>
         </AvatarInfo>
     </div>
@@ -47,9 +47,6 @@ export default {
             type: Object
         },
         pageTitle:{
-            type: Object
-        },
-        avatarInfoOptions: {
             type: Object
         },
         avatarOptions: {

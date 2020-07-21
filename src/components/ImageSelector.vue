@@ -1,13 +1,10 @@
 <template>
-    <b-modal v-model="showCropper" persistent no-close-on-esc no-close-on-backdrop hide-footer data-app size="lg">
-        <button slot="modal-header-close" @click="cancel" class="close">
-            ×
-        </button>
-        <template v-slot:modal-title>
-            <h3 class="section-title">Select &amp; Crop Image</h3>
+    <Modal size="lg" @close="cancel" ref="imageSelectorModal">
+        <template v-slot:title>
+            Select &amp; Crop Image
         </template>
-        <div class="pl16 pr16">
-            Please choose an image and crop the section you would like to upload.
+        <template v-slot:body>
+            <p>Please choose an image and crop the section you would like to upload.</p>     
             <div class="mt16">
                 <h4 class="section-subtitle mt0 mb8">1. Choose File</h4>
                 <input type="file" @change="fileUploaded" accept="image/*" ref="fileUpload" />
@@ -25,12 +22,15 @@
                     <i class="material-icons">crop</i>
                 </Button>
             </div>
-        </div>
-    </b-modal>
+        </template>
+    </Modal>
 </template>
 
 <script>
 import {Cropper} from 'vue-advanced-cropper';
+import Modal from '@/components/modal';
+import Button from '@/components/Button';
+
 export default {
     name: 'ImageSelector',
     props: {
@@ -50,7 +50,9 @@ export default {
         }
     },
     components: {
-        Cropper
+        Cropper,
+        Modal,
+        Button
     },
     data() {
         return {
@@ -104,7 +106,8 @@ export default {
                 // Image is validated
                 this.isValid = true;
                 reader.onload = (e) => {
-                    this.upload.src = e.target.result;
+                    this.$set(this.upload, 'src',e.target.result);
+                    // this.upload.src = e.target.result;
                 };
                 reader.readAsDataURL(this.upload.chosen);
             };
@@ -143,6 +146,9 @@ export default {
             } catch (err) {
                 console.error(err);
             }
+        },
+        open(){
+            this.$refs.imageSelectorModal.open();
         }
     }
 };

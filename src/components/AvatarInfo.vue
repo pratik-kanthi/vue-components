@@ -4,7 +4,7 @@
             <slot name="avatar">
             </slot>
         </div>
-        <div class="info-wrapper">
+        <div class="info-wrapper" v-if="title||subtitle">
             <h4>{{ title }}</h4>
             <p>
                 <a :href="subtitleOptions.href" @click="handleAction(subtitleOptions.clickAction)" v-if="subtitleOptions.href || subtitleOptions.clickAction">

@@ -168,7 +168,3 @@ export default {
         }
     }
 </style>
-<style lang="scss">
-    $material-icons-font-path: '~material-icons/iconfont/';
-    @import '~material-icons/iconfont/material-icons.scss';
-</style>

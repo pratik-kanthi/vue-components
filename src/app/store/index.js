@@ -9,7 +9,7 @@ const sideBarModule = {
             menuItems: [{
                 name: 'Avatar',
                 path: '/avatar',
-                icon:'person'
+                icon:'api'
             },
             {
                 name: 'Avatar Info',

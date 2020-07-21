@@ -29,9 +29,6 @@
     .icon,
     .loader {
         margin-right: .5rem;
-        &:empty{
-            margin-right:0;
-        }
     }
 
     &-xs {

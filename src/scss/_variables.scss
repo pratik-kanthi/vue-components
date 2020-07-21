@@ -1,4 +1,3 @@
-
 /* Brand Colours
 ------------------------------------
 */
@@ -38,7 +37,7 @@ $success: $green !default;
 $warning: $orange !default;
 $link: $blue !default;
 $error: $red !default;
-$danger:$red!default;
+$danger:$red !default;
 $info: $blue !default;
 
 /* Greys
@@ -102,13 +101,11 @@ $yiq-contrasted-threshold: 200 !default;
 /* Responsive Breakpoints
 ------------------------------------
 */
-$grid-breakpoints: (
-  xs: 0,
+$grid-breakpoints: (xs: 0,
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
-) !default;
+  xl: 1200px) !default;
 
 
 /* Link Style
@@ -137,7 +134,7 @@ $avatar-info-subtitle-action:$brand-primary !default;
 ------------------------------------
 */
 $breadcrumbs-bg: $light !default;
-$breadcrumbs-padding: 0.75rem $default-content-padding  !default;
+$breadcrumbs-padding: 0.75rem $default-content-padding !default;
 $breadcrumbs-font-size:$font-size-base !default;
 
 /* Buttons
@@ -152,8 +149,7 @@ $button-colors:("primary": $brand-primary,
   "warning": $warning,
   "danger": $danger,
   "light": $light,
-  "dark": $dark
-) !default;
+  "dark": $dark) !default;
 $enable-button-box-shadows: false !default;
 $btn-border-width:$border-width;
 
@@ -221,7 +217,7 @@ $panel-height:null !default;
 $panel-bg:$white !default;
 $panel-border-width: $border-width !default;
 $panel-border-radius:$border-radius !default;
-$panel-spacer:$default-content-padding!default;
+$panel-spacer:$default-content-padding !default;
 $panel-box-shadow:none !default;
 $panel-border-color: $line-color;
 
@@ -315,3 +311,20 @@ $shimmer-body-color: #eee !default;
 $shimmer-border-radius: $border-radius !default;
 $shimmer-line-height: 15px !default;
 $shimmer-spacing: $default-content-padding !default;
+
+
+/* Shimmer
+------------------------------------
+*/
+
+$modal-backdrop-opacity:0.5;
+$modal-xl: 1140px !default;
+$modal-lg: 800px !default;
+$modal-md: 500px !default;
+$modal-sm: 300px !default;
+$modal-border-radius: $border-radius !default;
+$modal-content-padding: $default-content-padding !default;
+$modal-backdrop-bg: $black !default;
+$modal-backdrop-opacity: .5 !default;
+$modal-bg:$white;
+$modal-box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !default;
