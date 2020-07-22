@@ -2,7 +2,7 @@
     <div>
         <Button size="md" type="primary" text="Create" :action="showModal"></Button>
         <Button size="md" type="danger" text="Delete" :action="showModal2" class="ml-2"></Button>
-        <Modal v-model="show1" size="md" @cancel="cancel" @save="modalOKed">
+        <Modal v-model="show1" size="md" @cancel="cancel" @save="modalOKed" centered>
             <template v-slot:title>
                 {{ header }}
             </template>
@@ -15,9 +15,9 @@
             </template>
         </Modal>
         <Modal v-model="show2" size="md" @cancel="cancel" @save="modalOKed">
-<!--            <template v-slot:title>-->
-<!--                {{ header2 }}-->
-<!--            </template>-->
+            <template v-slot:title>
+                {{ header2 }}
+            </template>
             <template v-slot:body>
                 <p>Are you sure you want to delete this item?</p>
             </template>

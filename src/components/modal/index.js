@@ -4,10 +4,8 @@ export default {
     name: 'Modal',
     props: {
         size: {
-            type: String
-        },
-        centered:{
-            type:Boolean
+            type: String,
+            default: 'md'
         },
         show: {
             type: Boolean
@@ -19,10 +17,10 @@ export default {
     render(h){
         if (this.show) {
             return h('div', {
-                class: 'modal-mask'
+                class: ['modal-mask', this.$attrs.hasOwnProperty('centered') ? 'centered' : null]
             }, [
                 h('div', {
-                    class: 'modal-wrapper'
+                    class: ['modal-wrapper', 'modal-'+this.size]
                 }, [this.setupModal(h)])
             ]);
         }
@@ -90,7 +88,6 @@ export default {
          * Footer should be visible with default buttons if slot not provided
          */
         setupFooter(h) {
-            debugger
             if (this.$slots.footer) {
                 return h('div', {
                     class: 'modal-footer'
