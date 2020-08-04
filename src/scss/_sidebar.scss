@@ -81,7 +81,7 @@
                                 margin-left: 2.25rem;
                                 border-left: 3px solid $brand-primary;
                                 padding: 0.5rem 1.5rem 0.5rem 1rem;
-                                font-size: 0.875rem;
+                                font-size: 1rem;
 
                                 &::before {
                                     content: '';
@@ -188,6 +188,7 @@
                         >li {
                             >a {
                                 margin-left: 2rem;
+                                font-size: 0.875rem;
                             }
                         }
                     }

@@ -1,7 +1,7 @@
 <template>
     <div>
         <Button size="md" type="primary" text="Launch Modal" :action="showModal"></Button>
-        <Modal ref="modalExample" size="md" @opened="modalOpended" @closed="modalClosed">
+        <Modal v-model="show" size="lg" centered>
             <template v-slot:title>
                 Delete
             </template>
@@ -10,7 +10,7 @@
             </template>
             <template v-slot:footer>
                 <Button size="md" type="border-primary" text="Cancel" :action="cancel"></Button>
-                <Button size="md" type="primary" text="Delete"></Button>
+                <Button size="md" type="primary" text="Delete" :action="deleteItem"></Button>
             </template>
         </Modal>
     </div>
@@ -25,17 +25,14 @@ export default {
     },
     methods: {
         showModal() {
-            this.$refs.modalExample.open();
+            this.show = true;
         },
-        cancel(){
-            this.$refs.modalExample.close();
+        cancel() {
+            this.show = false;
         },
-        modalOpended(){
-            console.log('opened');
-        },
-        modalClosed(){
-            console.log('closed');
+        deleteItem() {
+            this.show = false;
         }
-    }, 
+    }
 };
 </script>

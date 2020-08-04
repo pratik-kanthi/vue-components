@@ -1,19 +1,17 @@
 <template>
     <div class="app">
-        <LayoutVariation1 :show-back-btn="true">
+        <LayoutVariation2 :show-back-btn="true">
             <template v-slot:sidebar>
-                <SideBar :compact="true" :primary="false" :menu="menu">
+                <SideBar :compact="false" :primary="false" :menu="menu">
                     <template v-slot:sidebarTop>
                         <div class="logo-wrapper">
-                            <img src="https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png" alt="">
+                            <img src="https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png" alt="" />
                         </div>
                         <h6>E9ine Ltd.</h6>
                         <p>ID 12354320</p>
                     </template>
                     <template v-slot:sidebarBottom>
-                        <div class="footer-wrapper">
-                            <span>Powered by</span> <img src="https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png" alt="">
-                        </div>
+                        <div class="footer-wrapper"><span>Powered by</span> <img src="https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png" alt="" /></div>
                     </template>
                 </SideBar>
             </template>
@@ -26,12 +24,12 @@
             <template v-slot:tabbar>
                 <TabBar :menu="tabBarMenu"></TabBar>
             </template>
-        </LayoutVariation1>
+        </LayoutVariation2>
     </div>
 </template>
 
 <script>
-import LayoutVariation1 from '@/views/layout/variation-1/Component';
+import LayoutVariation2 from '@/views/layout/variation-2/Component';
 import SideBar from '@/components/SideBar';
 import TopBar from '@/components/TopBar';
 import TabBar from '@/components/TabBar';
@@ -39,7 +37,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 
 export default {
     components: {
-        LayoutVariation1,
+        LayoutVariation2,
         SideBar,
         TopBar,
         TabBar,
@@ -47,81 +45,85 @@ export default {
     },
     data() {
         return {
-            menu:this.$store.state.sideBarModule.menu,
-            tabBarMenu:this.$store.state.navModule.menuItems,
-            searchText:'',
-            searchOptions:{
-                placeholder:'Type to search..',
-                clickAction:function () {
+            menu: this.$store.state.sideBarModule.menu,
+            tabBarMenu: this.$store.state.navModule.menuItems,
+            searchText: '',
+            searchOptions: {
+                placeholder: 'Type to search..',
+                clickAction: function() {
                     console.log('search clicked');
                 },
-                mobile:false
+                mobile: true
             },
-            logo:{
-                url:'https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png',
-                mobile:true
+            logo: {
+                url: 'https://htmlsigs.s3.amazonaws.com/logos/files/001/087/329/landscape/e9ineLogo.png',
+                mobile: false
             },
-            pageTitle:{
-                text:'Vu[e9] Components',
-                align:'left',
-                mobile:false
+            pageTitle: {
+                text: 'Vu[e9] Components',
+                align: 'left',
+                mobile: true
             },
-            avatarOptions:{
-                title:'Soumya Kanthi',
-                subtitle:'Logout',
-                imageUrl:'https://66.media.tumblr.com/3f6c3a89a576a4a09a2ea18c5f2d5da9/tumblr_pk0lqkbqM31ss2e34o1_1280.jpg',
-                size:36,
+            avatarOptions: {
+                title: 'Soumya Kanthi',
+                subtitle: 'Logout',
+                imageUrl: 'https://66.media.tumblr.com/3f6c3a89a576a4a09a2ea18c5f2d5da9/tumblr_pk0lqkbqM31ss2e34o1_1280.jpg',
+                size: 36,
                 subtitleOptions: {
-                    clickAction:function () {
-                        console.log('logout');
+                    href: 'https://www.google.com'
+                },
+                avatarActions: [
+                    {
+                        name: 'Account',
+                        href: 'https://www.google.com'
                     },
-                },
-                avatarActions: [{
-                    name: 'Account',
-                    href: 'https://www.google.com',
-                }, {
-                    name: 'Navigate',
-                    href: 'https://www.yahoo.com',
-                }]
+                    {
+                        name: 'Navigate',
+                        href: 'https://www.yahoo.com'
+                    }
+                ]
             },
-            topbarOptions:[{
-                icon:'notifications_none',
-                text:'Notifications',
-                type:'icon',
-                pending:true,
-                clickAction:function () {
-                    console.log('notifications');
+            topbarOptions: [
+                {
+                    icon: 'notifications_none',
+                    text: 'Notifications',
+                    type: 'icon',
+                    pending: true,
+                    clickAction: function() {
+                        console.log('notifications');
+                    },
+                    mobile: true
                 },
-                mobile:false
-            },{
-                icon:'chat_bubble_outline',
-                text:'Messages',
-                type:'icon',
-                clickAction:function () {
-                    console.log('messages');
+                {
+                    icon: 'chat_bubble_outline',
+                    text: 'Messages',
+                    type: 'icon',
+                    clickAction: function() {
+                        console.log('messages');
+                    },
+                    mobile: true
                 },
-                mobile:false
-            },
-            {
-                text:'New Todo',
-                type:'btn',
-                btnClass:'primary',
-                icon:'add_circle_outline',
-                clickAction:function () {
-                    console.log('new todo');
-                },
-                mobile:false
-            }]
+                {
+                    text: 'New Todo',
+                    type: 'btn',
+                    btnClass: 'primary',
+                    icon: 'add_circle_outline',
+                    clickAction: function() {
+                        console.log('new todo');
+                    },
+                    mobile: false
+                }
+            ]
         };
     },
     methods: {
         logoutUser() {
             console.log('logout');
-        },
+        }
     },
     watch: {
         searchText(newVal, oldVal) {
-            console.log(oldVal+':'+newVal);
+            console.log(oldVal + ':' + newVal);
         }
     }
 };
@@ -173,7 +175,6 @@ export default {
 
                 p {
                     color: $light;
-
                 }
             }
 

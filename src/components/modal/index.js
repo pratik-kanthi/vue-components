@@ -6,117 +6,148 @@ export default {
         size: {
             type: String
         },
-        centered:{
-            type:Boolean
-        },
         show: {
             type: Boolean
+        },
+        hideFooter: {
+            type: Boolean,
+            default: false
         }
     },
     model: {
-        prop: 'show'
+        prop: 'show',
+        event: 'cancel'
     },
-    render(h){
+    render(h) {
         if (this.show) {
-            return h('div', {
-                class: 'modal-mask'
-            }, [
-                h('div', {
-                    class: 'modal-wrapper'
-                }, [this.setupModal(h)])
-            ]);
+            return h(
+                'transition',
+                {
+                    attrs: {
+                        name: 'modal',
+                        appear: true
+                    }
+                },
+                [
+                    h(
+                        'div',
+                        {
+                            staticClass: 'modal-mask'
+                        },
+                        [
+                            h(
+                                'div',
+                                {
+                                    staticClass: 'modal-wrapper',
+                                    class: 'modal-' + this.size
+                                },
+                                [this.setupModal(h)]
+                            )
+                        ]
+                    )
+                ]
+            );
         }
     },
     methods: {
-        cancel(){
-            this.$emit('cancel');
+        cancel() {
+            this.$emit('cancel', false);
         },
         save() {
             this.$emit('save');
         },
         setupModal(h) {
-            return h('div', {
-                class: 'modal-container'
-            }, [this.setupHeader(h), this.setupBody(h), this.setupFooter(h)]); // this.setupBody(h), this.setupFooter(h)
+            return h(
+                'div',
+                {
+                    class: 'modal-container'
+                },
+                [this.setupHeader(h), this.setupBody(h), this.setupFooter(h)]
+            );
         },
         setupHeader(h) {
             if (this.$slots.header) {
-                return h('div', {
-                    class: 'modal-header'
-                }, this.$slots.header);
+                return h(
+                    'div',
+                    {
+                        class: 'modal-header'
+                    },
+                    this.$slots.header
+                );
             } else if (this.$slots.title) {
-                return h('div', {
-                    class: 'modal-header'
-                }, [
-                    this.setupHeaderTitle(h, this.$slots.title),
-                    this.setupHeaderCloseButton(h)
-                ]);
+                return h(
+                    'div',
+                    {
+                        class: 'modal-header'
+                    },
+                    [this.setupHeaderTitle(h, this.$slots.title), this.setupHeaderCloseButton(h)]
+                );
             } else {
-                return h('div', {
-                    class: 'modal-header'
-                }, [
-                    this.setupHeaderTitle(h),
-                    this.setupHeaderCloseButton(h)
-                ]);
+                return h(
+                    'div',
+                    {
+                        class: 'modal-header'
+                    },
+                    [this.setupHeaderTitle(h), this.setupHeaderCloseButton(h)]
+                );
             }
         },
         setupHeaderTitle(h, slot) {
             return h('h4', {}, slot);
         },
         setupHeaderCloseButton(h) {
-            const src = require('../../assets/close-dark.svg');
             return h('a', {
                 class: 'modal-close',
                 on: {
                     click: this.cancel
                 }
-            }, [
-                this.setupHeaderTitle(h),
-                h('img', {
-                    attrs: {
-                        src: src,
-                        alt: 'close',
-                    },
-                    class: 'float-right'
-                })
-            ]);
+            });
         },
         setupBody(h) {
-            return h('div', {
-                class: 'modal-body'
-            }, this.$slots.body);
+            return h(
+                'div',
+                {
+                    class: 'modal-body'
+                },
+                this.$slots.body
+            );
         },
         /*
          * Footer should be visible with default buttons if slot not provided
          */
         setupFooter(h) {
-            debugger
             if (this.$slots.footer) {
-                return h('div', {
-                    class: 'modal-footer'
-                }, this.$slots.footer);
-            } else {
-                return h('div', {
-                    class: 'modal-footer'
-                }, [
-                    this.setupFooterButtons(h)
-                ]);
+                return h(
+                    'div',
+                    {
+                        class: 'modal-footer'
+                    },
+                    this.$slots.footer
+                );
+            } else if (!this.hideFooter) {
+                return h(
+                    'div',
+                    {
+                        class: 'modal-footer'
+                    },
+                    [this.setupFooterButtons(h)]
+                );
             }
         },
         setupFooterButtons(h) {
             return [
                 h(Button, {
                     props: {
-                        type: 'primary',
-                        action: this.save,
-                        text: 'OK'
+                        type: 'border-primary',
+                        action: this.cancel,
+                        text: 'Cancel'
                     }
                 }),
                 h(Button, {
                     props: {
-                        type: 'secondary',
-                        action: this.cancel,
-                        text: 'Cancel'
+                        type: 'primary',
+                        action: this.save,
+                        text: 'OK'
                     }
                 })
             ];

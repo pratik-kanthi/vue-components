@@ -1,22 +1,21 @@
 <template>
     <div class="avatar-info">
         <div class="avatar-wrapper">
-            <slot name="avatar">
-            </slot>
+            <slot name="avatar"> </slot>
         </div>
-        <div class="info-wrapper" v-if="title||subtitle">
+        <div class="info-wrapper" v-if="title || subtitle">
             <h4>{{ title }}</h4>
             <p>
                 <a :href="subtitleOptions.href" @click="handleAction(subtitleOptions.clickAction)" v-if="subtitleOptions.href || subtitleOptions.clickAction">
                     {{ subtitle }}
                 </a>
-                <span v-if="!subtitleOptions.href && !subtitleOptions.clickAction">
+                <span v-else>
                     {{ subtitle }}
                 </span>
             </p>
         </div>
         <div class="avatar-actions-wrapper" v-if="avatarActions">
-            <a class="avatar-actions-toggle" @click="toggleAvatarActions=!toggleAvatarActions">
+            <a class="avatar-actions-toggle" @click="toggleAvatarActions = !toggleAvatarActions">
                 <span class="material-icons">
                     arrow_drop_down
                 </span>
@@ -47,7 +46,7 @@ export default {
             }
         },
         avatarActions: {
-            type: Array,
+            type: Array
         }
     },
     data() {
@@ -57,7 +56,7 @@ export default {
     },
     methods: {
         handleAction(fn) {
-            if(fn) {
+            if (fn) {
                 fn();
             } else {
                 return false;
@@ -66,4 +65,3 @@ export default {
     }
 };
 </script>
-

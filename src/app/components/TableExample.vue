@@ -1,95 +1,142 @@
 <template>
     <div>
-        <div style="display: inline-block; margin-right: 16px; margin-bottom: 16px" v-for="(item,key) in Statuses" :key="key">
-            <input type="checkbox" v-model="filters.Status" :value="item"> {{ item }}
-        </div>
         <Table
-            :items="provider"
+            :items="items"
             :headings="columns"
             :on-row-click="rowClicked"
             :pagination.sync="pagination"
-            :filters="filters"
             :sort.sync="sort"
-            table-class="table-hover"
-            :tbody-td-class="tbodyTdClass"
-            :options="tableOptions">
-           
+            table-class="table-bordered"
+            thead-class="thead-light"
+            :options="tableOptions"
+        >
             <template v-slot:OS="data">
-                <div class="logo" :style="{'background-image': 'url(' + getImageUrl(data) +')'}"></div>
+                <div class="logo" :style="{'background-image': 'url(' + getImageUrl(data) + ')'}"></div>
             </template>
         </Table>
     </div>
 </template>
 
 <script>
-
 import Table from '@/components/Table';
-import axios from 'axios';
 
 export default {
-    name: 'TableExample',
+    name: 'NormalTable',
     components: {
         Table
     },
-    data () {
+    data() {
         return {
-            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiTW9uaWsgR3JvdmVyIiwiVXNlck5hbWUiOiJtb25pa0BlOWluZS5jb20iLCJVc2VySWQiOiI1ZDlkYTg3YzllYzIwZjU4MDQwODMxOTciLCJFeHBpcmVzQXQiOjE1OTM0NTkwNDA1MjQsIkNsYWltcyI6IlN0YWZmOjVkZTRjNDExNzk5Y2M5MjQ3OGY5NjQ4MSIsIk93bmVyIjp7IkRlbGV0ZWQiOmZhbHNlLCJfaWQiOiI1ZTc4YzY5ODI2MGM5NTZkYzE4NjlmZDciLCJUeXBlIjoiU3RhZmYiLCJUaXRsZSI6Ik1vbmlrIEdyb3ZlciIsIkVtYWlsIjoibW9uaWtAZTlpbmUuY29tIn0sImlhdCI6MTU5MzQzMDI0MH0.6JIzsn_IvqCwlg1ulzbXriVKe7dWp67Ltv-VffDAqJE',
             columns: [
                 {
-                    'key': 'Hostname'
+                    key: 'Hostname',
+                    sortable: true
                 },
                 {
-                    'key': 'OS',
+                    key: 'OS'
                 },
                 {
-                    'key': 'IPAddress'
+                    key: 'IPAddress'
                 },
                 {
-                    'key': 'LifeCycleStatus',
-                    'label': 'Status',
-                    'sortable': true
-                   
+                    key: 'LifeCycleStatus',
+                    label: 'Status',
+                    sortable: true
                 },
                 {
-                    'key': 'Environment',
+                    key: 'Environment',
                     class: (data) => {
                         return data.Environment;
+                    },
+                    formatter: (data) => {
+                        return data.toUpperCase();
                     }
                 },
                 {
-                    'key': 'Network'
+                    key: 'Network'
                 }
             ],
-            Statuses: ['Active','HardwareSupport','Hardware','LostAndFound','Project','SwitchedOff'],
-            filters: {
-                'Status':[],
-                'OSObsolescence':[],
-                'OSObsolescenceStage':[],
-                'HardwareObsolescenceStage':[],
-                'HardwareObsolescence':[],
-                'Manufacturers':[],
-                'ManufacturerModels':[],
-                'Teams':[],
-                'Sites':[],
-                'ServiceDeliveryManagers':[],
-                'ServiceDeliveryLeads':[],
-                'Services':[],
-                'OperatingSystemVersions':[],
-                'OperatingSystemFamilies':[],
-                'PhysicalVirtual':'',
-                'Type':''
-            },
-            sort: {
-                name: 'LifeCycleStatus',
-                value: 'asc'
-            },
+            items: [
+                {
+                    Hostname: 'e9ine-host01',
+                    IPAddress: '192.168.0.1',
+                    Network: 'CDN',
+                    LifeCycleStatus: 'Active',
+                    Environment: 'Live',
+                    Critical: 'ProductionCritical',
+                    OS: {Logo: 'https://storage.googleapis.com/oneview-production-bucket/resources/hpux.png'}
+                },
+                {
+                    Hostname: 'e9ine-host02',
+                    IPAddress: '192.168.0.2',
+                    Network: 'MBN',
+                    LifeCycleStatus: 'SwitchedOff',
+                    Environment: 'Live',
+                    OS: {Logo: 'https://storage.googleapis.com/oneview-production-bucket/resources/solaris.png'}
+                },
+                {Hostname: 'e9ine-host03', IPAddress: '192.168.1.199', Network: 'CDN', LifeCycleStatus: 'Active', Environment: 'prod', OS: {}},
+                {
+                    Hostname: 'e9ine-host04',
+                    IPAddress: '192.168.28.151',
+                    Network: 'CDN',
+                    LifeCycleStatus: 'Active',
+                    Environment: 'dr',
+                    OS: {Logo: 'https://storage.googleapis.com/oneview-production-bucket/resources/hpux.png'}
+                },
+                {Hostname: 'e9ine-host05', IPAddress: '192.168.2.0', Network: 'CDN', LifeCycleStatus: 'Active', Environment: 'prod', OS: {}},
+                {
+                    Hostname: 'e9ine-host06',
+                    IPAddress: '192.168.2.22',
+                    Network: 'CDN',
+                    LifeCycleStatus: 'Active',
+                    Environment: 'dr',
+                    OS: {Logo: 'https://storage.googleapis.com/oneview-production-bucket/resources/hpux.png'}
+                },
+                {
+                    Hostname: 'e9ine-host07',
+                    IPAddress: '192.168.11.11',
+                    Network: 'CDN',
+                    LifeCycleStatus: 'Active',
+                    Environment: 'dr',
+                    OS: {Logo: 'https://storage.googleapis.com/oneview-production-bucket/resources/ibm.png'}
+                },
+                {
+                    Hostname: 'e9ine-host08',
+                    IPAddress: '192.168.11.21',
+                    Network: 'CDN',
+                    LifeCycleStatus: 'Active',
+                    Environment: 'Live',
+                    OS: {Logo: 'https://storage.googleapis.com/oneview-production-bucket/resources/np_window-data-base_705788_2E4066.png'}
+                },
+                {
+                    Hostname: 'e9ine-host09',
+                    IPAddress: '192.168.11.30',
+                    Network: 'SDN',
+                    LifeCycleStatus: 'SwitchedOff',
+                    Environment: 'Live',
+                    OS: {Logo: 'https://storage.googleapis.com/oneview-production-bucket/resources/redhat.png'}
+                },
+                {
+                    Hostname: 'e9ine-host10',
+                    IPAddress: '192.168.110.22',
+                    Network: 'CDN',
+                    LifeCycleStatus: 'Active',
+                    Environment: 'Live',
+                    OS: {Logo: 'https://storage.googleapis.com/oneview-production-bucket/resources/hpux.png'}
+                }
+            ],
+            isPagination: false,
             pagination: {
-                perPage: 10,
+                perPage: 4,
                 totalItems: 0,
                 currentPage: 1,
-                threshold: 4,
+                threshold: 2,
                 showJumpToLast: true,
                 showJumpToFirst: true
+            },
+            sort: {
+                name: 'Hostname',
+                value: 'asc'
             },
             tableOptions: {
                 export: true,
@@ -106,62 +153,48 @@ export default {
             console.log(JSON.stringify(data));
         },
         tbodyTdClass(header, row) {
-            return row.LifeCycleStatus ;
-        },
-        provider(vm) {
-            return new Promise(async (resolve, reject) => {
-                try {
-                    let result = await axios.post(`https://oneview-api.ilooklike.me/api/component/search?text=&page=${vm.pagination.currentPage}&size=${vm.pagination.perPage}&sortby=${vm.sort.value === 'desc' ? '-': ''}${vm.sort.name}`, this.filters,{
-                        headers: {
-                            Authorization: 'Bearer ' + this.token,
-                            'Content-Type': 'application/json',
-                            Accepts: 'application/json'
-                        },
-                    });
-                    this.pagination.totalItems = result.data.count;
-                    resolve(result.data.data);
-                } catch (err) {
-                    return reject(err);
-                }
-            });
+            return row.LifeCycleStatus + ' pointer';
         }
     }
 };
 </script>
 
 <style lang="scss" scoped>
-    .logo {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background-size: cover;
-        background-position: center center;
-        background-color: white;
-    }
+.logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+    background-color: white;
+}
 </style>
-<style>
-    .Live {
+<style lang="scss">
+table {
+    display: table;
+    margin: 0;
+}
+.table-wrapper table tbody tr td {
+    &.Live {
         color: #4f4f4f;
     }
-    .Active {
-        background-color: #b2f2b1;
+    &.Active {
+        background-color: rgba(178, 242, 177, 0.65);
     }
-    .SwitchedOff {
-        background-color: #e7b2a9;
+    &.SwitchedOff {
+        background-color: rgba(231, 178, 169, 0.65);
     }
-    .Project {
+    &.Project {
         background-color: #f0e8f4;
     }
-    .LostAndFound {
+    &.LostAndFound {
         background-color: #ffebc3;
     }
-    .Hardware {
+    &.Hardware {
         background-color: #ffd8f9;
     }
-    .HardwareSupport {
+    &.HardwareSupport {
         background-color: #fdcbae;
     }
-    .pointer {
-        cursor: pointer;
-    }
+}
 </style>

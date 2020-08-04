@@ -10,6 +10,9 @@
         font-size: $topbar-font-size;
         margin-bottom: 0;
         width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &.align-center{
             text-align: center;
         }
@@ -38,6 +41,7 @@
             input {
                 padding: .375rem .75rem;
                 width: 275px;
+                min-width: 185px;
                 border: $border-width solid $line-color;
                 border-radius: $form-border-radius;
                 line-height: 1.5;
@@ -102,7 +106,6 @@
         }
 
         .topbar-page-title {
-
             &:not(.mobile-visible) {
                 display: none;
             }
@@ -113,6 +116,7 @@
                 input {
                     &[readonly] {
                         width: 0;
+                        min-width: 0;
                         border-color: transparent !important;
                         cursor: pointer;
                         background-color: unset;

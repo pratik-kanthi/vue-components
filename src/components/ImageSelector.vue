@@ -1,24 +1,27 @@
 <template>
-    <Modal size="lg" @close="cancel" ref="imageSelectorModal">
+    <Modal :size="size" v-model="showModal" @cancel="cancel" hide-footer :primary="$attrs.primary">
         <template v-slot:title>
             Select &amp; Crop Image
         </template>
         <template v-slot:body>
-            <p>Please choose an image and crop the section you would like to upload.</p>     
+            <p>Please choose an image and crop the section you would like to upload.</p>
             <div class="mt16">
-                <h4 class="section-subtitle mt0 mb8">1. Choose File</h4>
-                <input type="file" @change="fileUploaded" accept="image/*" ref="fileUpload" />
+                <h5>1. Choose File</h5>
+                <input type="file" @change="fileUploaded" accept="image/*" ref="fileUpload" id="file-upload" />
+                <label for="file-upload" class="custom-file-upload">
+                    <span class="btn btn-sm btn-primary">Choose file</span><span>{{ upload.chosen ? upload.chosen.name : 'No file chosen' }}</span>
+                </label>
             </div>
             <div v-if="upload.src" class="mt16">
-                <h4 class="section-subtitle mb16">2. Crop Image</h4>
-                <cropper classname="cropper" :src="upload.src" :stencil-props="stencilProps" @change="onChange"></cropper>
+                <h5>2. Crop Image</h5>
+                <cropper classname="cropper" :src="upload.src" :stencil-props="stencilProps" @change="onChange" ref="cropper"></cropper>
             </div>
             <div v-if="upload.src" class="upload-actions mt16">
-                <h4 class="section-subtitle mb16">3. Confirm</h4>
-                <Button text="Upload Uncropped" type="primary" :disabled="!isValid" :action="selectFullImage" custom-class="mr8">
+                <h5>3. Confirm</h5>
+                <Button text="Upload Uncropped" type="primary" :disabled="!isValid" :action="selectFullImage">
                     <i class="material-icons">crop_free</i>
                 </Button>
-                <Button text="Upload Cropped" type="secondary" :disabled="!isValid" :action="selectCroppedImage" custom-class="mr8">
+                <Button text="Upload Cropped" type="secondary" :disabled="!isValid" :action="selectCroppedImage">
                     <i class="material-icons">crop</i>
                 </Button>
             </div>
@@ -35,8 +38,11 @@ export default {
     name: 'ImageSelector',
     props: {
         show: {
-            type: Boolean,
-            default: false
+            type: Boolean
+        },
+        size: {
+            type: String,
+            default: 'lg'
         },
         config: {
             type: Object,
@@ -54,8 +60,13 @@ export default {
         Modal,
         Button
     },
+    model: {
+        prop: 'show',
+        event: 'cancel'
+    },
     data() {
         return {
+            showModal: false,
             upload: {
                 chosen: null,
                 src: null
@@ -77,37 +88,36 @@ export default {
         };
     },
     methods: {
-        close(image, cropInfo) {
-            this.$emit('close', {image, cropInfo});
+        close(image, cropInfo, src) {
+            this.$emit('close', {image, cropInfo, src});
+            this.$emit('cancel', false);
         },
         cancel() {
-            this.$emit('cancel');
+            this.$emit('cancel', false);
         },
         extractImage() {
             let img = new Image();
             let reader = new FileReader();
             img.onload = () => {
-
                 // Image Validation
                 if (this.config.minWidth) {
                     if (img.width < this.config.minWidth) {
-                        this.$swal('Warning', `Image width should be at least ${this.config.minWidth}px wide.`, 'warning');
+                        alert(`Image width should be at least ${this.config.minWidth}px wide.`);
                         return;
                     } else if (this.config.aspectRatio && img.width / this.config.aspectRatio > img.height) {
-                        this.$swal('Warning', 'Image does not match the required specification.', 'warning');
+                        alert('Image does not match the required specification.');
                         return;
                     }
                 }
                 if (this.config.maxSize && this.upload.chosen.size > 1024 * 1024 * this.config.maxSize) {
-                    this.$swal('Warning', `Image exceeds the minimum size of ${this.config.maxSize}MB`, 'warning');
+                    alert(`Image exceeds the minimum size of ${this.config.maxSize}MB.`);
                     return;
                 }
 
                 // Image is validated
                 this.isValid = true;
                 reader.onload = (e) => {
-                    this.$set(this.upload, 'src',e.target.result);
-                    // this.upload.src = e.target.result;
+                    this.upload.src = e.target.result;
                 };
                 reader.readAsDataURL(this.upload.chosen);
             };
@@ -126,7 +136,7 @@ export default {
             try {
                 let formData = new window.FormData();
                 formData.append('file', this.upload.chosen);
-                this.close(formData);
+                this.close(formData, null, this.upload.src);
             } catch (err) {
                 console.error(err);
             }
@@ -135,30 +145,45 @@ export default {
             try {
                 let formData = new window.FormData();
                 formData.append('file', this.upload.chosen);
-            
+
                 let bodyObj = {
                     cropx: this.position.left,
                     cropy: this.position.top,
                     cropw: this.position.width,
                     croph: this.position.height
                 };
-                this.close(formData, bodyObj);
+                const {canvas} = this.$refs.cropper.getResult();
+                this.close(formData, bodyObj, canvas.toDataURL());
             } catch (err) {
                 console.error(err);
             }
-        },
-        open(){
-            this.$refs.imageSelectorModal.open();
         }
+    },
+    watch: {
+        show: function(newVal) {
+            this.showModal = newVal;
+        }
+    },
+    mounted() {
+        this.showModal = this.show;
     }
 };
 </script>
 
 <style lang="scss" scoped>
 input[type='file'] {
-	&:before {
-		border-radius: 6px !important;
-		padding: 0 12px;
-	}
+    display: none;
+}
+.custom-file-upload {
+    display: inline-block;
+    .btn {
+        margin-right: 0.5rem;
+    }
+}
+.upload-actions {
+    .btn:first-of-type {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
 }
 </style>

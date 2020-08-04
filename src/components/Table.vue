@@ -1,6 +1,6 @@
 <template>
     <div class="table-wrapper">
-        <div class="table-options" v-if="options"> 
+        <div class="table-options" v-if="options">
             <a v-show="options.export" @click="exportData">
                 Export
             </a>
@@ -15,8 +15,9 @@
             <table
                 :class="[tableClass]"
                 :style="{'border-spacing': '0px ' + ($attrs.hasOwnProperty('spacing') ? $attrs.spacing + 'px' : '0px'), 'border-collapse': 'separate', 'min-width': minWidth + 'px'}"
-                v-if="clonedHeadings">
-                <thead>
+                v-if="clonedHeadings"
+            >
+                <thead :class="[theadClass]">
                     <tr>
                         <th v-for="(header, hKey) in clonedHeadings" :key="hKey" :class="[theadThClass, typeof header.class == 'string' ? header.class : '']">
                             <span v-if="$scopedSlots[header.key + '(head)']">
@@ -25,8 +26,12 @@
                             <div v-else>
                                 {{ header.label || header.key || '' }}
                                 <span class="sort" v-if="sortBy[header.key]">
-                                    <i class="material-icons" :class="{'active': currentSort && currentSort.name === header.key && currentSort.value === 'asc'}" @click="changeSort(header.key, 'asc')">arrow_drop_up</i>
-                                    <i class="material-icons" :class="{'active': currentSort && currentSort.name === header.key && currentSort.value === 'desc'}" @click="changeSort(header.key, 'desc')">arrow_drop_down</i>
+                                    <i class="material-icons" :class="{active: currentSort && currentSort.name === header.key && currentSort.value === 'asc'}" @click="changeSort(header.key, 'asc')"
+                                    >arrow_drop_up</i
+                                    >
+                                    <i class="material-icons" :class="{active: currentSort && currentSort.name === header.key && currentSort.value === 'desc'}" @click="changeSort(header.key, 'desc')"
+                                    >arrow_drop_down</i
+                                    >
                                 </span>
                             </div>
                         </th>
@@ -57,7 +62,10 @@
             </table>
         </div>
         <div class="pagination" v-if="pagination">
-            <p>Showing {{ (pagination.currentPage - 1 ) *pagination.perPage + 1 }} - {{ Math.min(...[((pagination.currentPage) * pagination.perPage), pagination.totalItems]) }} of {{ pagination.totalItems }} results.</p>
+            <p>
+                Showing {{ (pagination.currentPage - 1) * pagination.perPage + 1 }} - {{ Math.min(...[pagination.currentPage * pagination.perPage, pagination.totalItems]) }} of
+                {{ pagination.totalItems }} results.
+            </p>
             <ul>
                 <li v-if="pagination.currentPage !== 1 && pagination.showJumpToFirst" @click="changePage(1)">
                     <!--eslint-disable-next-line-->
@@ -67,13 +75,13 @@
                     <!--eslint-disable-next-line-->
                     <span>{{ '<' }}</span>
                 </li>
-                <li v-for="(val, key) in totalPages" :key="key" :class="{'active': pagination.currentPage === val}" @click="changePage(val)">
+                <li v-for="(val, key) in totalPages" :key="key" :class="{active: pagination.currentPage === val}" @click="changePage(val)">
                     <span>{{ val }}</span>
                 </li>
                 <li v-if="clonedItems.length === pagination.perPage" @click="changePage(++pagination.currentPage)">
                     <span>{{ '>' }}</span>
                 </li>
-                <li v-if="clonedItems.length === pagination.perPage" @click="changePage(Math.ceil(pagination.totalItems/pagination.perPage))">
+                <li v-if="clonedItems.length === pagination.perPage" @click="changePage(Math.ceil(pagination.totalItems / pagination.perPage))">
                     <span>{{ '>>' }}</span>
                 </li>
             </ul>
@@ -87,7 +95,7 @@
                         <div class="arrange__box__body__option__name">{{ prop.label || prop.key }}</div>
                         <div class="arrange__box__body__option__value">
                             <label :for="prop.key" class="checkbox">
-                                <input :id="prop.key" type="checkbox" v-model="prop.selected">
+                                <input :id="prop.key" type="checkbox" v-model="prop.selected" />
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -123,10 +131,13 @@ export default {
         sort: {
             type: Object
         },
-        theadThClass: {
+        tableClass: {
             type: String
         },
-        tableClass: {
+        theadClass: {
+            type: String
+        },
+        theadThClass: {
             type: String
         },
         tbodyTrClass: {
@@ -151,9 +162,10 @@ export default {
             clonedItems: [],
             sortedItems: [],
             clonedHeadings: this.headings || [],
-            tempHeadings: this.headings.map(heading => {
-                return {...heading, selected: true};
-            }) || [],
+            tempHeadings:
+                this.headings.map((heading) => {
+                    return {...heading, selected: true};
+                }) || [],
             sortBy: {},
             currentSort: this.sort,
             isAPI: true,
@@ -163,17 +175,15 @@ export default {
     },
     methods: {
         actionWrapper(row) {
-            if (this.onRowClick)
-                this.onRowClick(row);
-            else
-                return false;
+            if (this.onRowClick) this.onRowClick(row);
+            else return false;
         },
         arrangeColumns() {
             this.isArrange = true;
         },
         callAPI() {
             this.isLoading = true;
-            this.$nextTick(async() => {
+            this.$nextTick(async () => {
                 let obj = {
                     pagination: this.pagination,
                     sort: this.currentSort,
@@ -193,7 +203,7 @@ export default {
             if (this.isAPI) {
                 this.callAPI();
             } else {
-                this.clonedItems = this.sortedItems.slice((index - 1)* this.pagination.perPage, index * this.pagination.perPage);
+                this.clonedItems = this.sortedItems.slice((index - 1) * this.pagination.perPage, index * this.pagination.perPage);
                 pagination.totalItems = this.sortedItems.length;
             }
             pagination.currentPage = index;
@@ -207,35 +217,32 @@ export default {
             if (this.isAPI) {
                 this.callAPI();
             } else {
-                this.sortedItems = this.items.sort((a,b) => {
+                this.sortedItems = this.items.sort((a, b) => {
                     if (type === 'asc') {
                         return a[key] > b[key] ? 1 : -1;
-                    } else if (type === 'desc')
-                        return b[key] > a[key] ? 1 : -1;
+                    } else if (type === 'desc') return b[key] > a[key] ? 1 : -1;
                     return 0;
                 });
-                if (this.pagination)
-                    this.changePage(this.pagination.currentPage);
-                else
-                    this.clonedItems = this.sortedItems;
+                if (this.pagination) this.changePage(this.pagination.currentPage);
+                else this.clonedItems = this.sortedItems;
             }
         },
         exportData() {
             let csvContent = 'data:text/csv;charset=utf-8,';
             let includedColumns = [];
-            csvContent += this.clonedHeadings.map(head => {
+            csvContent += this.clonedHeadings.map((head) => {
                 includedColumns.push(head.key);
                 return head.label || head.key;
             });
             csvContent += '\r\n';
             this.sortedItems.map((item) => {
-                includedColumns.map(key => {
+                includedColumns.map((key) => {
                     if (typeof item[key] === 'object') {
                         csvContent += this.processObject(item[key]) + ',';
                     } else if (item[key] instanceof Date) {
                         csvContent += item[key].toLocaleString();
                     } else if (key !== '_id') {
-                        csvContent += item[key] +',';
+                        csvContent += item[key] + ',';
                     }
                 });
                 csvContent += '\r\n';
@@ -244,8 +251,8 @@ export default {
             window.open(encodedUri);
         },
         setItems() {
-            if (this.pagination){
-                this.clonedItems = this.items.slice((this.pagination.currentPage - 1)* this.pagination.perPage, this.pagination.perPage);
+            if (this.pagination) {
+                this.clonedItems = this.items.slice((this.pagination.currentPage - 1) * this.pagination.perPage, this.pagination.perPage);
             } else {
                 this.clonedItems = this.items;
             }
@@ -267,7 +274,7 @@ export default {
             this.clonedHeadings = this.headings;
         },
         saveColumns() {
-            this.clonedHeadings = this.tempHeadings.filter(heading => heading.selected);
+            this.clonedHeadings = this.tempHeadings.filter((heading) => heading.selected);
             this.isArrange = false;
         },
         setTdClasses(header, row) {
@@ -278,7 +285,7 @@ export default {
                 classes.push(header.class);
             }
             if (typeof this.tbodyTdClass === 'function') {
-                classes.push(this.tbodyTdClass(header,row));
+                classes.push(this.tbodyTdClass(header, row));
             } else {
                 classes.push(this.tbodyTdClass);
             }
@@ -298,15 +305,15 @@ export default {
     computed: {
         totalPages() {
             let threshold = this.pagination.threshold ? Math.ceil(this.pagination.threshold) : 2;
-            let total = Math.ceil(this.pagination.totalItems/this.pagination.perPage);
+            let total = Math.ceil(this.pagination.totalItems / this.pagination.perPage);
             let pages = new Set();
             let counter = this.pagination.currentPage;
-            while(counter >= 1 && (this.pagination.currentPage-counter) <= threshold/2) {
+            while (counter >= 1 && this.pagination.currentPage - counter <= threshold / 2) {
                 pages.add(counter);
                 counter--;
             }
             counter = this.pagination.currentPage;
-            while(counter <= total && (counter - this.pagination.currentPage) <= threshold/2) {
+            while (counter <= total && counter - this.pagination.currentPage <= threshold / 2) {
                 pages.add(counter);
                 counter++;
             }
@@ -329,7 +336,7 @@ export default {
                 }
             },
             deep: true
-        },
+        }
     },
     async created() {
         // Initialise the sorts
@@ -337,12 +344,12 @@ export default {
         if (err) {
             console.error(err);
         }
-        for(let key in this.clonedHeadings) {
+        for (let key in this.clonedHeadings) {
             if (this.clonedHeadings[key].sortable) {
                 this.sortBy[this.clonedHeadings[key].key] = true;
             }
         }
-        if (Array.isArray(this.items)){
+        if (Array.isArray(this.items)) {
             this.isAPI = false;
             this.pagination.totalItems = this.items.length;
         }
@@ -350,7 +357,7 @@ export default {
         if (this.sort && this.sort.name) {
             this.changeSort(this.sort.name, this.sort.value);
         } else {
-            if (!this.isAPI){
+            if (!this.isAPI) {
                 this.sortedItems = this.items;
                 this.setItems();
             } else {

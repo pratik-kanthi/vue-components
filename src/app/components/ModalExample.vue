@@ -2,7 +2,8 @@
     <div>
         <Button size="md" type="primary" text="Create" :action="showModal"></Button>
         <Button size="md" type="danger" text="Delete" :action="showModal2" class="ml-2"></Button>
-        <Modal v-model="show1" size="md" @cancel="cancel" @save="modalOKed">
+        <Button size="md" type="danger" text="Image Selector" :action="showModal3" class="ml-2"></Button>
+        <Modal v-model="show1" size="lg" @cancel="cancel" @save="modalOKed" centered>
             <template v-slot:title>
                 {{ header }}
             </template>
@@ -15,9 +16,6 @@
             </template>
         </Modal>
         <Modal v-model="show2" size="md" @cancel="cancel" @save="modalOKed">
-<!--            <template v-slot:title>-->
-<!--                {{ header2 }}-->
-<!--            </template>-->
             <template v-slot:body>
                 <p>Are you sure you want to delete this item?</p>
             </template>
@@ -26,23 +24,27 @@
                 <Button size="md" type="primary" text="Delete" :action="save"></Button>
             </template>
         </Modal>
+        <ImageSelector v-model="show3" @cancel="cancel" @close="close"></ImageSelector>
     </div>
 </template>
 <script>
 import Modal from '@/components/modal';
 import Button from '@/components/Button';
+import ImageSelector from '@/components/ImageSelector';
 
 export default {
     name: 'ModalExample',
     components: {
         Modal,
         Button,
+        ImageSelector
     },
     data() {
         return {
             show1: false,
             show2: false,
-            header:'ABC 1',
+            show3: false,
+            header: 'ABC 1',
             header2: 'XYZ 1'
         };
     },
@@ -59,18 +61,23 @@ export default {
                 this.header2 = 'XYZ 2';
             }, 1000);
         },
-        cancel(){
+        showModal3() {
+            this.show3 = true;
+        },
+        cancel() {
+            this.show1 = false;
+            this.show2 = false;
+            this.show3 = false;
+        },
+        modalOKed() {
             this.show1 = false;
             this.show2 = false;
         },
-        modalOKed(){
+        save() {
             this.show1 = false;
             this.show2 = false;
         },
-        save(){
-            this.show1 = false;
-            this.show2 = false;
-        }
-    },
+        close() {}
+    }
 };
 </script>

@@ -26,12 +26,10 @@ import TopBar from '../../src/components/TopBar';
 import TabBar from '../../src/components/TabBar';
 import Datepicker from '../../src/components/Datepicker';
 import Modal from '../../src/components/Modal';
+import ImageSelector from '../../src/components/ImageSelector';
 import '../../src/scss/style.scss';
 
-
-export default ({
-    Vue
-}) => {
+export default ({Vue}) => {
     Vue.component('LoginVariation1', LoginVariation1);
     Vue.component('ModuleItemLayout', ModuleItemLayout);
     Vue.component('Avatar', Avatar);
@@ -60,4 +58,5 @@ export default ({
     Vue.component('TabBar', TabBar);
     Vue.component('Datepicker', Datepicker);
     Vue.component('Modal', Modal);
-}
+    Vue.component('ImageSelector', ImageSelector);
+};

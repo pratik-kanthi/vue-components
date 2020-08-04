@@ -151,7 +151,8 @@ $button-colors:("primary": $brand-primary,
   "light": $light,
   "dark": $dark) !default;
 $enable-button-box-shadows: false !default;
-$btn-border-width:$border-width;
+$btn-border-width:$border-width !default;
+$btn-font-weight:$font-weight-base !default;
 
 /* Card
 ------------------------------------

@@ -1235,28 +1235,63 @@ A modal is a window overlaid on either the primary window or another dialog wind
 **Properties**
 | Property | Type | Default | Required | Description |
 |----------|------|--------|-----------|-------------|
+| v-model | `Boolean` | `false` || `v-model` property is automatically synced with the modal's visible state and you can show/hide using v-model. |
 | size | `String` | `md` || Modals have three optional sizes, available via the prop size. These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports. Valid optional sizes are `sm`, `lg`, `md` and `xl`. |
-| centered | `Boolean` | `false`|| Vertically center your modal in the viewport by setting the centered prop. |
+| hide-footer | `Boolean` | `false`|| If the default footer should be hidden when the `footer` slot is not added. The default footer has a `OK` & a `Cancel` button.  |
 
+**Attributes**
+
+* ***centered:*** Vertically center your modal in the viewport by adding this attribute.
+* ***primary:*** When present, the modal header has a brand-primary background.
 
 **Slots**
 
 * ***title:*** Use this slot to place content in the modal's title. 
-* ***header:*** Use this slot to place content in the header. Replaces the entire header including the close button
+* ***header:*** Use this slot to place content in the header. Replaces the entire header including the close button.
 * ***body:*** Use this slot to place content in the body. 
 * ***footer:*** Use this slot to place content in the footer. 
 
 **Events**
 
-* ***opened:*** This event is emitted when the modal is opened.
-* ***closed:*** This event is emitted when the close icon is clicked & also when the modal is closed by calling the `close` method.
+* ***cancel:*** This event is emitted when the close icon is clicked.
+* ***save:*** This event is emitted when the default OK button is clicked.
 
-**Methods**
-
-* ***open:*** Use this method to open the modal.
-* ***close:*** Use this method to close the modal.
 
 <SplitTab>
   <ModalExample slot="example"/>
   <<< @/docs/.vuepress/components/ModalExample.vue
 </splitTab>
+
+:::tip
+If you do not want the modal's state to be persisted on close, use the `v-if` with the Modal component. 
+:::
+
+
+## Image Selector
+
+Use the `ImageSelector` component to upload images from your local folders. It ships with a cropper which can be used to crop the selected image before uploading.
+
+**Properties**
+| Property | Type | Default | Required | Description |
+|----------|------|--------|-----------|-------------|
+| v-model | `Boolean` | `false` || `v-model` property is automatically synced with the modal's visible state and you can show/hide using v-model. |
+| size | `String` | `lg` || Modals have three optional sizes, available via the prop size. These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports. Valid optional sizes are `sm`, `lg`, `md` and `xl`. |
+| config | `Object` | `{maxSize: 5, aspectRatio: 0, minWidth: null}`|| Configuration object for the image selector.  |
+
+**Attributes**
+
+* ***primary:*** When present, the modal header has a brand-primary background.
+
+**Events**
+
+* ***cancel:*** This event is emitted when the close icon is clicked.
+* ***close:*** This event is emitted when one of the upload buttons are clicked. The image object is emitted with this event. 
+
+<SplitTab>
+  <ImageSelectorExample slot="example"/>
+  <<< @/docs/.vuepress/components/ImageSelectorExample.vue
+</splitTab>
+
+:::tip
+If you do not want the selected image to be persisted on close, use the `v-if` with the Image Selector component. 
+:::
