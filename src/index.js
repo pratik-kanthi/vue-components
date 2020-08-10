@@ -27,7 +27,7 @@ export {default as Tabs} from './components/Tabs';
 export {default as Timepicker} from './components/Timepicker';
 export {default as Tooltip} from './components/Tooltip';
 export {default as TopBar} from './components/TopBar';
-export {default as Modal} from './components/Modal';
+export {default as Modal} from './components/modal';
 export {default as ImageSelector} from './components/ImageSelector';
 
 // export directives from ./directives
