@@ -750,8 +750,9 @@ The table component is used to display the data in the tabular format with the a
 |options| `Object` ||| This property accepts the object for displaying options for export, arrange and reset. |
 |pagination | `Object` ||| Pagination object which controls the pagination for the table's data. To see more about this please refer to ***pagination*** below. 
 |sort | `Object` ||| Sorting is controlled via this object. Default sort options can be provided through this property too. To see more about this please refer the code below.|
+|thead-class | `String` ||| This property will set the css class for `<thead>`, accepts `thead-primary`, `thead-light` & `thead-dark`. |
 |thead-th-class | `String` ||| This property will set the css class for `<thead>` tag's `<th>`. |
-|table-class| `String` ||| This property will set the css class for `<table>`. |
+|table-class| `String` ||| This property will set the css class for `<table>`, accepts `table-medium`, `table-large`, `table-striped`, `table-hover` & `table-bordered`. |
 |tbody-tr-class| `String` ||| This property will set the css class for `<tbody>` tag's `<tr>`. |
 |tbody-td-class| `String`,`Function` ||| This property will set the css class for `<tbody>` tag's `<td>`. This can be either a function returning a string value or normal string value. |
 |responsive| `Attribute` ||| This attribute makes table responsive. |

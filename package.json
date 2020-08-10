@@ -29,6 +29,7 @@
   "dependencies": {
     "apexcharts": "^3.17.0",
     "core-js": "^3.6.4",
+    "extract-css": "^1.5.5",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.5.2",
     "vue-color": "^2.7.1",
