@@ -1,7 +1,7 @@
 <template>
     <transition name="modal" appear>
-        <div class="modal-mask" :class="centered?'centered':''">
-            <div class="modal-wrapper" :class="'modal-'+size">
+        <div class="modal-mask" :class="centered ? 'centered' : ''">
+            <div class="modal-wrapper" :class="'modal-' + size">
                 <div class="modal-container">
                     <slot v-if="$slots.header" name="header"></slot>
                     <div v-else>
@@ -9,15 +9,14 @@
                             <h4>
                                 <slot name="title">Modal Title</slot>
                             </h4>
-                            <a href="" class="modal-close" @click.prevent="close"><img src="@/assets/close-dark.svg" alt=""></a>
+                            <a href="" class="modal-close" @click.prevent="close"><img src="@e9ine/vue_components/src/assets/close-dark.svg" alt="" /></a>
                         </div>
                     </div>
                     <div class="modal-body">
                         <slot name="body"></slot>
                     </div>
                     <div class="modal-footer" v-if="$slots.footer">
-                        <slot name="footer">
-                        </slot>
+                        <slot name="footer"> </slot>
                     </div>
                 </div>
             </div>
@@ -33,20 +32,18 @@ export default {
             type: String,
             default: 'md'
         },
-        centered:{
-            type:Boolean,
-            default:false
+        centered: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
-        close(){
+        close() {
             this.$emit('closed');
         }
     },
-    mounted () {
+    mounted() {
         this.$emit('opened');
-    },
+    }
 };
 </script>
-
-                                                                                                                                                                                                                                                                                                                                                                                                

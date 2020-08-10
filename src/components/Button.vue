@@ -61,10 +61,8 @@ export default {
         };
     },
     methods: {
-         
         async callAction() {
-            if(this.isLoading)
-                return;
+            if (this.isLoading) return;
             if (this.async) {
                 let oldWidth = this.$refs.button.style.width;
                 this.$refs.button.style.width = this.$refs.button.offsetWidth + 'px';
@@ -75,8 +73,7 @@ export default {
                 } catch (e) {
                     this.isLoading = false;
                 }
-                if(this.$refs.button)
-                    this.$refs.button.style.width = oldWidth;
+                if (this.$refs.button) this.$refs.button.style.width = oldWidth;
             } else {
                 this.action();
             }
@@ -95,7 +92,7 @@ export default {
             if (this.loaderImage) {
                 return this.loaderImage;
             }
-            return require('@/assets/loader.svg');
+            return require('@e9ine/vue_components/src/assets/loader.svg');
         }
     },
     created() {
@@ -112,4 +109,3 @@ export default {
     }
 };
 </script>
-

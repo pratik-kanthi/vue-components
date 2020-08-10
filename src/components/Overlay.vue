@@ -1,12 +1,12 @@
 <template>
     <transition name="fade">
-        <div v-if="show" :class="{'relative': relative}">
+        <div v-if="show" :class="{relative: relative}">
             <div class="overlay" :style="getOpacity">
-                <img src="@/assets/close.svg" class="close" v-show="showClose && !relative" @click="close" />
+                <img src="@e9ine/vue_components/src/assets/close.svg" class="close" v-show="showClose && !relative" @click="close" />
             </div>
             <div class="overlay-content" :class="customContentClass">
                 <slot></slot>
-                <img src="@/assets/close.svg" class="close" v-show="showClose && relative" @click="close" />
+                <img src="@e9ine/vue_components/src/assets/close.svg" class="close" v-show="showClose && relative" @click="close" />
             </div>
         </div>
     </transition>
@@ -16,7 +16,7 @@ export default {
     name: 'Overlay',
     props: {
         customContentClass: {
-            type: String,
+            type: String
         },
         show: {
             type: Boolean,
@@ -32,7 +32,7 @@ export default {
         },
         opacity: {
             type: Number,
-            default:0.6,
+            default: 0.6,
             validator: (value) => {
                 return !value || (value <= 1 && value > 0);
             }
@@ -46,7 +46,7 @@ export default {
     computed: {
         getOpacity() {
             return {
-                'background-color': 'rgba(33, 33, 33,'+this.opacity+')'
+                'background-color': 'rgba(33, 33, 33,' + this.opacity + ')'
             };
         }
     }

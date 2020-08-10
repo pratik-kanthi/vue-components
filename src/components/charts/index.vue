@@ -5,16 +5,16 @@
             <div class="graph-wrapper" :class="type.toLowerCase()">
                 <component :is="component" :options="options" :width="width" :height="height" :data="data"></component>
             </div>
-            <div class="table-wrapper" :class="type.toLowerCase()" v-if="tableData && tableData.data && tableData.data.length> 0" :style="{'max-height':height}">
+            <div class="table-wrapper" :class="type.toLowerCase()" v-if="tableData && tableData.data && tableData.data.length > 0" :style="{'max-height': height}">
                 <div class="table-header">
-                    <div v-for="(item,key) in tableData.header" :key="key" class="header" :style="getStyle(tableData.header.length,key)">
+                    <div v-for="(item, key) in tableData.header" :key="key" class="header" :style="getStyle(tableData.header.length, key)">
                         {{ item }}
                     </div>
                 </div>
                 <div class="table-body">
-                    <div class="table-row" v-for="(item,key1) in tableData.data" :key="key1">
-                        <div class="table-column" v-for="(col,key2) in item" :key="key2" :style="getStyle(tableData.header.length,key2)">{{ col }}</div>
-                        <br style=" clear:both ">
+                    <div class="table-row" v-for="(item, key1) in tableData.data" :key="key1">
+                        <div class="table-column" v-for="(col, key2) in item" :key="key2" :style="getStyle(tableData.header.length, key2)">{{ col }}</div>
+                        <br style=" clear:both " />
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@ export default {
         },
         height: {
             type: [Number, String],
-            default:'300px'
+            default: '300px'
         },
         showTable: {
             type: Boolean,
@@ -63,12 +63,12 @@ export default {
         },
         colors: {
             type: Array,
-            default: function () {
+            default: function() {
                 return ['#1D3461', '#0069AA', '#376996', '#6290C8', '#829CBC'];
             }
         },
         options: {
-            type: Object,
+            type: Object
         }
     },
     data() {
@@ -79,15 +79,11 @@ export default {
     methods: {
         getStyle(size, key) {
             if (size <= 2) {
-                if (key == 0 || key == 'Title')
-                    return [{ 'width': '70%', 'text-align': 'left' }];
-                else
-                    return [{ 'width': '30%', 'text-align': 'right' }];
+                if (key == 0 || key == 'Title') return [{width: '70%', 'text-align': 'left'}];
+                else return [{width: '30%', 'text-align': 'right'}];
             } else {
-                if (key == 0 || key == 'Title')
-                    return [{ 'width': '40%', 'text-align': 'left' }];
-                else
-                    return [{ 'width': (60 / (size - 1)) + '%', 'text-align': 'right' }];
+                if (key == 0 || key == 'Title') return [{width: '40%', 'text-align': 'left'}];
+                else return [{width: 60 / (size - 1) + '%', 'text-align': 'right'}];
             }
         },
         populateChartOptions(defaultOptions) {
@@ -98,12 +94,10 @@ export default {
             }
             if (this.options) {
                 for (const p in this.options) {
-                    if (!chartOptions[p])
-                        chartOptions[p] = {};
+                    if (!chartOptions[p]) chartOptions[p] = {};
                     if (typeof this.options[p] == 'object') {
                         for (const innerP in this.options[p]) {
-                            if (!chartOptions[p][innerP])
-                                chartOptions[p][innerP] = {};
+                            if (!chartOptions[p][innerP]) chartOptions[p][innerP] = {};
                             chartOptions[p][innerP] = this.options[p][innerP];
                         }
                     } else {
@@ -117,7 +111,7 @@ export default {
                 chartOptions.chart.toolbar = {
                     show: true,
                     tools: {
-                        download: '<img src="'+ require('@/assets/menu.svg')+'" width="30">'
+                        download: '<img src="' + require('@e9ine/vue_components/src/assets/menu.svg') + '" width="30">'
                     }
                 };
             }
@@ -157,8 +151,6 @@ export default {
     },
     created() {
         this.component = () => import('./' + this.type + '.vue');
-
     }
 };
 </script>
-
