@@ -31,8 +31,8 @@
 
 <script>
 import {Cropper} from 'vue-advanced-cropper';
-import Modal from '@/components/modal';
-import Button from '@/components/Button';
+import Modal from './modal';
+import Button from './Button';
 
 export default {
     name: 'ImageSelector',
