@@ -1,5 +1,5 @@
 {
-  "name": "@e9ine/vue_components",
+  "name": "soumya-vue-components",
   "version": "1.0.4c",
   "scripts": {
     "serve": "vue-cli-service serve",
