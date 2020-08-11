@@ -27,8 +27,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       #- run: npm run docs:build
-        env: 
-          GOOGLE_KEY: ${{ secrets.GOOGLE_KEY }}
+        #env: 
+          #GOOGLE_KEY: ${{ secrets.GOOGLE_KEY }}
       #- name: Deploy to Firebase
         #uses: w9jds/firebase-action@master
         #with:
