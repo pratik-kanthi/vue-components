@@ -18,7 +18,7 @@ jobs:
           node-version: "11.x"
           registry-url: "https://registry.npmjs.org"
       # Run yarn install to install project packages
-      - run: npm install
+      #- run: npm install
       # yarn build to build the project
       #- run: npm run build
       # publish the files to NPM
