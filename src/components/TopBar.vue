@@ -96,7 +96,7 @@ export default {
             }
         },
         onResize() {
-            this.allAvatarOptions = JSON.parse(JSON.stringify(this.avatarOptions));
+            this.allAvatarOptions = $.extend(true, {}, this.avatarOptions);
             if (this.avatarOptions.subtitleOptions && window.innerWidth < 991.98) {
                 if (typeof this.allAvatarOptions.avatarActions !== 'undefined' && this.allAvatarOptions.avatarActions.length > 0) {
                     this.allAvatarOptions.avatarActions.push({
