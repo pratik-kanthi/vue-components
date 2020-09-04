@@ -1,7 +1,7 @@
 <template>
-    <div class="panel" :class="collapsed?'panel-collapsed':''">
+    <div class="panel" :class="collapsed ? 'panel-collapsed' : ''">
         <div class="panel-header">
-            <div class="panel-info" v-if="title||subTitle">
+            <div class="panel-info" v-if="title || subTitle">
                 <h6 v-text="title" class="title-s"></h6>
                 <p class="subtitle-s" v-text="subTitle"></p>
             </div>
@@ -16,10 +16,10 @@
                     <Tooltip :message="options.info.message" :position="options.info.position">
                         <span class="material-icons">info</span>
                     </Tooltip>
-                </a>      
+                </a>
                 <a href="" @click.prevent="toggleCollapse()" class="collapse" v-if="collapsible">
                     <span class="material-icons">keyboard_arrow_up</span>
-                </a>  
+                </a>
             </div>
         </div>
         <div class="collapsible" ref="collapsible">
@@ -45,7 +45,7 @@ export default {
         },
         collapsible: {
             type: Boolean,
-            default:false
+            default: false
         },
         options: {
             type: Object,
@@ -64,22 +64,20 @@ export default {
     },
     methods: {
         handleAction(fn) {
-            if(fn) {
+            if (fn) {
                 fn();
             } else {
                 return false;
             }
         },
         toggleCollapse() {
-            this.collapsed=!this.collapsed;
-            if(this.collapsed)
-                this.$refs.collapsible.style.maxHeight = 0;
-            else
-                this.$refs.collapsible.style.maxHeight = this.$refs.collapsible.scrollHeight + 'px';
+            this.collapsed = !this.collapsed;
+            if (this.collapsed) this.$refs.collapsible.style.maxHeight = 0;
+            else this.$refs.collapsible.style.maxHeight = this.$refs.collapsible.scrollHeight + 'px';
         }
     },
-    mounted () {
-        this.$refs.collapsible.style.maxHeight = this.$refs.collapsible.scrollHeight + 'px';
-    },    
+    mounted() {
+        if (this.collapsible) this.$refs.collapsible.style.maxHeight = this.$refs.collapsible.scrollHeight + 'px';
+    }
 };
 </script>

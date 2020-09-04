@@ -1,6 +1,6 @@
 {
   "name": "@e9ine/vue_components",
-  "version": "1.0.5b",
+  "version": "1.0.5c",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
