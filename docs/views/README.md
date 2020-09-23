@@ -392,3 +392,104 @@ export default {
 }
 </style>
 ```
+
+### Variation-3
+The Variation 3 creates a simple, responsive page layout with a topbar and a tabbar at the bottom with a `More` option that opens up an offscreen menu all of which are configurable using slots. The content area has a `<router-view>` that renders the matched component for the given path.
+
+**Properties**
+| Property | Type | Default | Required | Description |
+|----------|------|--------|-----------|-------------|
+| showBackBtn | `Boolean` |`false`|| If a back button should be displayed for inner states. |
+| topbarLeftOptions | `Array` |||  Array of objects for showing the shortcuts on the left within the topbar. Refer ***topbar-options*** table below for all the configuration options. |
+| topbarRightOptions | `Array` ||| Array of objects for showing the shortcuts on the right within the topbar. Refer ***topbar-options*** table below for all the configuration options.|
+| searchOptions | `Object` ||| Configuration object for the search box. Refer ***search-options*** below for all the configuration options. |
+| searchText | `String` ||| The property with which the search input value should be synced with. |
+
+**topbar-options**
+| Property | Type | Default | Required | Description |
+|----------|------|--------|-----------|-------------|
+| icon | `String` ||| Icon to be used for the shortcut. |
+| type | `String` ||| Whether the shortcut should be displayed as an icon or a button. Use `icon` for icon and `btn` for button. |
+| text | `String` ||| Text to be shown on hovering the shortcut if type is `icon`. Will be used for button text if type is `btn`.  |
+| pending | `Boolean` ||| If `true`, a badge will be showed to the top right of the button or icon. This is usually used to indicate some pending action to be performed by the user. |
+| click-action | `Function` ||| Function to be called on clicking the shortcut button or icon. |
+
+**search-options**
+| Property | Type | Default | Required | Description |
+|----------|------|--------|-----------|-------------|
+| placeholder | `String` ||| Placeholder text for the search box. |
+| click-action | `Function` ||| Function to be called on clicking the search box. |
+
+**Slots**
+
+**topbar:** Use the `topbar` slot to add a custom topbar to the layout. If empty it uses the default topbar.
+
+**tabbar:** Use the `tabbar` slot to add a tabbar to the layout for quick navigation. You can use the [Tabbar](/components/#tabbar) component inside the slot or add your own custom content.
+
+![Example](/assets/views/layout-variation-3.png)
+
+**Code**
+```vue
+
+<template>
+    <div class="app">
+        <LayoutVariation3 :show-back-btn="true" :topbar-left-options="topbarLeftOptions" :topbar-right-options="topbarRightOptions" :search-options="searchOptions" :search-text.sync="searchText">
+            <template v-slot:tabbar>
+                <TabBar :menu="tabBarMenu"></TabBar>
+            </template>
+        </LayoutVariation3>
+    </div>
+</template>
+
+<script>
+import {LayoutVariation3,Tabbar} from '@/e9ine/vue_components';
+export default {
+    components: {
+        LayoutVariation3,
+        TabBar,
+    },
+    data() {
+        return {
+            tabBarMenu: this.$store.state.navModule.menuItems,
+            searchText: '',
+            searchOptions: {
+                placeholder: 'Type to search..'
+            },
+            topbarLeftOptions: [{
+                text: 'Edit',
+                clickAction: function() {
+                    console.log('notifications');
+                },
+            }],
+            topbarRightOptions: [
+                {
+                    icon: 'notifications_none',
+                    text: 'Notifications',
+                    type: 'icon',
+                    pending: true,
+                    clickAction: function() {
+                        console.log('edit');
+                    },
+                },
+                {
+                    icon: 'chat_bubble_outline',
+                    text: 'Messages',
+                    type: 'icon',
+                    href:'https://www.google.com'
+                }
+            ]
+        };
+    },
+    methods: {
+        logoutUser() {
+            console.log('logout');
+        }
+    },
+    watch: {
+        searchText(newVal, oldVal) {
+            console.log(oldVal + ':' + newVal);
+        }
+    }
+};
+</script>
+```

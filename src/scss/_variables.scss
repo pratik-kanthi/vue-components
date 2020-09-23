@@ -268,22 +268,27 @@ $topbar-font-size: $font-size-base*1.125 !default;
 
 $sidebar-width:240px;
 $topbar-height:56px;
-$tabbar-height:72px;
+$mobile-topbar-height:44px;
+$tabbar-height:50px;
 
 $sidebar-sm-width:$sidebar-width;
 $topbar-sm-height:$topbar-height;
+$mobile-topbar-sm-height:$mobile-topbar-height;
 $tabbar-sm-height:$tabbar-height;
 
 $sidebar-md-width:$sidebar-width;
 $topbar-md-height:$topbar-height;
+$mobile-topbar-md-height:$mobile-topbar-height;
 $tabbar-md-height:$tabbar-height;
 
 $sidebar-lg-width:320px;
 $topbar-lg-height:56px;
-$tabbar-lg-height:72px;
+$mobile-topbar-lg-height:44px;
+$tabbar-lg-height:50px;
 
 $sidebar-xl-width:$sidebar-lg-width;
 $topbar-xl-height:$topbar-lg-height;
+$mobile-topbar-xl-height:$mobile-topbar-lg-height;
 $tabbar-xl-height:$tabbar-lg-height;
 
 
@@ -328,4 +333,4 @@ $modal-content-padding: $default-content-padding !default;
 $modal-backdrop-bg: $black !default;
 $modal-backdrop-opacity: .5 !default;
 $modal-bg:$white;
-$modal-box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !default;
+$modal-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !default;

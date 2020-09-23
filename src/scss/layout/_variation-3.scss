@@ -1,0 +1,259 @@
+.layout-variation-3 {
+    .mobile-topbar {
+        padding: 0 $default-content-padding;
+        border-bottom-color: $line-color;
+        border-bottom-width: $border-width;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $mobile-topbar-height;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .mobile-topbar-page-title {
+            font-weight: $font-weight-medium;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        .mobile-topbar-options {
+            position: absolute;
+            display: flex;
+            right: $default-content-padding;
+
+            .mobile-topbar-option {
+                margin-right: 1rem;
+                display: flex;
+                align-items: center;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            &.mobile-topbar-left-options {
+                left: $default-content-padding;
+                right: unset;
+            }
+        }
+
+    }
+
+    .content-view {
+        position: fixed;
+        top: $mobile-topbar-height;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        overflow: scroll;
+
+        .content-wrapper {
+            padding: $default-content-padding;
+
+            .content-header {
+                margin-bottom: 1rem;
+
+                .content-page-title {
+                    margin-bottom: 0;
+                    padding: 0 $default-content-padding;
+                    padding-bottom: 0.5rem;
+                    position: fixed;
+                    left: 0;
+                    right: 0;
+                    top: $mobile-topbar-height;
+                    background-color: $body-bg;
+                }
+
+                .search-box {
+                    padding-top: 26px;
+
+                    input {
+                        padding: .375rem .75rem;
+                        width: 100%;
+                        min-width: 185px;
+                        border: $border-width solid $line-color;
+                        border-radius: $form-border-radius;
+                        line-height: 1.5;
+                        font-size: 1rem;
+                        background-color: $light;
+                        background-image: url('../assets/search.svg');
+                        background-repeat: no-repeat;
+                        background-size: 1.5rem;
+                        background-position: right 0.75rem center;
+                        padding-right: 2.625rem;
+                        cursor: pointer;
+
+                        &:focus {
+                            outline: none;
+                            color: $dark;
+                            border-color: $form-active;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .tabbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: $tabbar-height;
+        z-index: 1;
+    }
+
+    #back-nav {
+        position: absolute;
+        top: ($mobile-topbar-height - 22px)/2;
+        left: $default-content-padding;
+        z-index: 2;
+
+        i {
+            font-size: 22px;
+            color: $brand-primary;
+        }
+    }
+
+    .pageTransition-enter-active,
+    .pageTransition-leave-active {
+        transition: opacity .2s;
+    }
+
+    .pageTransition-enter,
+    .pageTransition-leave-to
+
+    /* .fade-leave-active below version 2.1.8 */
+        {
+        opacity: 0;
+    }
+
+    @include media-breakpoint-down(xl) {
+        .mobile-topbar {
+            height: $mobile-topbar-xl-height;
+        }
+
+        .content-view {
+            top: $mobile-topbar-xl-height;
+
+        }
+
+        .tabbar {
+            height: $tabbar-xl-height;
+        }
+
+        #mobile-menu-toggle {
+            top: ($mobile-topbar-xl-height - 24px)/2;
+        }
+
+        .sidebar {
+            width: $sidebar-xl-width;
+            right: -$sidebar-xl-width;
+            top: $mobile-topbar-xl-height;
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        .mobile-topbar {
+            height: $mobile-topbar-lg-height;
+        }
+
+        .content-view {
+            top: $mobile-topbar-lg-height;
+
+        }
+
+        .tabbar {
+            height: $tabbar-lg-height;
+        }
+
+        #mobile-menu-toggle {
+            top: ($mobile-topbar-lg-height - 24px)/2;
+        }
+
+        .sidebar {
+            width: $sidebar-lg-width;
+            right: -$sidebar-lg-width;
+            top: $mobile-topbar-lg-height;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        .mobile-topbar {
+            height: $mobile-topbar-md-height;
+        }
+
+        .content-view {
+            top: $mobile-topbar-md-height;
+
+        }
+
+        .tabbar {
+            height: $tabbar-md-height;
+        }
+
+        #mobile-menu-toggle {
+            top: ($mobile-topbar-md-height - 24px)/2;
+        }
+
+        .sidebar {
+            width: $sidebar-md-width;
+            right: -$sidebar-md-width;
+            top: $mobile-topbar-md-height;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        .mobile-topbar {
+            height: $mobile-topbar-sm-height;
+        }
+
+        .content-view {
+            top: $mobile-topbar-sm-height;
+
+        }
+
+        .tabbar {
+            height: $tabbar-sm-height;
+
+        }
+
+        #mobile-menu-toggle {
+            top: ($mobile-topbar-sm-height - 24px)/2;
+
+        }
+
+        #back-nav {
+            left: 14px;
+        }
+
+        .sidebar {
+            width: $sidebar-sm-width;
+            right: -$sidebar-sm-width;
+            top: $mobile-topbar-sm-height;
+        }
+    }
+
+    @media only screen 
+    and (device-width: 414px) 
+    and (device-height: 896px) 
+    and (-webkit-device-pixel-ratio: 2),(device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3),(device-width: 414px) 
+    and (device-height: 896px) 
+    and (-webkit-device-pixel-ratio: 3)  {
+        .tabbar {
+            height: $tabbar-sm-height + 34px;
+            padding-bottom: 34px;
+
+        }
+    }
+}
