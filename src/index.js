@@ -46,3 +46,4 @@ export {default as ModuleItemLayout} from './layouts/ModuleItemLayout';
 export {default as LoginVariation1} from './views/login/variation-1/Component';
 export {default as LayoutVariation1} from './views/layout/variation-1/Component';
 export {default as LayoutVariation2} from './views/layout/variation-2/Component';
+export {default as LayoutVariation3} from './views/layout/variation-3/Component';
