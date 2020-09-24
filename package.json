@@ -28,11 +28,13 @@
   "dependencies": {
     "apexcharts": "^3.17.0",
     "core-js": "^3.6.4",
+    "tiptap": "^1.30.0",
+    "tiptap-extensions": "^1.33.0",
     "vue": "^2.6.10",
+    "vue-advanced-cropper": "^0.16.8",
     "vue-apexcharts": "^1.5.2",
     "vue-color": "^2.7.1",
-    "vue-flatpickr-component": "^8.1.5",
-    "vue-advanced-cropper": "^0.16.8"
+    "vue-flatpickr-component": "^8.1.5"
   },
   "peerDependencies": {
     "jquery": "^3.5.1",

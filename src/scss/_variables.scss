@@ -55,7 +55,7 @@ $line-color: $light-grey !default;
 ------------------------------------
 */
 
-// Create a Sass map of pre-defined typographic scales, $type-scales, according to the model found on type-scale.com. 
+// Create a Sass map of pre-defined typographic scales, $type-scales, according to the model found on type-scale.com.
 $type-scales: (minor-second: 1.067,
   major-second: 1.125,
   minor-third: 1.200,
@@ -334,3 +334,12 @@ $modal-backdrop-bg: $black !default;
 $modal-backdrop-opacity: .5 !default;
 $modal-bg:$white;
 $modal-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !default;
+
+
+/* Rich Text
+-------------------------------------
+*/
+
+$richtext-extensions-background-color: rgba(240, 240, 240, 0.5);
+$richtext-extensions-icon-color-hover: #ddd;
+$richtext-extensions-icon-color-active: #ccc;
