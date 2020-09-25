@@ -34,6 +34,7 @@
     "vue-advanced-cropper": "^0.16.8",
     "vue-apexcharts": "^1.5.2",
     "vue-color": "^2.7.1",
+    "vue-emoji-picker": "^1.0.1",
     "vue-flatpickr-component": "^8.1.5"
   },
   "peerDependencies": {

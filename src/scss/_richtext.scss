@@ -1,21 +1,107 @@
 .rich-text-editor {
   border: 1px solid $grey;
   border-radius: 0.5rem;
+  position: relative;
   &-extensions {
     border-top: 1px solid $line-color;
     padding: 0 0.625rem;
     background-color: $richtext-extensions-background-color;
     &-wrapper {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+      .extensions-format, .extensions-extra {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0.5rem 0;
+        position: relative;
+        .toggle {
+          display: none;
+        }
+      }
+      .extensions-extra {
+        .emoji-picker {
+          position: absolute;
+          z-index: 1;
+          left: -8rem;
+          bottom: 4rem;
+          top: auto;
+          font-family: inherit;
+          border: 1px solid $line-color;
+          width: 15rem;
+          height: 20rem;
+          overflow: scroll;
+          padding: 1rem;
+          box-sizing: border-box;
+          border-radius: 0.5rem;
+          background: #fff;
+          box-shadow: 1px 1px 0.5rem $box-shadow;
+          h5 {
+            margin-bottom: 0;
+            color: #b1b1b1;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            cursor: default;
+          }
+          .emojis {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            &:after {
+              content: '';
+              flex: auto;
+            }
+            span {
+              padding: 0.2rem;
+              cursor: pointer;
+              border-radius: 0.5rem;
+              &:hover {
+                background: #ececec;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
     }
   }
-  .extensions-format, .extensions-extra {
+  .extensions-images {
     display: flex;
     align-items: center;
-    height: 100%;
-    padding: 0.4rem 0;
+    flex-wrap: wrap;
+    width: 100%;
+    .image-wrapper {
+      position: relative;
+      img {
+        border: 1px solid $line-color;
+        border-radius: 0.5rem;
+        margin: 0.5rem;
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
+        cursor: pointer;
+      }
+      .icon-button-top {
+        position: absolute;
+        right: -0.5rem;
+        top: -0.25rem;
+        i {
+          font-size: 1rem;
+          padding: 0.1rem;
+          border-radius: 50%;
+          background-color: #000;
+          color: $white;
+        }
+        &:hover {
+          background-color: transparent;
+          i {
+            background-color: $danger;
+          }
+        }
+      }
+    }
   }
   .icon-button {
     padding: 0.2rem;
@@ -33,19 +119,80 @@
       background-color: $richtext-extensions-icon-color-hover;
       transition: background-color ease-in  0.2s;
     }
+    &:focus {
+      outline: 0 !important;
+    }
     &.active {
       background-color: $richtext-extensions-icon-color-active;
       transition: background-color ease-in  0.2s;
     }
+    &.send {
+      background-color: $success;
+      color: $white;
+      margin-right: 0;
+      &:hover {
+        background-color: mix($black, $success, 20%);
+        transition: background-color ease-in  0.2s;
+      }
+    }
   }
-  .link-modal {
-    background-color: $white;
-    width: 30rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    display: inline-block;
-    .form-control::placeholder {
-      text-transform: lowercase;
+  .overlay-content {
+    top: -14rem;
+    .link-modal {
+      background-color: $white;
+      width: auto;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      display: inline-block;
+      .form-control::placeholder {
+        text-transform: lowercase;
+      }
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .rich-text-editor-extensions-wrapper {
+      &.formatter-active {
+        .extensions-extra {
+          display: none;
+        }
+        .extensions-format {
+          width: 100%;
+          justify-content: space-evenly;
+        }
+      }
+      .extensions-format {
+        flex-wrap: wrap;
+        .icon-button {
+          display: flex;
+        }
+        .icon-button:not(.toggle) {
+          display: none;
+          &.visible {
+            display: flex;
+          }
+        }
+        .toggle {
+          display: flex;
+          &.active {
+            color: $brand-primary;
+          }
+        }
+      }
+    }
+    .emoji-picker {
+      left: 0;
+    }
+    .extensions-images {
+      .image-wrapper {
+        img {
+          height: 4rem;
+          width: 4rem;
+          margin-right: 0.1rem;
+        }
+        .icon-button-top {
+          right: -1.2rem;
+        }
+      }
     }
   }
 }
