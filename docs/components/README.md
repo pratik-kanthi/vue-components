@@ -1296,3 +1296,39 @@ Use the `ImageSelector` component to upload images from your local folders. It s
 :::tip
 If you do not want the selected image to be persisted on close, use the `v-if` with the Image Selector component. 
 :::
+
+## Rich Text
+
+Use the `RichText` component to display rich text editor (Slack styled) for chat box.
+
+**Properties**
+| Property | Type | Default | Required | Description |
+|----------|------|--------|-----------|-------------|
+| options | `Object` || Y | To propogate your content, placholder and attachmentKey properties. |
+| attachments | `Array` | `[]` || Either be array of URLs or array of objects if attachmentKey is specified in options. |
+| send | `Function` | noop || Function to send the message. |
+| addAttachment | `Function` | noop || Function to add attachment. Add an item to attachments array to display image inside RichText. If it's a document, handle it by passing a placeholder image to attachments at needed index.  |
+| remoteAttachment | `Function` | noop || Function to remove attachment. Signature: (index, item)  |
+| previewAttachment | `Function` | noop || Function to preview attachment. Signature: (index, item)  |
+
+
+**options**:
+| Property | Type | Default | Required | Description |
+|----------|------|--------|-----------|-------------|
+| content | `String` || Y | State for the text is controlled by this property. This will change in real time when user types something into rich text. |
+| placeholder | `String` | Start typing...|| State for the text is controlled by this property. This is reactive and will change in real time when user types something into rich text. |
+| attachmentKey | `String` ||| Key which is responsible for image if it's an array of objects for images. Don't use this property if you have documents - use attachments with strings for placeholder images. |
+
+:::tip
+To remove the content of the editor after message is sent, declare a ref on RichText and use below method expose by component.
+Make sure to use it with **this.$nextTick**.
+```js
+this.$nextTick(() => {
+    this.$refs.richTextEditor.clearContent();
+});
+```
+:::
+<SplitTab>
+  <RichTextExample slot="example"/>
+  <<< @/docs/.vuepress/components/RichTextExample.vue
+</splitTab>

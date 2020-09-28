@@ -27,6 +27,7 @@ import TabBar from '../../src/components/TabBar';
 import Datepicker from '../../src/components/Datepicker';
 import Modal from '../../src/components/Modal';
 import ImageSelector from '../../src/components/ImageSelector';
+import RichText from '../../src/components/rich-text/RichText';
 import '../../src/scss/style.scss';
 
 export default ({Vue}) => {
@@ -59,4 +60,5 @@ export default ({Vue}) => {
     Vue.component('Datepicker', Datepicker);
     Vue.component('Modal', Modal);
     Vue.component('ImageSelector', ImageSelector);
+    Vue.component('RichText', RichText);
 };

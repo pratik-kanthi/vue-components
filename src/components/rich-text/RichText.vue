@@ -3,7 +3,7 @@
         <editor-content :editor="editor" ref="editor" />
         <div class="extensions-images">
             <div class="image-wrapper" v-for="(item, key) in attachments" :key="key">
-                <img :alt="key" :src="options.attachmentKey ? item[options.attachmentKey] : item" :@click="previewAttachment(item, key)" />
+                <img :alt="key" :src="options.attachmentKey ? item[options.attachmentKey] : item" @click="previewAttachment(key, item)" />
                 <button class="icon-button icon-button-top" @click="removeAttachment(key, item)">
                     <Icon name="close" />
                 </button>
@@ -116,7 +116,7 @@ export default {
     data() {
         return {
             editor: new Editor({
-                content: this.options.content ? this.options.content : this.options.placeholder ? this.options.placeholder : '<p>Start typing...</p>',
+                content: this.options.content ? this.options.content : this.options.placeholder ? '<p>' + this.options.placeholder + '</p>' : '<p>Start typing...</p>',
                 onUpdate: ({getHTML}) => {
                     this.options.content = getHTML();
                 },

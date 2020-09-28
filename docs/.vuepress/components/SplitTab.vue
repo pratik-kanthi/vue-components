@@ -1,27 +1,27 @@
 <template lang="html">
-  <div class="e9">
-    <div class="split-container">
-      <button class="split-tab-button" :class="isActive('example')" type="button" @click="setDisplay('example')">
-        Example
-      </button>
-      <button class="split-tab-button" :class="isActive('code')" type="button" @click="setDisplay('code')">
-        Code
-      </button>
-      <button class="split-tab-button" :class="isActive('both')" type="button" @click="setDisplay('both')">
-        Example+Code
-      </button>
-      <div class="split">
-        <div v-if="exampleVisible" class="split-example">
-          <!-- <keep-alive> -->
-            <slot name="example"/>
-          <!-- </keep-alive> -->
+    <div class="e9">
+        <div class="split-container">
+            <button class="split-tab-button" :class="isActive('example')" type="button" @click="setDisplay('example')">
+                Example
+            </button>
+            <button class="split-tab-button" :class="isActive('code')" type="button" @click="setDisplay('code')">
+                Code
+            </button>
+            <button class="split-tab-button" :class="isActive('both')" type="button" @click="setDisplay('both')">
+                Example+Code
+            </button>
+            <div class="split">
+                <div v-if="exampleVisible" class="split-example">
+                    <keep-alive>
+                        <slot name="example" />
+                    </keep-alive>
+                </div>
+                <div v-if="codeVisible" class="split-code">
+                    <slot />
+                </div>
+            </div>
         </div>
-        <div v-if="codeVisible" class="split-code">
-          <slot/>
-        </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -92,8 +92,8 @@ export default {
 
 .split-example {
     margin: 1rem 0;
-    p{
-      margin-top: 0;
+    p {
+        margin-top: 0;
     }
     .components {
         display: flex;
@@ -107,11 +107,11 @@ export default {
             }
         }
     }
-    .item-wrapper{
-      margin-bottom: 32px;
+    .item-wrapper {
+        margin-bottom: 32px;
     }
-    .topbar{
-      position: static;
+    .topbar {
+        position: static;
     }
 }
 </style>

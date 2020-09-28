@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Icon from '@/components/rich-text/Icon';
+import Icon from '../../components/rich-text/Icon';
 export default {
     name: 'IconButton',
     props: {
