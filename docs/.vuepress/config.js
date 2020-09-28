@@ -18,7 +18,7 @@ module.exports = {
             {text: 'Theming', link: '/theming/'},
             {text: 'Utilities', link: '/utilities/'},
             {text: 'Vue Form Plugin', link: 'https://vue9-form-plugin.netlify.app/'},
-            {text: 'e9ine', link: 'https://e9ine.com'}
+            {text: 'e9', link: 'https://e9.co.uk'}
         ],
         sidebar: 'auto',
         // Assumes GitHub. Can also be a full GitLab url.

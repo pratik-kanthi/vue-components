@@ -1327,8 +1327,18 @@ this.$nextTick(() => {
     this.$refs.richTextEditor.clearContent();
 });
 ```
+
+### RichText With Image Selector
 :::
 <SplitTab>
   <RichTextExample slot="example"/>
   <<< @/docs/.vuepress/components/RichTextExample.vue
 </splitTab>
+
+### RichText With File Upload
+
+<SplitTab>
+  <RichFileUploadExample slot="example"/>
+  <<< @/docs/.vuepress/components/RichFileUploadExample.vue
+</splitTab> 
+
