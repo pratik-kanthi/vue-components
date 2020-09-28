@@ -33,6 +33,7 @@ export {default as TopBar} from './components/TopBar';
 export {default as TabBar} from './components/TabBar';
 export {default as Modal} from './components/modal';
 export {default as ImageSelector} from './components/ImageSelector';
+export {default as RichText} from './components/rich-text/RichText';
 
 // export directives from ./directives
 export {default as VClickOutside} from './directives/v-click-outside';
