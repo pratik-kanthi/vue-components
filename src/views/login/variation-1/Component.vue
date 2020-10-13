@@ -7,7 +7,7 @@
                 </div>
                 <h1 class="title" :style="{color: textDarkColor}">{{ titleText }}</h1>
                 <h3 class="subtitle" :style="{color: textLightColor}">{{ subTitleText }}</h3>
-                <form class="login-form">
+                <form class="login-form" @keyup.enter="() => onClickFn(username, password, errorMessage)">
                     <div class="form-group">
                         <label for="username" class="control-label" :style="{color: brandPrimary}">Username or Email</label>
                         <input type="text" class="form-control" v-model="username" id="username" placeholder="john@doe.com" />
@@ -94,4 +94,3 @@ export default {
     }
 };
 </script>
-

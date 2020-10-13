@@ -125,6 +125,10 @@ export default {
                         this.isFirstFocus = true;
                         this.clearContent();
                     }
+                    this.$emit('focus');
+                },
+                onBlur: () => {
+                    this.$emit('blur');
                 },
                 extensions: [new Blockquote(), new BulletList(), new OrderedList(), new Bold(), new Italic(), new Strike(), new Link(), new ListItem(), new HardBreak(), new EnterHandler(this.send)]
             }),
