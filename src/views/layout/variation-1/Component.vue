@@ -1,5 +1,5 @@
 <template>
-    <div :class="(sidebarOn == true)? 'show-sidebar':''" class="layout-variation-1">
+    <div :class="sidebarOn == true ? 'show-sidebar' : ''" class="layout-variation-1">
         <div id="mobile-menu-toggle" @click="sidebarOn = !sidebarOn">
             <i class="material-icons">menu</i>
         </div>
@@ -8,7 +8,7 @@
         <div class="content-view">
             <slot name="breadcrumbs"></slot>
             <div class="content-wrapper">
-                <router-view></router-view>
+                <router-view :key="routerViewKey"></router-view>
             </div>
         </div>
     </div>
@@ -17,15 +17,20 @@
 <script>
 export default {
     name: 'LayoutVariation1',
+    props: {
+        routerViewKey: {
+            type: String
+        }
+    },
     data() {
         return {
             sidebarOn: false
         };
     },
-    mounted(){
+    mounted() {
         this.$on('toggle-sidebar', function() {
-            this.sidebarOn=false;
+            this.sidebarOn = false;
         });
-    },
+    }
 };
 </script>

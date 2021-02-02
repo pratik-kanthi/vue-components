@@ -66,6 +66,11 @@ The Variation 1 creates a simple, responsive page layout with a sidebar on the l
 
 **breadcrumbs:** Use the `breadcrumbs` slot to add breadcrumbs to the layout for easier navigation. You can use the [Breadcrumbs](/components/#breadcrumbs) component inside the slot or add your own custom content.
 
+A list of customisable properties are below:
+| Property | Type | Description |
+|---------|--------|-------------|
+| router-view-key | `String` | Pass a dynamic key to hot reload data within the router-view. |
+
 ![Example](/assets/components/sidebar.png)
 
 **Code**
