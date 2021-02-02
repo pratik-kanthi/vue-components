@@ -39,7 +39,7 @@
   },
   "peerDependencies": {
     "jquery": "^3.5.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "material-icons": "latest"
   },
   "devDependencies": {
@@ -50,7 +50,7 @@
     "@vue/cli-service": "^4.2.3",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.31",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "bootstrap-4-grid": "^3.4.0",
     "conventional-changelog-cli": "^2.0.34",
