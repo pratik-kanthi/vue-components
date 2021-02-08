@@ -92,6 +92,11 @@ Address Finders provide a unique solution when searching addresses be it via key
 | address | `Object` | `{}` || Pass the Object of address where the Address Finder should return the result into. |
 | type | `String` | `Maps9` || The autocomplete service used to fetch the addresses. Available options are `Maps9` & `Google`. |
 | options | `Object` | `{}` || If you would like to filter out the results based on location criteria , types of locations etc. then these details can be set via this property. |
+| local-addresses | `Array` | `[]` || Show saved addresses in the search results by passing an array of addresses using this prop `WARNING: This prop should be used against a limited data set`.|
+
+:::tip
+The initial value  for the address finder can be set via the ```initialValue``` property of options object.
+:::
 
 **Events**
 
@@ -123,6 +128,22 @@ When there is nothing significant needed except syncing the resulting value, use
 <AddressFinder :address.sync="address" :type="Google" :options="options"></AddressFinder>
 ```
 
+The ***resulting Address object*** will be in the below format :
+
+```js
+{
+    Line1: 'Canary Wharf',
+    Line2: '',
+    Line3: '',
+    County: 'London',
+    TownCity: 'London',
+    PostCode: 'E14 5AB',
+    Country: 'United Kingdom',
+    Latitude: 51.5053469,
+    Longitude: -0.0254968
+}
+```
+
 ### Google Address Finder
 The ```Google Address Finder``` component displays a Google Maps supported autocomplete solution that users can use in order to set the addresses.
 
@@ -136,20 +157,6 @@ It is mandatory to have a ***Google Maps key*** in order to utilise Address Find
 
 The options object should also include a property called `google` which is Google Map's object injected by the google map's script and its key. More details can be found at [Here](https://developers.google.com/places/web-service/autocomplete).
 
-The ***resulting Address object*** is in the form of 8 different properties which have been listed below :
-
-```js
-{
-    Line1: 'Canary Wharf',
-    Line2: '',
-    County: 'London',
-    TownCity: 'London',
-    PostCode: 'E14 5AB',
-    Country: 'United Kingdom',
-    Latitude: 51.5053469,
-    Longitude: -0.0254968
-}
-```
 **Simple Usage (Recommended):**
 * Add a Google Maps script tag before any other js imports in body of public/index.html file which will append the google object to window object.
 
@@ -195,19 +202,6 @@ options: {
         country: 'gb',
         lat:'50.110',
         lon:'-5.26509'
-}
-```
-
-The ***resulting Address object*** will be:
-
-```js
-component: {
-    'label':'Ben Vrackie, United Kingdom',
-    'lat':56.749035,
-    'lon':-3.717347,
-    'country':'United Kingdom',
-    'continent':'Europe',
-    'source':'openstreetmap'
 }
 ```
 

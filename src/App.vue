@@ -1,14 +1,16 @@
 <template>
     <div class="app">
-        <RichText :options="options" :attachments="attachments" :remove-attachment="remoteAttachment" :add-attachment="addAttachment" :send="send" ref="richTextEditor" />
+        <!-- <RichText :options="options" :attachments="attachments" :remove-attachment="remoteAttachment" :add-attachment="addAttachment" :send="send" ref="richTextEditor" /> -->
+        <AddressFinderExample></AddressFinderExample>
     </div>
 </template>
 
 <script>
-import RichText from '@/components/rich-text/RichText';
+// import RichText from '@/components/rich-text/RichText';
+import AddressFinderExample from '@/app/components/AddressFinderExample';
 export default {
     components: {
-        RichText
+        AddressFinderExample
     },
     data() {
         return {
@@ -44,9 +46,5 @@ export default {
 <style lang="scss">
 .app {
     padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
 }
 </style>

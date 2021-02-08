@@ -6,7 +6,7 @@ export {sortArrayByProperty, checkValidHex} from './utils/CommonUtils';
 export {default as Avatar} from './components/Avatar';
 export {default as AvatarGroup} from './components/AvatarGroup';
 export {default as AvatarInfo} from './components/AvatarInfo';
-export {default as AddressFinder} from './components/address-finders';
+export {default as AddressFinder} from './components/address-finder/Component';
 export {default as Badge} from './components/Badge';
 export {default as Breadcrumbs} from './components/Breadcrumbs';
 export {default as Button} from './components/Button';
