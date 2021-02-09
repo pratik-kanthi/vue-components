@@ -92,7 +92,7 @@ Address Finders provide a unique solution when searching addresses be it via key
 | address | `Object` | `{}` || Pass the Object of address where the Address Finder should return the result into. |
 | type | `String` | `Maps9` || The autocomplete service used to fetch the addresses. Available options are `Maps9` & `Google`. |
 | options | `Object` | `{}` || If you would like to filter out the results based on location criteria , types of locations etc. then these details can be set via this property. |
-| local-addresses | `Array` | `[]` || Show saved addresses in the search results by passing an array of addresses using this prop `WARNING: This prop should be used against a limited data set`.|
+| local-addresses | `Array` | `[]` || Show saved addresses in the search results using this prop by passing an array of addresses in the standard format as shown below, the address could optionally have a `Name` property set. `WARNING: This prop should be used against a limited data set`.|
 
 :::tip
 The initial value  for the address finder can be set via the ```initialValue``` property of options object.

@@ -28,6 +28,7 @@ export default {
             },
             localAddresses: [
                 {
+                    Name: 'e9 office',
                     Line1: 'Tower Bridge Road',
                     Line2: null,
                     TownCity: 'London',

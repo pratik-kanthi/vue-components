@@ -35,6 +35,7 @@ export default {
             },
             localAddresses: [
                 {
+                    Name: 'e9 WeWork Office',
                     Line1: 'Tower Bridge Road',
                     Line2: null,
                     TownCity: 'London',
@@ -46,7 +47,7 @@ export default {
                     Summary: 'Tower Bridge Rd, London SE1 2UP, UK'
                 },
                 {
-                    Line1: ' Gateway Road',
+                    Line1: 'Gateway Road',
                     Line2: 'Leyton',
                     TownCity: 'London',
                     County: 'Greater London',
