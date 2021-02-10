@@ -27,3 +27,11 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Version History
+
+**v1.1.0** 
+- Added postcode search support to Address Finder.
+- Address Finder now accepts saved locations.
+
+

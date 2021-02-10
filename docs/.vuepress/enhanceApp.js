@@ -4,7 +4,7 @@ import AvatarInfo from '../../src/components/AvatarInfo';
 import Badge from '../../src/components/Badge';
 import Chart from '../../src/components/charts';
 import LoginVariation1 from '../../src/views/login/variation-1/Component';
-import AddressFinder from '../../src/components/address-finders';
+import AddressFinder from '../../src/components/address-finder/Component';
 import ColorPicker from '../../src/components/ColorPicker';
 import Card from '../../src/components/Card';
 import ModuleItemLayout from '../../src/layouts/ModuleItemLayout';

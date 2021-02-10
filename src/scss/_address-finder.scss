@@ -38,7 +38,7 @@
         }
     }
 
-    ul.places-result {
+    div.places-result {
         position: absolute;
         width: 100%;
         margin-top: 0.5rem;
@@ -49,23 +49,45 @@
         padding-left: 0;
         list-style: none;
 
-        li {
-            display: block;
+        .places-title {
+            display: flex;
+            align-items: center;
             padding: 0.5rem;
-            border-bottom: $form-border-width solid $form-border-color;
+            font-size: 0.875rem;
+            font-weight: 700;
 
-            a {
-                width: 100%;
-                display: block;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                font-size: 0.87rem;
-                cursor: pointer;
+            .material-icons {
+                margin-right: 0.25rem;
+                font-size: 1.125rem;
             }
+        }
 
-            &:last-child {
-                border-bottom: 0;
+        .saved-results {
+            border-top: 1px solid $line-color;
+        }
+
+        .places-wrapper {
+            max-height: 184px;
+            overflow: auto;
+
+            .place {
+                display: block;
+                padding: 0.5rem;
+                border-bottom: $form-border-width solid $form-border-color;
+
+                a {
+                    width: 100%;
+                    display: block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-size: 0.87rem;
+                    cursor: pointer;
+                }
+
+                &:last-child {
+                    border-bottom: 0;
+                }
             }
         }
     }
