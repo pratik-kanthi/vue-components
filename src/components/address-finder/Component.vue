@@ -1,25 +1,28 @@
 <template>
-    <div class="address-finder" :class="type == 'Google' ? 'google-address-finder' : ''" v-click-outside="closeAddressList">
-        <input type="text" v-debounce="300" @focus="inputFocussed" v-model="searchTxt" class="address-text" @change="searchChanged" autocomplete="no" placeholder="Start typing to search..." />
-        <div ref="mapDiv"></div>
-        <div v-if="!addressSelected && (filteredAddresses.length > 0 || predictions.length > 0)">
-            <div class="places-result">
-                <div v-if="filteredAddresses.length > 0">
-                    <div class="places-title"><span class="material-icons">bookmark_border</span><span>Saved Places</span></div>
-                    <div class="places-wrapper">
-                        <div class="place" v-for="(_pred, key) in filteredAddresses" :key="'local-' + key">
-                            <a v-text="_pred.Name || _pred.Summary" @click="setAddress(_pred, true)"></a>
-                            <small v-text="_pred.Summary" v-show="_pred.Name"></small>
+    <div class="form-group">
+        <label class="control-label">{{ label }}</label>
+        <div class="address-finder" :class="type == 'Google' ? 'google-address-finder' : ''" v-click-outside="closeAddressList">
+            <input type="text" v-debounce="300" @focus="inputFocussed" v-model="searchTxt" class="address-text" @change="searchChanged" autocomplete="no" placeholder="Start typing to search..." />
+            <div ref="mapDiv"></div>
+            <div v-if="!addressSelected && (filteredAddresses.length > 0 || predictions.length > 0)">
+                <div class="places-result">
+                    <div v-if="filteredAddresses.length > 0">
+                        <div class="places-title"><span class="material-icons">bookmark_border</span><span>Saved Places</span></div>
+                        <div class="places-wrapper">
+                            <div class="place" v-for="(_pred, key) in filteredAddresses" :key="'local-' + key">
+                                <a v-text="_pred.Name || _pred.Summary" @click="setAddress(_pred, true)"></a>
+                                <small v-text="_pred.Summary" v-show="_pred.Name"></small>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div v-if="predictions.length > 0" :class="filteredAddresses.length > 0 ? 'saved-results' : ''">
-                    <div class="places-title">
-                        <span class="material-icons">place</span><span>{{ source }} Search</span>
-                    </div>
-                    <div class="places-wrapper">
-                        <div class="place" v-for="(_pred, key) in predictions" :key="key">
-                            <a v-text="_pred.description || _pred.Summary" @click="setAddress(_pred)"></a>
+                    <div v-if="predictions.length > 0" :class="filteredAddresses.length > 0 ? 'saved-results' : ''">
+                        <div class="places-title">
+                            <span class="material-icons">place</span><span>{{ source }} Search</span>
+                        </div>
+                        <div class="places-wrapper">
+                            <div class="place" v-for="(_pred, key) in predictions" :key="key">
+                                <a v-text="_pred.description || _pred.Summary" @click="setAddress(_pred)"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -44,6 +47,9 @@ export default {
                 return {};
             }
         },
+        label: {
+            type: String
+        },
         type: {
             type: String,
             default: 'Maps9'
@@ -58,7 +64,7 @@ export default {
     },
     data() {
         return {
-            searchTxt: this.options.initialValue || '',
+            searchTxt: (this.address && this.address.Summary) || '',
             addressSelected: true,
             addressObj: this.address,
             autocomplete: null,
@@ -110,6 +116,7 @@ export default {
             }
             this.addressSelected = true;
             this.$emit('update:address', this.addressObj);
+            this.$emit('changed', this.addressObj);
         }
     },
     computed: {

@@ -149,7 +149,8 @@ $button-colors:("primary": $brand-primary,
   "warning": $warning,
   "danger": $danger,
   "light": $light,
-  "dark": $dark) !default;
+  "dark": $dark,
+  'dark-grey': $dark-grey) !default;
 $enable-button-box-shadows: false !default;
 $btn-border-width:$border-width !default;
 $btn-font-weight:$font-weight-base !default;
