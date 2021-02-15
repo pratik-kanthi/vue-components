@@ -104,16 +104,16 @@ Address Finders provide a unique solution when searching addresses be it via key
 | local-addresses | `Array`  | `[]`    |          | Show saved addresses in the search results using this prop by passing an array of addresses in the standard format as shown below, the address could optionally have a `Name` property set. `WARNING: This prop should be used against a limited data set`. |
 
 :::tip
-The initial value for the address finder can be set via the `initialValue` property of options object.
+The initial value for the address finder is set if `address` contains a `Summary` property.
 :::
 
 **Events**
 
-**_updated_**
+**_changed_**
 
 This event returns the Address object as described above in the definition. This is useful when you would like to do something on address getting selected/changed.
 
-Use a function in the `@updated` event with its argument being the resulting object of the address.
+Use a function in the `@changed` event with its argument being the resulting object of the address.
 
 ```vue
 <AddressFinder :address="address" :type="Google" :options="options" @updated="addressChanged"></AddressFinder>

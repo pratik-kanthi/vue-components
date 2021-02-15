@@ -21,7 +21,7 @@
                 <Button text="Upload Uncropped" type="primary" :disabled="!isValid" :action="selectFullImage">
                     <i class="material-icons">crop_free</i>
                 </Button>
-                <Button text="Upload Cropped" type="secondary" :disabled="!isValid" :action="selectCroppedImage">
+                <Button text="Upload Cropped" type="dark-grey" :disabled="!isValid" :action="selectCroppedImage">
                     <i class="material-icons">crop</i>
                 </Button>
             </div>
