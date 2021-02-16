@@ -10,18 +10,19 @@ export const getPredictionsFromPostcodeAPI = (postcode) => {
                     let summary = '';
                     address.map((item, index) => {
                         if (item) {
-                            if (index !== 0 && index !== address.length - 1) summary += ', ';
+                            if (index !== 0) summary += ', ';
                             summary += item;
                         }
                         return item;
                     });
+
                     return {
                         Line1: address[0],
                         Line2: address[1],
                         Line3: address[2],
                         TownCity: address[3],
                         County: address[4],
-                        PostCode: postcode,
+                        PostCode: formatPostcode(postcode),
                         Country: '',
                         Latitude: result.data.Latitude,
                         Longitude: result.data.Longitude,
@@ -35,3 +36,9 @@ export const getPredictionsFromPostcodeAPI = (postcode) => {
         }
     });
 };
+
+function formatPostcode(p) {
+    const postcodeRegEx = /(^[A-Z]{1,2}[0-9]{1,2})([0-9][A-Z]{2}$)/i;
+    const postcode = p.replace(postcodeRegEx, '$1 $2').toUpperCase();
+    return postcode;
+}

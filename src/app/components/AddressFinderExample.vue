@@ -2,15 +2,7 @@
     <div class="row">
         <div class="col-sm-4">
             <h4>Address Finder</h4>
-            <address-finder
-                :address.sync="address"
-                :options="options"
-                class="address-finder"
-                :local-addresses="localAddresses"
-                type="Google"
-                @updated="addressChanged"
-                v-if="options.google"
-            ></address-finder>
+            <address-finder :address.sync="address" :options="options" :local-addresses="localAddresses" type="Google" @updated="addressChanged" v-if="options.google"></address-finder>
         </div>
     </div>
 </template>
