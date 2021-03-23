@@ -27,3 +27,15 @@ Via npm npm install --save @e9ine/vue_components
 -   Added slot for custom avatar actions within AvatarInfo & TopBar components.
 -   Changed conflicting classnames with Tailwind in Charts component.
 -   Moved overlay close button inside overlay content for fixed overlays.
+
+**v1.1.2**
+
+-   Address Finder bug fixes.
+
+**v1.1.3**
+
+-   Fixed postcode search format.
+
+**v1.1.4**
+
+-   Made the whole address clickable for local addresses in address finder.
