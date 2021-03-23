@@ -74,6 +74,7 @@
                 display: block;
                 padding: 0.5rem;
                 border-bottom: $form-border-width solid $form-border-color;
+                cursor: pointer;
 
                 a {
                     width: 100%;
@@ -82,11 +83,20 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     font-size: 0.87rem;
-                    cursor: pointer;
+                }
+
+                .place-desc{
+                    line-height: 1.3;
+                    margin-bottom: 0;
                 }
 
                 &:last-child {
                     border-bottom: 0;
+                    border-bottom-left-radius: $form-border-radius;
+                    border-bottom-right-radius: $form-border-radius;
+                }
+                &:hover{
+                    background-color: $light;
                 }
             }
         }
