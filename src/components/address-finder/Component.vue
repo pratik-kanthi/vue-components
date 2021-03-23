@@ -9,9 +9,9 @@
                     <div v-if="filteredAddresses.length > 0">
                         <div class="places-title"><span class="material-icons">bookmark_border</span><span>Saved Places</span></div>
                         <div class="places-wrapper">
-                            <div class="place" v-for="(_pred, key) in filteredAddresses" :key="'local-' + key">
-                                <a v-text="_pred.Name || _pred.Summary" @click="setAddress(_pred, true)"></a>
-                                <small v-text="_pred.Summary" v-show="_pred.Name"></small>
+                            <div class="place" v-for="(_pred, key) in filteredAddresses" :key="'local-' + key" @click="setAddress(_pred, true)">
+                                <a v-text="_pred.Name || _pred.Summary"></a>
+                                <p class="place-desc"><small v-text="_pred.Summary" v-show="_pred.Name"></small></p>
                             </div>
                         </div>
                     </div>
