@@ -725,6 +725,7 @@ Build flexible interactuve charts using the `Chart` component. Variations includ
 | show-table | `Boolean`          | `false`                                                   |          | Whether to show a data table corresponding to the chart.                                                                                                        |
 | data       | `Object`           |                                                           | Y        | Data object that has the chart data. Please refer the data table below more information.                                                                        |
 | colors     | `Array`            | `['#1D3461', '#0069AA', '#376996', '#6290C8', '#829CBC']` |          | Colors for the chart’s series. When all colors of the array are used, it starts from the beginning.                                                             |
+| allowClick | `Boolean`          | `false`                                                   |          | When true, `chartItemClicked` event is emitted when the user clicks a datapoint or a table row if table is present.                                             |
 | options    | `Object`           |                                                           |          | Configuration options for the chart. Refer [Apexcharts Options Reference](https://apexcharts.com/docs/options/) for the full list of the configuration options. |
 
 **data**
@@ -742,6 +743,10 @@ Build flexible interactuve charts using the `Chart` component. Variations includ
     }]
 }
 ```
+
+**Events**
+
+**_chartItemClicked_** event is emitted when the user clicks a datapoint or a table row if table is present. It returns the item clicked & the index of the clicked item.
 
 <SplitTab>
   <ChartExample slot="example"/>
