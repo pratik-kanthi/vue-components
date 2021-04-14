@@ -43,3 +43,7 @@ Via npm npm install --save @e9ine/vue_components
 **v1.1.5**
 
 -   Added click event when a data point is selected or a table row is clicked for charts.
+
+**v1.1.6**
+
+-   Added Area Chart.
