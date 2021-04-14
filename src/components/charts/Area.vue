@@ -1,13 +1,13 @@
 <template>
     <div>
-        <apexchart class="line-chart" :width="width" :height="height" type="line" :options="chartOptions" :series="data.series"> </apexchart>
+        <apexchart class="area-chart" :width="width" :height="height" :options="chartOptions" :series="data.series"> </apexchart>
     </div>
 </template>
 
 <script>
 let defaultOptions = {
     chart: {
-        type: 'line'
+        type: 'area'
     },
     dataLabels: {
         enabled: false

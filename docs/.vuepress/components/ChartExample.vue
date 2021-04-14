@@ -39,6 +39,7 @@
                 :allow-click="true"
                 @chartItemClicked="chartItemClicked"
             ></Chart>
+            <Chart v-show="activeTabIndex == 8" title="Area Chart" height="400px" type="Area" :data="lineChartData" :colors="['#34D399']"></Chart>
         </div>
     </div>
 </template>
@@ -73,6 +74,9 @@ export default {
                 },
                 {
                     name: 'Radial Bar Stroked Chart'
+                },
+                {
+                    name: 'Area Chart'
                 }
             ],
             stackedBarChartData: {

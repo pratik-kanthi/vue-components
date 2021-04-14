@@ -22,6 +22,7 @@
             <Chart v-show="activeTabIndex == 5" title="Column Chart" type="Column" :data="barChartData"></Chart>
             <Chart v-show="activeTabIndex == 6" title="Stacked Column Chart" height="400px" type="StackedColumn" :data="stackedBarChartData"></Chart>
             <Chart v-show="activeTabIndex == 7" title="Radial Bar" height="400px" type="RadialBar" :data="radialBarChartData" :options="radialBarChartOptions"></Chart>
+            <Chart v-show="activeTabIndex == 8" title="Area Chart" height="400px" type="Area" :data="lineChartData" :colors="['#34D399']" :show-table="true"></Chart>
         </div>
     </div>
 </template>
@@ -63,6 +64,9 @@ export default {
                 },
                 {
                     name: 'Radial Bar Stroked Chart'
+                },
+                {
+                    name: 'Area Chart'
                 }
             ],
             stackedBarChartData: {
