@@ -102,7 +102,7 @@ export default {
             }
         },
         populateChartOptions(defaultOptions) {
-            let chartOptions = defaultOptions;
+            let chartOptions = JSON.parse(JSON.stringify(defaultOptions));
             chartOptions.chart.id = this.title ? this.title : this.type;
             if (!chartOptions.chart.fontFamily) {
                 chartOptions.chart.fontFamily = 'Arial';
