@@ -1350,6 +1350,7 @@ Use the `RichText` component to display rich text editor (Slack styled) for chat
 **options**:
 | Property | Type | Default | Required | Description |
 |----------|------|--------|-----------|-------------|
+| autoFocus | `Boolean` ||| If true, this will auto focus the input by default |
 | content | `String` || Y | State for the text is controlled by this property. This will change in real time when user types something into rich text. |
 | placeholder | `String` | Start typing...|| State for the text is controlled by this property. This is reactive and will change in real time when user types something into rich text. |
 | attachmentKey | `String` ||| Key which is responsible for image if it's an array of objects for images. Don't use this property if you have documents - use attachments with strings for placeholder images. |
