@@ -116,6 +116,7 @@ export default {
     data() {
         return {
             editor: new Editor({
+                autoFocus: this.options.autoFocus,
                 content: this.options.content ? this.options.content : this.options.placeholder ? '<p>' + this.options.placeholder + '</p>' : '<p>Start typing...</p>',
                 onUpdate: ({getHTML}) => {
                     this.options.content = getHTML();
