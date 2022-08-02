@@ -719,7 +719,7 @@ Build flexible interactuve charts using the `Chart` component. Variations includ
 | Property   | Type               | Default                                                   | Required | Description                                                                                                                                                     |
 | ---------- | ------------------ | --------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | title      | `String`           |                                                           |          | Text to display as a title of chart.                                                                                                                            |
-| type       | `String`           |                                                           | Y        | Specify the chart type. Available options are `Bar`, `StackedBar`, `Line`, `Pie`, `Donut`, `Column`, `StackedColumn` and `RadialBar`                            |
+| type       | `String`           |                                                           | Y        | Specify the chart type. Available options are `Bar`, `StackedBar`, `Line`, `Pie`, `Donut`, `Column`, `StackedColumn`, `RadialBar` and `Area`                    |
 | Width      | `Number`, `String` |                                                           |          | Width of the chart. Accepts Number (400) OR String (‘400px’).                                                                                                   |
 | Height     | `Number`, `String` | `300px`                                                   |          | Height of the chart. Accepts Number (400) OR String (‘400px’).                                                                                                  |
 | show-table | `Boolean`          | `false`                                                   |          | Whether to show a data table corresponding to the chart.                                                                                                        |
@@ -1350,6 +1350,7 @@ Use the `RichText` component to display rich text editor (Slack styled) for chat
 **options**:
 | Property | Type | Default | Required | Description |
 |----------|------|--------|-----------|-------------|
+| autoFocus | `Boolean` ||| If true, this will auto focus the input by default |
 | content | `String` || Y | State for the text is controlled by this property. This will change in real time when user types something into rich text. |
 | placeholder | `String` | Start typing...|| State for the text is controlled by this property. This is reactive and will change in real time when user types something into rich text. |
 | attachmentKey | `String` ||| Key which is responsible for image if it's an array of objects for images. Don't use this property if you have documents - use attachments with strings for placeholder images. |
