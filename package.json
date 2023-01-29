@@ -30,7 +30,7 @@
         "core-js": "^3.6.4",
         "tiptap": "^1.30.0",
         "tiptap-extensions": "^1.33.0",
-        "vue": "^2.6.10",
+        "vue": "^2.7.0",
         "vue-advanced-cropper": "^0.16.8",
         "vue-apexcharts": "^1.5.2",
         "vue-color": "^2.7.1",
